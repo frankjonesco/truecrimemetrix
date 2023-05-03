@@ -1,0 +1,157 @@
+@import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-free/css/solid.min.css";
+@import "@fortawesome/fontawesome-free/css/regular.min.css";
+@import "@fortawesome/fontawesome-free/css/brands.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    body{
+        @apply bg-neutral-50;
+        @apply text-gray-900;
+    }
+
+    ul.navbar-menu>li>a{
+        @apply hover:text-lime-500;
+    }
+
+    #slideMenu>ul{
+        @apply text-xl;
+        @apply text-slate-700;
+        font-family: 'Roboto Slab', serif;
+        @apply tracking-tighter;
+        @apply text-2xl;
+        @apply font-bold;
+        @apply mt-20;
+    }
+
+    #slideMenu>ul>li{
+        @apply border-b-0;
+        @apply border-lime-400;
+        @apply py-4;
+        @apply px-6;
+        @apply transition-all;
+        @apply duration-200;
+        @apply ease-out;
+    }
+
+    #slideMenu>ul>li:hover{
+        @apply bg-gray-600;
+        @apply text-gray-50;
+    }
+
+    
+
+    #slideMenu>ul>li>a{
+        @apply no-underline;
+    }
+
+    h1{
+        font-size: 56px;
+        @apply font-bold;
+        @apply leading-10;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1;
+        letter-spacing: -0.0525em;
+    }
+
+    h1.site-logo{
+        @apply text-3xl;
+        @apply font-black;
+        font-family: 'Roboto Slab', serif;
+        @apply capitalize;
+        @apply tracking-tighter;
+    }
+
+    h2{
+        @apply text-xl;
+        @apply font-light;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    a{
+        @apply underline;
+        @apply underline-offset-4;
+    }
+
+    a:hover{
+        @apply no-underline;
+        @apply text-sky-600;
+    }
+
+    a.share-link{
+        @apply border-[0.185rem];
+        @apply border-stone-200;
+        @apply rounded-full;
+        @apply w-11;
+        @apply aspect-square;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply no-underline;
+        @apply text-xl;
+        @apply text-black;
+    }
+
+    .container{
+        @apply !w-3/4;
+        @apply mx-auto;
+        @apply p-6;
+    }
+
+    .form-card{
+        @apply p-3;
+    }
+
+    label{
+        @apply block;
+        @apply mb-2;
+    }
+
+    input[type=text]{
+        @apply bg-gray-900;
+        @apply border;
+        @apply border-gray-600;
+        @apply mb-2;
+    }
+
+
+    .article-body{
+        font-family: 'Roboto Slab', serif;
+        @apply text-xl;
+        @apply font-light;
+        @apply mx-5;
+    }
+
+    .article-body p{
+        @apply mb-8 ;
+    }
+
+    .article-body p.first::first-letter {
+        -webkit-initial-letter: 3;
+                initial-letter: 3;
+        color: orange;
+        font-weight: bold;
+        margin-right: .75em;
+    }
+
+
+    /* Animation classes */
+
+    .animate-300-in{
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-in;
+    }
+  
+
+
+    .bull-after::after {
+        content: '\00b7';
+        display: inline-block;
+        padding: 0 9px 0 6px;
+    }
+}
