@@ -21,64 +21,68 @@
                 </li>
             </ul>
         </div>
-        <h1 class="text-center mb-8">‘If I Can’t Have You: The Jodi Arias Story’ Review: Outrage Revisited</h1>
-        <h2 class="text-center mb-14">LeBron James of the Los Angeles Lakers talks with Dillon Brooks of the Memphis Grizzlies.</h2>
+        <h1 class="text-center mb-8">The Criminal Blunders of Luis Rivera & Sigfredo Garcia</h1>
+        <h2 class="text-center mb-14 px-20">A brief summary of the jaw-drop stupidity of the numbskulls that murdered revered FSU Law Professor Dan Markel.</h2>
         <div class="flex">
             <div class="w-2/3">
-                <div class="header-image">
-                    <img src="{{asset('images/articles/1/AP_jodi_arias_3_kab_150415_hpMain_2_4x3_992.jpeg')}}" class="px-6">
-                    <div class="image-caption flex justify-between items-center border-b border-b-gray-200 py-6 px-8 mb-6 font-light text-xs">
-                        <div>
-                            LeBron James of the Los Angeles Lakers talks with Dillon Brooks of the Memphis Grizzlies.
-                        </div>
-                        <div>
-                            <a href="https://www.gettyimages.com" target="_blank">
-                                Getty
-                            </a>
-                        </div>
-                    </div>
+                <div class="article-image">
+                    <img src="{{asset('images/articles/2/luis-rivera.jpg')}}" class="px-6">
+                    <x-article-image-meta caption="Convicted Latin King Boss waits in the dock to testify against his two co-conspiritors, Sigfredo Garcia & Katherine Magbanua in October 2019." copyright="Tallahassee Democrat" link="https://tallahassee.com/" />
                 </div>
 
 
                 <div class="article-body">
                     <p class="first">
-                        Dillon Brooks feels like his reputation, the media and fans played a role in his ejection during Game 3 against the Los Angeles Lakers.
+                        As Luis Rivera stood in the dock, waiting for proceeding to begin, he didn’t have any trouble eyeballing his co-conspirators to whom he was the State’s star witness against. When he was brought out in irons and clamped to a desk, it was his first time seeing Sigfredo or Katie since before he struck a plea deal with the State which would mandate his truthful testimony regarding the plot behind the murder of Professor Dan Markel.
                     </p>
 
                     <p>
-                        Brooks was tossed less than a minute into the second half after he hit Lakers star LeBron James with a low blow. After a review, the officials decided to issue a flagrant 2 to Brooks, ending his night early. The Lakers went on to win 111-101.
-                    </p>
-                    <p>
-                        Brooks did not want to speak after the game but gave his side of the story on Sunday while speaking to reporters at practice.   
-                    </p>
-                    <p>
-                        “The media making me a villain, the fans making me a villain and then that just creates a whole different persona on me,” Brooks said, per ESPN’s Tim MacMahon. “So now you think I intended to hit LeBron James in the nuts. I’m playing basketball. I’m a basketball player. So if I intended — and that’s whatever is in the flagrant 2 category — if you think I did that, that means you think I’m that type of person.”
-                    </p>
-                    <p>
-                        Brooks is not expected to be suspended or face additional punishment for the play, per Adrian Wojnarowski of ESPN.
+                        The silent tension grew in the room, seeming to take on a physical mass, where air no longer seemed weightless. The hostile oders of polished mahogany and freshly disinfected floor tile, combined with the conditioned Florida air made the courtroom seem like a gas chamber thise defendents having their lives tried by 12 perfect strangers. It was the same ungodly vibe the would silence a flock of songbirds, had there been any in court.
                     </p>
 
-                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The NBA has reviewed Dillon Brooks&#39; flagrant 2 foul on LeBron James and there will be no additional penalty, sources tell ESPN. League reviews all flagrant fouls.</p>&mdash; Adrian Wojnarowski (@wojespn) <a href="https://twitter.com/wojespn/status/1650171945600663552?ref_src=twsrc%5Etfw">April 23, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                    <p class="mt-8">
-                        “I knew I wasn’t going to be [suspended],” Brooks said. “They can’t dictate this series like that. Marc probably had to call that cause of what happened [in Game 3] with James Harden, and that’s just unfair. I get penalized, and I can’t help my team try to make a comeback in the second half.”
+                    <p>
+                        When the Jury was boxed, the gallery was benched, lead prosecutor Georgia Cappleman stood assembled and tuned as Rivera faced the clerk to be sworn.
                     </p>
+
+                    <p>
+                        With such tensity piping into the room, the mood would have hardly given credence to the fact that by the end of the State’s direct examination of this witness, a comedic saga of criminal blunders will have been painted in technicolor. Had the picture been black & white it would have befit any of the many ‘boo-boo faux pas debacles’ of Stan Laurel & Oliver Hardy.
+                    </p>
+
+                    <p>
+                        Although we now know this was a difficult case for law enforcement to even make any arrests for the first three years, when it was finally brought to be examined in court, it is hard to imagine a criminal duo making any more critical errors and absent-minded, brain-fart gaffes than Luis ‘Taco’ Rivera & Sigfredo ’Tuto’ Garcia.
+                    </p>
+
+                    <h2>A little background</h2>
+
+                    <p>
+                        Rivera had been the “Inca” or “First Crown” of the North Miami faction of the nationwide motorcycle club, the Latin Kings. A position he had apparently held since he was 15 years old, which is a fact that makes the gang bare more semblance to a Boy Scout troop than the ruthless bike tribe of a organised crime syndicate.
+                    </p>
+
+                    <p>
+                        The irony in the logic of a trial by jury is that, although it maybe the best we have mastered the blind eyes of justice, but the overall impression created of the individual under examination is, almost by default, skewed and stretched by both the prosecution and defence to the point the final depiction of a persons history, attitude and world view
+                    </p>
+
+                    <div class="article-image border-t border-t-gray-200 pt-10">
+                        <img src="{{asset('images/articles/2/sigfredo-garcia.jpg')}}" class="px-6 mx-auto">
+                        <x-article-image-meta caption="Sigfredo Garcia is claimed to be the triggerman in the 2014 slaying of Prof. Markel. He was sentenced to life without parole in 2019." copyright="Broward Sheriff’s Office" link="" />
+                    </div>
+                    
                 </div>
 
             </div>
             <div class="w-1/3 pl-24 tracking-tight">
                 <div class="px-5 border-b border-gray-200 py-4 flex flex-col gap-5 mb-5">
                     <div class="flex gap-4 mx-auto w-fit">
-                        <a href="" class="share-link">
+                        <a href="" class="share-link hover:bg-[#1877f2] hover:text-white animate-150-in">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="" class="share-link">
+                        <a href="" class="share-link hover:bg-[#1da1f2] hover:text-white animate-150-in">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="" class="share-link">
+                        <a href="" class="share-link hover:bg-gray-500 hover:text-white animate-150-in">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="" class="share-link">
+                        <a href="" class="share-link hover:bg-gray-900 hover:text-white animate-150-in">
                             <i class="fas fa-ellipsis-h"></i>
                         </a>
                     </div>

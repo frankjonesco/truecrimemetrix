@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,15 @@ Route::controller(SiteController::class)->group(function (){
     Route::get('/criminals', 'viewCriminals');
     Route::get('/criminals/create', 'createCriminal');
     Route::post('/criminals/store', 'storeCriminal');
+});
+
+
+Route::controller(UserController::class)->middleware('guest')->group(function(){
+    Route::get('/login', 'login');
+    Route::post('/users/authenticate', 'authenticate');
+    Route::get('/signup', 'create');
+});
+
+Route::controller(UserController::class)->middleware('auth')->group(function(){
+
 });

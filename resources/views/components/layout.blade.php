@@ -16,7 +16,64 @@
 <body>
 
     <x-navbar />
-    {{$slot}}
     
+    <div id="searchSlide" class="!z-40 -translate-y-20 transition-all duration-300 ease-out">
+        <div id="searchCard" class="bg-neutral-100 border-b border-b-gray-400 w-screen">
+            <div class="container flex justify-center py-1.5 mb-0">
+                <input id="searchField" type="text" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 text-center w-full placeholder-gray-600" autofocus placeholder="Search">
+            </div>
+        </div>
+        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-80 z-30 transition-all !duration-1000 ease-out"></div> 
+            {{$slot}}
+        
+    </div>
+
+    <script>
+
+        var openMenuIcon = document.getElementById('openMenuIcon');
+        var closeMenuIcon = document.getElementById('closeMenuIcon');
+        var slideMenu = document.getElementById('slideMenu');
+        var toggleSearchIcon = document.getElementById('toggleSearchIcon');
+        var searchSlide = document.getElementById('searchSlide');
+    
+        openMenuIcon.addEventListener('click', function(e){
+            showMenu();
+            e.preventDefault();
+        });
+    
+        closeMenuIcon.addEventListener('click', function(e){
+            hideMenu();
+            e.preventDefault();
+        });
+    
+        toggleSearchIcon.addEventListener('click', function(e){
+            hideMenu();
+            searchSlide.classList.toggle('-translate-y-20');
+            document.getElementById('blackout').classList.toggle('hidden');
+            document.getElementById("searchField").focus();
+            e.preventDefault();
+        });
+
+        function showMenu(){
+            closeSearch();
+            slideMenu.classList.remove('-left-1/4');
+            slideMenu.classList.add('left-0');
+            closeMenuIcon.classList.remove('hidden');
+        }
+
+        function hideMenu(){
+            slideMenu.classList.remove('left-0');
+            slideMenu.classList.add('-left-1/4');
+            closeMenuIcon.classList.add('hidden');
+        }
+        
+        function closeSearch(){
+            if(searchSlide.classList.contains('-translate-y-20') === false){
+                searchSlide.classList.toggle('-translate-y-20');
+                document.getElementById('blackout').classList.toggle('hidden'); 
+            }
+        }
+        </script>
+
 </body>
 </html>
