@@ -30,6 +30,7 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
     Route::get('/login', 'login');
     Route::post('/users/authenticate', 'authenticate');
     Route::get('/signup', 'create');
+    Route::post('/users/store', 'store');
 });
 
 Route::controller(UserController::class)->middleware('auth')->group(function(){

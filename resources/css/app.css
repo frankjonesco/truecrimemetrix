@@ -75,8 +75,6 @@
         @apply ease-in;
     }
 
-
-
     #slideMenu>ul>li>a{
         @apply no-underline;
         @apply hover:text-white;
@@ -103,13 +101,15 @@
         @apply my-10;
     }
 
-    
-
     h2{
         @apply text-xl;
         @apply font-light;
         font-family: 'Poppins', sans-serif;
     }
+
+
+
+    /* Text Link Style */
 
     a{
         @apply underline;
@@ -135,6 +135,33 @@
         @apply text-black;
     }
 
+
+
+    /* Text Styles */
+
+    .bull-before::before {
+        content: '\00b7';
+        display: inline-block;
+        padding: 0 9px 0 12px;
+    }
+
+    .bull-after::after {
+        content: '\00b7';
+        display: inline-block;
+        padding: 0 12px 0 9px;
+    }
+
+    p.form-error{
+        @apply text-red-600;
+        @apply text-sm;
+        @apply mx-auto;
+        @apply bull-before;
+        @apply bull-after;
+    }
+
+
+    /* Layout Component Styles */
+
     .container{
         @apply !w-3/4;
         @apply mx-auto;
@@ -144,6 +171,10 @@
     .form-card{
         @apply p-3;
     }
+
+
+
+    /* Form Element Styles */
 
     label{
         @apply block;
@@ -159,6 +190,23 @@
         @apply p-3;
         @apply outline-none;
     }
+
+    input[type=checkbox]{
+        @apply mr-5;
+        @apply w-6;
+        @apply h-6;
+        @apply text-lg;
+        @apply font-medium;
+        @apply !outline-white; 
+        @apply accent-lime-400;
+        @apply text-gray-900;
+        @apply border-gray-400;
+    }
+    
+
+
+
+    /* Article Styles */
 
     .article-body{
         font-family: 'Roboto Slab', serif;
@@ -207,9 +255,5 @@
   
 
 
-    .bull-after::after {
-        content: '\00b7';
-        display: inline-block;
-        padding: 0 9px 0 6px;
-    }
+    
 }
