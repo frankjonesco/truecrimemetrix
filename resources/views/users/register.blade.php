@@ -10,7 +10,7 @@
                     Enter your first name
                 </p>
             @enderror
-            <input type="text" name="first_name" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="First name" autofocus>
+            <input type="text" name="first_name" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="First name" value="{{old('first_name')}}" autofocus>
             
             {{-- Last name --}}
             @error('last_name')
@@ -18,7 +18,7 @@
                     Enter your last name
                 </p>
             @enderror
-            <input type="text" name="last_name" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Last name">
+            <input type="text" name="last_name" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Last name" value="{{old('last_name')}}">
             
             {{-- Email --}}
             @error('email')
@@ -26,15 +26,21 @@
                     Enter your email address
                 </p>
             @enderror
-            <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Email">
+            <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Email" value="{{old('email')}}">
 
             {{-- Password --}}
             @error('password')
                 <p class="form-error">
                     {{$message}}
                 </p>
+            @else
+                @error('terms')
+                    <p class="form-error">
+                        Please re-enter your password
+                    </p>
+                @enderror
             @enderror
-            <input type="text" name="password" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Password">
+            <input type="password" name="password" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Password">
             
             {{-- Password confirmation --}}
             @error('password_confirmation')
@@ -42,7 +48,7 @@
                     {{$message}}
                 </p>
             @enderror
-            <input type="text" name="password_confirmation" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center " placeholder="Confirm password">
+            <input type="password" name="password_confirmation" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center " placeholder="Confirm password">
             
             {{-- Terms & conditions --}}
             @error('terms')

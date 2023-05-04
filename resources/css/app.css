@@ -152,7 +152,10 @@
     }
 
     p.form-error{
-        @apply text-red-600;
+        @apply bg-red-700;
+        @apply text-white;
+        @apply py-0.5;
+        @apply rounded-sm;
         @apply text-sm;
         @apply mx-auto;
         @apply bull-before;
@@ -181,7 +184,8 @@
         @apply mb-2;
     }
 
-    input[type=text]{
+    input[type=text],
+    input[type=password]{
         @apply bg-transparent;
         @apply border-0;
         @apply border-b-2;
@@ -189,6 +193,10 @@
         @apply mb-10;
         @apply p-3;
         @apply outline-none;
+        @apply focus:ring-0;
+        @apply focus:border-sky-200;
+        @apply focus:shadow-sm;
+        @apply text-gray-600
     }
 
     input[type=checkbox]{

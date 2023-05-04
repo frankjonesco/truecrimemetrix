@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,20 +17,22 @@ class UserController extends Controller
     // Create new user
     public function store(Request $request){
 
-        // dd('Dog');
          $formFields = $request->validate([
             'first_name' => ['required', 'min:2', 'max:25'],
             'last_name' => ['required', 'min:2', 'max:25'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'confirmed', 'min:6'],
-            'terms' => ['required']
+            'password' => ['required', 'confirmed', 'min:8'],
+            'agree_terms' => ['required'] 
          ]);
 
-         // Hash password
-         $formFields['password'] = bcrypt($formFields['password']);
-
-         // Create user
-         $user = User::create($formFields);
+        // Create user
+        $user = User::create([
+            'hex' => Str::random(11),
+            'first_name' => trim($request->first_name),
+            'last_name' => trim($request->last_name),
+            'email' => trim($request->email),
+            'password' => bcrypt($request->password)
+        ]);
 
          // Login
          auth()->login($user);
