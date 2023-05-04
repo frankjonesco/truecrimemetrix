@@ -34,5 +34,8 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 });
 
 Route::controller(UserController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard', 'viewDashboard');
     Route::post('/logout', 'logout');
 });
+
+

@@ -20,12 +20,13 @@
     <div id="searchSlide" class="!z-40 -translate-y-20 transition-all duration-300 ease-out">
         <div id="searchCard" class="bg-neutral-100 border-b border-b-gray-400 w-screen">
             <div class="container flex justify-center py-1.5 mb-0">
-                <input id="searchField" type="text" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 focus:ring-0 text-center w-full placeholder-gray-600" autofocus placeholder="Search">
+                <form action="/" method="GET">
+                    <input id="searchField" type="text" name="search" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 focus:ring-0 text-center w-full placeholder-gray-600" placeholder="Search">
+                </form>
             </div>
         </div>
-        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all !duration-1000 ease-out"></div> 
-            {{$slot}}
-        
+        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all duration-300 ease-out"></div> 
+        {{$slot}}       
     </div>
 
     <x-toast-message />
@@ -34,31 +35,68 @@
 
         var openMenuIcon = document.getElementById('openMenuIcon');
         var closeMenuIcon = document.getElementById('closeMenuIcon');
+
         var slideMenu = document.getElementById('slideMenu');
+
         var toggleSearchIcon = document.getElementById('toggleSearchIcon');
         var searchSlide = document.getElementById('searchSlide');
+        var searchField = document.getElementById('searchField');
+        
+        var blackout = document.getElementById('blackout');
     
+
         openMenuIcon.addEventListener('click', function(e){
             showMenu();
+            toggleBlackout();
             openMenuIcon.classList.toggle('text-white');
             e.preventDefault();
         });
     
         closeMenuIcon.addEventListener('click', function(e){
             hideMenu();
+            toggleBlackout();
             openMenuIcon.classList.toggle('text-white');
             e.preventDefault();
         });
     
         toggleSearchIcon.addEventListener('click', function(e){
-            hideMenu();
-            searchSlide.classList.toggle('-translate-y-20');
-            document.getElementById('blackout').classList.toggle('hidden');
-            document.getElementById("searchField").focus();
 
-            if(openMenuIcon.classList.contains('text-white') === true){
-                openMenuIcon.classList.toggle('text-white');
+            hideMenu();
+
+            if(searchSlide.classList.contains('-translate-y-20')){
+                state = 'opening';
+            }else{
+                state = 'closing'; 
             }
+
+            searchSlide.classList.toggle('-translate-y-20');
+            
+            searchField.focus();
+
+            var state;
+
+            
+
+            if(state == 'opening'){
+                if(blackout.classList.contains('hidden') === true){
+                    toggleBlackout();
+                }
+            }
+
+            
+
+            
+            if(state == 'closing'){
+                if(blackout.classList.contains('hidden') === false){
+                    toggleBlackout();
+                }
+                if(openMenuIcon.classList.contains('text-white') === true){
+                    openMenuIcon.classList.remove('text-white');
+                }
+            }
+
+
+            
 
             e.preventDefault();
         });
@@ -75,6 +113,15 @@
             slideMenu.classList.add('-left-1/4');
             closeMenuIcon.classList.add('hidden');
         }
+
+        function toggleBlackout(){
+            if(blackout.classList.contains('hidden')){
+                blackout.classList.remove('hidden');
+            }else{
+                blackout.classList.add('hidden');
+            }
+        }
+       
         
         function closeSearch(){
             if(searchSlide.classList.contains('-translate-y-20') === false){

@@ -84,6 +84,42 @@
 
 
 
+    /* Button Styles */
+
+    .btn{
+        @apply mx-auto;
+        @apply mb-6;
+        @apply px-8;
+        @apply py-3;
+        @apply inline-block;
+        @apply bg-white;
+        @apply text-gray-900;
+        @apply border;
+        @apply border-gray-600;
+        @apply text-3xl;
+        @apply text-center;
+        font-family: 'Roboto Slab', serif;
+        @apply font-bold;
+        @apply no-underline;
+        @apply animate-150-in;
+        @apply hover:bg-amber-300;
+        @apply hover:text-gray-900;
+        @apply hover:shadow-xl;
+        @apply hover:-translate-y-1;        
+    }
+
+    .btn-dark{
+        @apply text-white;
+        @apply bg-gray-900;
+    }
+
+    .btn-light{
+        @apply bg-white;
+        @apply text-gray-900;
+    }
+
+
+
     /* Text Heading Styles */
 
     h1{
@@ -100,6 +136,7 @@
     h2{
         @apply text-xl;
         @apply font-light;
+        @apply text-center;
         font-family: 'Poppins', sans-serif;
     }
 
@@ -175,6 +212,10 @@
 
     /* Form Element Styles */
 
+    form{
+        
+    }
+
     label{
         @apply block;
         @apply mb-2;
@@ -190,7 +231,7 @@
         @apply p-3;
         @apply outline-none;
         @apply focus:ring-0;
-        @apply focus:border-sky-200;
+        @apply focus:border-gray-300;
         @apply focus:shadow-sm;
         @apply text-gray-600
     }
@@ -206,6 +247,7 @@
         @apply text-gray-900;
         @apply border-gray-400;
     }
+    
     
 
 

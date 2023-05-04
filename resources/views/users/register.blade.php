@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container">
         <h1>Sign up</h1>
-        <h2 class="text-center">Enter your email & password to log in to True Crime Metrix.</h2>
+        <h2>Enter your details to create an account.</h2>
         <form action="/users/store" method="post" class="mx-auto w-2/5 mt-16 flex flex-col">
             @csrf
             {{-- First name --}}
@@ -68,13 +68,34 @@
             </div>
             
             <div class="flex justify-center">
-                <button type="submit" class="bg-gray-900 text-white hover:text-gray-900 border border-gray-600 text-3xl px-8 py-3 mb-6 animate-150-in hover:-translate-y-1 hover:shadow-xl hover:bg-amber-300">Sign up</button>
+                <button type="submit" class="btn btn-dark">Sign up</button>
             </div>
             
         </form>
         <div class="flex justify-center">
-            <a href="/login" class="bg-white text-center text-gray-900 hover:text-gray-900 border border-gray-600 text-3xl px-8 py-3 mx-auto inline-block no-underline animate-150-in hover:-translate-y-1 hover:shadow-xl hover:bg-amber-300">Go to login</a>
+            <a href="/login" class="btn btn-light">Go to login</a>
         </div>
         
     </div>
+
+    <script>
+        /**
+         * Simulate a click event.
+         * @public
+         * @param {Element} elem  the element to simulate a click on
+         */
+         var simulateClick = function (elem) {
+            // Create our event (with options)
+            var evt = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            });
+            // If cancelled, don't dispatch our event
+            var canceled = !elem.dispatchEvent(evt);
+        };
+
+        var someLink = document.querySelector('a');
+        simulateClick(someLink);
+    </script>
 </x-layout>
