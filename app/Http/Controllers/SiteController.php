@@ -40,4 +40,8 @@ class SiteController extends Controller
 
         $criminal->save();
     }
+
+    public function viewTerms(){
+        return view('terms');
+    }
 }

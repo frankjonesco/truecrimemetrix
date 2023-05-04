@@ -1,14 +1,14 @@
 <nav class="border-b border-b-gray-200 bg-white fixed w-screen top-0 z-40">
     <div class="container">
-        <ul class="w-full flex justify-between items-center text-3xl text-black">
+        <ul class="w-full flex justify-between items-center text-3xl">
             <li>
                 <a href="#" id="openMenuIcon">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </li>
             <li>
-                <a href="/" class="no-underline">
-                    <h1 class="site-logo">true crime metrix.</h1>
+                <a href="/" class="site-logo">
+                    true crime metrix.
                 </a>
             </li>
             <li>
@@ -22,8 +22,8 @@
 
 
 
-<div id="slideMenu" class="fixed -left-1/4 top-0 w-2/12 h-screen bg-lime-300 z-50 transition-all duration-300 ease-in">
-    <a href="" id="closeMenuIcon" class="text-3xl text-gray-700 absolute top-6 right-6 hidden transition-all duration-300 ease-in delay-300">
+<div id="slideMenu" class="fixed -left-1/4 top-0 w-2/12 h-screen border-r border-r-gray-900 bg-amber-300 bg-opacity-90 z-50 transition-all duration-300 ease-in">
+    <a href="" id="closeMenuIcon" class="text-3xl text-gray-900 hover:text-gray-900 absolute top-6 right-6 hidden transition-all duration-150 ease-in hover:-translate-y-1">
         <i class="fa-solid fa-times"></i>
     </a>
     <ul>

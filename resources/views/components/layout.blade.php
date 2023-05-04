@@ -20,10 +20,10 @@
     <div id="searchSlide" class="!z-40 -translate-y-20 transition-all duration-300 ease-out">
         <div id="searchCard" class="bg-neutral-100 border-b border-b-gray-400 w-screen">
             <div class="container flex justify-center py-1.5 mb-0">
-                <input id="searchField" type="text" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 text-center w-full placeholder-gray-600" autofocus placeholder="Search">
+                <input id="searchField" type="text" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 focus:ring-0 text-center w-full placeholder-gray-600" autofocus placeholder="Search">
             </div>
         </div>
-        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-80 z-30 transition-all !duration-1000 ease-out"></div> 
+        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all !duration-1000 ease-out"></div> 
             {{$slot}}
         
     </div>
@@ -38,11 +38,13 @@
     
         openMenuIcon.addEventListener('click', function(e){
             showMenu();
+            openMenuIcon.classList.toggle('text-white');
             e.preventDefault();
         });
     
         closeMenuIcon.addEventListener('click', function(e){
             hideMenu();
+            openMenuIcon.classList.toggle('text-white');
             e.preventDefault();
         });
     
@@ -51,6 +53,11 @@
             searchSlide.classList.toggle('-translate-y-20');
             document.getElementById('blackout').classList.toggle('hidden');
             document.getElementById("searchField").focus();
+
+            if(openMenuIcon.classList.contains('text-white') === true){
+                openMenuIcon.classList.toggle('text-white');
+            }
+
             e.preventDefault();
         });
 

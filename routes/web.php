@@ -22,6 +22,7 @@ Route::controller(SiteController::class)->group(function (){
     Route::get('/criminals', 'viewCriminals');
     Route::get('/criminals/create', 'createCriminal');
     Route::post('/criminals/store', 'storeCriminal');
+    Route::get('/terms', 'viewTerms');
 });
 
 

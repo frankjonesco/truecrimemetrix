@@ -9,6 +9,9 @@
 
 
 @layer base{
+
+    /* Global Styles */
+
     body{
         @apply bg-neutral-50;
         @apply text-gray-900;
@@ -18,13 +21,43 @@
         @apply mt-20;
     }
 
-    ul.navbar-menu>li>a{
+
+
+    /* Navbar Styles */
+
+    nav .site-logo{
+        @apply text-3xl;
+        @apply font-black;
+        font-family: 'Roboto Slab', serif;
+        @apply capitalize;
+        @apply tracking-tighter;
+        @apply my-0;
+        @apply no-underline;
+    }
+
+    nav a{
+        @apply text-gray-900;
+        @apply block;
+        @apply hover:text-gray-900;
+        @apply hover:-translate-y-1;
+        @apply transition-all;
+        @apply duration-150;
+        @apply ease-in;
+        
+    }
+
+    nav ul.navbar-menu>li>a{
         @apply hover:text-lime-500;
     }
+    
+    
+
+
+    /* Slide Menu Styles */
 
     #slideMenu>ul{
         @apply text-xl;
-        @apply text-slate-700;
+        @apply text-gray-900;
         font-family: 'Roboto Slab', serif;
         @apply tracking-tighter;
         @apply text-2xl;
@@ -35,23 +68,29 @@
     #slideMenu>ul>li{
         @apply border-b-0;
         @apply border-lime-400;
-        @apply py-4;
-        @apply px-6;
+        @apply hover:bg-gray-900;
+        @apply hover:text-white;
         @apply transition-all;
-        @apply duration-200;
-        @apply ease-out;
+        @apply duration-150;
+        @apply ease-in;
     }
 
-    #slideMenu>ul>li:hover{
-        @apply bg-gray-600;
-        @apply text-gray-50;
-    }
 
-    
 
     #slideMenu>ul>li>a{
         @apply no-underline;
+        @apply hover:text-white;
+        @apply hover:bg-gray-900;
+        @apply w-full;
+        @apply h-full;
+        @apply block;
+        @apply py-4;
+        @apply px-6;
     }
+
+
+
+    /* Text Heading Styles */
 
     h1{
         font-size: 56px;
@@ -60,15 +99,11 @@
         font-family: 'Poppins', sans-serif;
         line-height: 1;
         letter-spacing: -0.0525em;
+        @apply text-center;
+        @apply my-10;
     }
 
-    h1.site-logo{
-        @apply text-3xl;
-        @apply font-black;
-        font-family: 'Roboto Slab', serif;
-        @apply capitalize;
-        @apply tracking-tighter;
-    }
+    
 
     h2{
         @apply text-xl;
