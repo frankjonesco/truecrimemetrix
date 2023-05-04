@@ -28,6 +28,8 @@
         
     </div>
 
+    <x-toast-message />
+
     <script>
 
         var openMenuIcon = document.getElementById('openMenuIcon');

@@ -5,7 +5,7 @@
         <form action="/users/authenticate" method="post" class="mx-auto w-2/5 mt-16 flex flex-col">
             @csrf
             <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Email" autofocus>
-            <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Password">
+            <input type="password" name="password" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Password">
             <div class="flex justify-center">
                 <button type="submit" class="bg-gray-900 text-white text-3xl px-8 py-3 mb-6">Log in</button>
             </div>

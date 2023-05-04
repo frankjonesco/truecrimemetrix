@@ -42,12 +42,25 @@
         <li>
             <a href="/">Judges</a>
         </li>
-        <li>
-            <a href="/signup">Sign up</a>
-        </li>
-        <li>
-            <a href="/login">Login</a>
-        </li>
+        @auth
+            <li>
+                <a href="/dashboard">Dashboard</a>
+            </li>
+            <li>
+                <form action="/logout" class="inline" method="POST">
+                    @csrf
+                    <a href="#" onclick="this.parentNode.submit()" class="py-3 px-3 mx-2 ">Logout</a>
+                </form>
+                
+            </li>
+        @else
+            <li>
+                <a href="/signup">Sign up</a>
+            </li>
+            <li>
+                <a href="/login">Log in</a>
+            </li>
+        @endauth
     </ul>
 </div>
 

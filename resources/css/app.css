@@ -43,11 +43,7 @@
         @apply transition-all;
         @apply duration-150;
         @apply ease-in;
-        
-    }
-
-    nav ul.navbar-menu>li>a{
-        @apply hover:text-lime-500;
+        @apply no-underline;
     }
     
     
@@ -75,7 +71,7 @@
         @apply ease-in;
     }
 
-    #slideMenu>ul>li>a{
+    #slideMenu>ul>li a{
         @apply no-underline;
         @apply hover:text-white;
         @apply hover:bg-gray-900;
