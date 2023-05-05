@@ -7,7 +7,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base{
 
     /* Global Styles */
@@ -67,7 +66,7 @@
 
     #slideMenu>ul{
         @apply text-xl;
-        @apply text-gray-900;
+        @apply text-black;
         font-family: 'Roboto Slab', serif;
         @apply tracking-tighter;
         @apply text-2xl;
@@ -137,6 +136,13 @@
         @apply text-gray-900;
     }
 
+    .btn-sm{
+        @apply mb-6;
+        @apply px-3;
+        @apply py-1;
+        @apply text-xl;
+    }
+
 
 
     /* Form Element Styles */
@@ -151,7 +157,9 @@
     }
 
     input[type=text],
-    input[type=password]{
+    input[type=password],
+    textarea,
+    select{
         @apply bg-transparent;
         @apply border-0;
         @apply border-b-2;
@@ -163,6 +171,10 @@
         @apply focus:border-gray-300;
         @apply focus:shadow-sm;
         @apply text-gray-600
+    }
+
+    textarea{
+        @apply h-44;
     }
 
     input[type=checkbox]{

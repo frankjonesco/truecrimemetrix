@@ -12,6 +12,10 @@
 
     @vite('resources/css/app.css')
 
+    <script
+      src="https://cdn.tiny.cloud/1/gcyfgn25uv73qdldpp8acrdjq17xlw8j6dvrtm3r0i7e0jph/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>;
 </head>
 <body>
 

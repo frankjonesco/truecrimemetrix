@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,13 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard', 'viewDashboard');
     Route::post('/logout', 'logout');
+});
+
+
+
+Route::controller(ArticleController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/articles', 'articlesIndex');
+    Route::get('/dashboard/articles/create', 'create');
 });
 
 

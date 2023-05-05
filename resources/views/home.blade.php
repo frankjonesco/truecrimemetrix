@@ -26,7 +26,7 @@
         <div class="flex">
             <div class="w-2/3">
                 <div class="article-image">
-                    <img src="{{asset('images/articles/2/luis-rivera.jpg')}}" class="px-6">
+                    <img src="{{asset('images/articles/ItBAU4xzpr1/luis-rivera.jpg')}}" class="px-6">
                     <x-article-image-meta caption="Convicted Latin King Boss waits in the dock to testify against his two co-conspiritors, Sigfredo Garcia & Katherine Magbanua in October 2019." copyright="Tallahassee Democrat" link="https://tallahassee.com/" />
                 </div>
 
@@ -63,7 +63,7 @@
                     </p>
 
                     <div class="article-image border-t border-t-gray-200 pt-10">
-                        <img src="{{asset('images/articles/2/sigfredo-garcia.jpg')}}" class="px-6 mx-auto">
+                        <img src="{{asset('images/articles/ItBAU4xzpr1/sigfredo-garcia.jpg')}}" class="px-6 mx-auto">
                         <x-article-image-meta caption="Sigfredo Garcia is claimed to be the triggerman in the 2014 slaying of Prof. Markel. He was sentenced to life without parole in 2019." copyright="Broward Sheriff’s Office" link="" />
                     </div>
                     
