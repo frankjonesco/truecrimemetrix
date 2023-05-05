@@ -23,9 +23,12 @@
 
 
 <div id="slideMenu" class="-left-1/4">
-    <a href="#" id="closeMenuIcon" class="text-3xl hover:text-2xl text-gray-900 absolute top-3 right-3 mt-0.5 flex justify-center items-center transition-all duration-150 ease-in hover:bg-gray-900 hover:text-white w-9 aspect-square rounded-full no-underline">
-        <i class="fa-solid fa-times"></i>
-    </a>
+    <div class="flex justify-between p-6 bg-gray-900 text-white">
+        <div class="menu-heading">Menu</div>
+        <a href="#" id="closeMenuIcon" class="text-3xl hover:text-2xl !text-white flex justify-center items-center transition-all duration-150 ease-in hover:bg-yellow-300 hover:!text-gray-900 w-9 aspect-square rounded-full no-underline">
+            <i class="fa-solid fa-times"></i>
+        </a>
+    </div>
     <ul>
         <li>
             <a href="/" id="homeBtn">Home</a>
