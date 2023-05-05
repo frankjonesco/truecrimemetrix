@@ -4,7 +4,21 @@
         <h2 class="text-center">Enter your email & password to log in to True Crime Metrix.</h2>
         <form action="/users/authenticate" method="post" class="mx-auto w-2/5 mt-16 flex flex-col">
             @csrf
-            <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Email" autofocus>
+
+            {{-- First name --}}
+            @error('email')
+                <p class="form-error">
+                    Enter your email address
+                </p>
+            @enderror
+            <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Email" value="{{old('email')}}" autofocus>
+            
+            {{-- Password --}}
+            @error('email')
+                <p class="form-error">
+                    Enter your email address
+                </p>
+            @enderror
             <input type="password" name="password" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Password">
             <div class="flex justify-center">
                 <button type="submit" class="btn btn-dark">Log in</button>

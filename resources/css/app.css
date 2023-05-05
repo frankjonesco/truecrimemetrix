@@ -51,6 +51,20 @@
 
     /* Slide Menu Styles */
 
+    #slideMenu{
+        @apply fixed;
+        @apply top-0;
+        @apply w-2/12;
+        @apply h-screen;
+        @apply border-r;
+        @apply border-r-gray-900;
+        @apply bg-amber-300;
+        @apply z-50;
+        @apply transition-all;
+        @apply duration-200;
+        @apply ease-in;
+    }
+
     #slideMenu>ul{
         @apply text-xl;
         @apply text-gray-900;
@@ -58,7 +72,6 @@
         @apply tracking-tighter;
         @apply text-2xl;
         @apply font-bold;
-        @apply mt-2;
     }
 
     #slideMenu>ul>li{
@@ -80,6 +93,10 @@
         @apply block;
         @apply py-4;
         @apply px-6;
+        @apply underline-offset-8;
+        @apply hover:underline;
+        @apply hover:underline-offset-4;
+        @apply animate-300-in;
     }
 
 
@@ -105,7 +122,7 @@
         @apply animate-150-in;
         @apply hover:bg-amber-300;
         @apply hover:text-gray-900;
-        @apply hover:shadow-xl;
+        @apply hover:shadow-md;
         @apply hover:-translate-y-1;        
     }
 

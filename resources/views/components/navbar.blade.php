@@ -3,7 +3,7 @@
         <ul class="w-full flex justify-between items-center text-3xl">
             <li>
                 <a href="#" id="openMenuIcon">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-bars" id="menuBars"></i>
                 </a>
             </li>
             <li>
@@ -22,8 +22,8 @@
 
 
 
-<div id="slideMenu" class="fixed -left-1/4 top-0 w-2/12 h-screen border-r border-r-gray-900 bg-amber-300 bg-opacity-90 z-50 transition-all duration-300 ease-in">
-    <a href="#" id="closeMenuIcon" class="text-3xl text-gray-900 hover:text-gray-900 absolute top-6 right-6 hidden transition-all duration-150 ease-in hover:-translate-y-1">
+<div id="slideMenu" class="-left-1/4">
+    <a href="#" id="closeMenuIcon" class="text-3xl hover:text-2xl text-gray-900 absolute top-3 right-3 mt-0.5 flex justify-center items-center transition-all duration-150 ease-in hover:bg-gray-900 hover:text-white w-9 aspect-square rounded-full no-underline">
         <i class="fa-solid fa-times"></i>
     </a>
     <ul>
@@ -57,17 +57,10 @@
 </div>
 
 <script>
-    var homeBtn = document.getElementById('homeBtn');
 
-    homeBtn.onmouseover = function(){
-        closeMenuIcon.classList.remove('text-gray-900');
-        closeMenuIcon.classList.add('text-white');
-    }
 
-    homeBtn.onmouseout = function(){
-        closeMenuIcon.classList.remove('text-white');
-        closeMenuIcon.classList.add('text-gray-900');
-    }
+
+    
 </script>
 
 

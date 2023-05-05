@@ -20,8 +20,8 @@
     <div id="searchSlide" class="!z-40 -translate-y-20 transition-all duration-300 ease-out">
         <div id="searchCard" class="bg-neutral-100 border-b border-b-gray-400 w-screen">
             <div class="container flex justify-center py-1.5 mb-0">
-                <form action="/" method="GET">
-                    <input id="searchField" type="text" name="search" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 focus:ring-0 text-center w-full placeholder-gray-600" placeholder="Search">
+                <form action="/" method="GET" class="w-3/4">
+                    <input id="searchField" type="text" name="search" class="text-xl font-light outline-none !bg-transparent !mb-0 !border-0 !border-b-0 focus:ring-0 text-center w-full placeholder-gray-600 focus:!shadow-none" placeholder="Search">
                 </form>
             </div>
         </div>
@@ -35,58 +35,45 @@
 
         var openMenuIcon = document.getElementById('openMenuIcon');
         var closeMenuIcon = document.getElementById('closeMenuIcon');
-
         var slideMenu = document.getElementById('slideMenu');
-
         var toggleSearchIcon = document.getElementById('toggleSearchIcon');
         var searchSlide = document.getElementById('searchSlide');
         var searchField = document.getElementById('searchField');
-        
         var blackout = document.getElementById('blackout');
-    
 
+        // Open menu
         openMenuIcon.addEventListener('click', function(e){
             showMenu();
             toggleBlackout();
-            openMenuIcon.classList.toggle('text-white');
             e.preventDefault();
         });
-    
+        
+        // Close menu
         closeMenuIcon.addEventListener('click', function(e){
             hideMenu();
             toggleBlackout();
-            openMenuIcon.classList.toggle('text-white');
             e.preventDefault();
         });
-    
+        
+        // Open/close search
         toggleSearchIcon.addEventListener('click', function(e){
-
             hideMenu();
-
             if(searchSlide.classList.contains('-translate-y-20')){
                 state = 'opening';
             }else{
                 state = 'closing'; 
             }
-
             searchSlide.classList.toggle('-translate-y-20');
-            
             searchField.focus();
-
             var state;
-
-            
-
             if(state == 'opening'){
+                console.log(18);
                 if(blackout.classList.contains('hidden') === true){
                     toggleBlackout();
                 }
-            }
-
-            
-
-            
+            }           
             if(state == 'closing'){
+                console.log(19);
                 if(blackout.classList.contains('hidden') === false){
                     toggleBlackout();
                 }
@@ -94,24 +81,64 @@
                     openMenuIcon.classList.remove('text-white');
                 }
             }
-
-
-            
-
             e.preventDefault();
         });
+
+
+        // Hover color of closeMenuIcon
+        var homeBtn = document.getElementById('homeBtn');
+
+        homeBtn.onmouseover = function(){
+            closeMenuIcon.classList.remove('text-gray-900');
+            closeMenuIcon.classList.add('text-white');
+        }
+
+        homeBtn.onmouseout = function(){
+            closeMenuIcon.classList.remove('text-white');
+            closeMenuIcon.classList.add('text-gray-900');
+        }
+
+
+
+        document.addEventListener("click", (evt) => {
+            let targetElement = evt.target; // clicked element
+            console.log(targetElement);
+            do {
+                if (targetElement == blackout) {
+                    // Do nothing, just return.
+                    hideMenu();
+                    console.log('close blackout');
+                    
+                    
+                    closeSearch();
+                    blackout.classList.add('hidden');
+                }
+                // Go up the DOM.
+                targetElement = targetElement.parentNode;
+            } while (targetElement);
+
+            
+        });
+
+        
+
+
+
+
 
         function showMenu(){
             closeSearch();
             slideMenu.classList.remove('-left-1/4');
             slideMenu.classList.add('left-0');
             closeMenuIcon.classList.remove('hidden');
+            openMenuIcon.classList.add('text-white');            
         }
 
         function hideMenu(){
             slideMenu.classList.remove('left-0');
             slideMenu.classList.add('-left-1/4');
             closeMenuIcon.classList.add('hidden');
+            openMenuIcon.classList.remove('text-white');
         }
 
         function toggleBlackout(){
