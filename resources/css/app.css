@@ -58,7 +58,7 @@
         @apply tracking-tighter;
         @apply text-2xl;
         @apply font-bold;
-        @apply mt-20;
+        @apply mt-2;
     }
 
     #slideMenu>ul>li{
@@ -96,6 +96,7 @@
         @apply text-gray-900;
         @apply border;
         @apply border-gray-600;
+        @apply rounded-sm;
         @apply text-3xl;
         @apply text-center;
         font-family: 'Roboto Slab', serif;
@@ -270,6 +271,7 @@
         @apply mt-10;
         @apply pt-10;
         @apply border-t;
+        @apply text-start;
     }
 
     .article-body p{

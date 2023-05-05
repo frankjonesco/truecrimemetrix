@@ -23,25 +23,17 @@
 
 
 <div id="slideMenu" class="fixed -left-1/4 top-0 w-2/12 h-screen border-r border-r-gray-900 bg-amber-300 bg-opacity-90 z-50 transition-all duration-300 ease-in">
-    <a href="" id="closeMenuIcon" class="text-3xl text-gray-900 hover:text-gray-900 absolute top-6 right-6 hidden transition-all duration-150 ease-in hover:-translate-y-1">
+    <a href="#" id="closeMenuIcon" class="text-3xl text-gray-900 hover:text-gray-900 absolute top-6 right-6 hidden transition-all duration-150 ease-in hover:-translate-y-1">
         <i class="fa-solid fa-times"></i>
     </a>
     <ul>
         <li>
-            <a href="/">Home</a>
+            <a href="/" id="homeBtn">Home</a>
         </li>
         <li>
-            <a href="/">Criminals</a>
+            <a href="/articles">Articles</a>
         </li>
-        <li>
-            <a href="/">Prosecutors</a>
-        </li>
-        <li>
-            <a href="/">Defence Attornies</a>
-        </li>
-        <li>
-            <a href="/">Judges</a>
-        </li>
+        
         @auth
             <li>
                 <a href="/dashboard">Dashboard</a>
@@ -63,5 +55,19 @@
         @endauth
     </ul>
 </div>
+
+<script>
+    var homeBtn = document.getElementById('homeBtn');
+
+    homeBtn.onmouseover = function(){
+        closeMenuIcon.classList.remove('text-gray-900');
+        closeMenuIcon.classList.add('text-white');
+    }
+
+    homeBtn.onmouseout = function(){
+        closeMenuIcon.classList.remove('text-white');
+        closeMenuIcon.classList.add('text-gray-900');
+    }
+</script>
 
 

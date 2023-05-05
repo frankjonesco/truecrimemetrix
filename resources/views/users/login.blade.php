@@ -7,12 +7,12 @@
             <input type="text" name="email" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Email" autofocus>
             <input type="password" name="password" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Password">
             <div class="flex justify-center">
-                <button type="submit" class="bg-gray-900 text-white text-3xl px-8 py-3 mb-6">Log in</button>
+                <button type="submit" class="btn btn-dark">Log in</button>
             </div>
             
         </form>
         <div class="flex justify-center">
-            <a href="/" class="bg-white text-center text-gray-900 border border-gray-600 text-3xl px-8 py-3 mx-auto inline-block no-underline">Back to home</a>
+            <a href="/signup" class="btn btn-light">Create an account</a>
         </div>
         
     </div>

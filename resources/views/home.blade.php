@@ -10,13 +10,13 @@
                 <li>></li>
                 <li class="font-bold">
                     <a href="#" class="no-underline tracking-tight">
-                        Jodi Arias
+                        Dan Markel Case
                     </a>
                 </li>
                 <li>></li>
                 <li class="font-bold">
                     <a href="#" class="no-underline tracking-tight">
-                        Trial day one
+                        Rivera & Garcia
                     </a>
                 </li>
             </ul>
