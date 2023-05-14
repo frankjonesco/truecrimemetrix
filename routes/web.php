@@ -55,6 +55,10 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function(
     Route::post('/dashboard/articles/upload-article-images', 'uploadArticleImages')->name('upload.article.images');
 });
 
+Route::post('/dashboard/articles/{article}/upload-article-images', [ImageUploadController::class, 'storeImage'])->middleware('auth')->name('image.upload');
+
+
+
 Route::controller(ArticleController::class)->group(function(){
     Route::get('/articles', 'index');
     Route::get('/articles/{article}', 'show');
@@ -63,6 +67,4 @@ Route::controller(ArticleController::class)->group(function(){
 
 
 
-Route::resource('posts', PostController::class);
-Route::post('/dashboard/articles/{article}/upload-article-images', [ImageUploadController::class, 'storeImage'])->name('image.upload');
 

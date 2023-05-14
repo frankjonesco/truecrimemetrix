@@ -73,14 +73,14 @@
                     </div>
 
                     <div class="flex mx-auto w-fit text-sm">
-                        <div class="bull-after">
+                        <div>{{-- class="bull-after" --}}
                             <span class="font-bold">
                                 {{$article->views}}
                             </span>
                             <span class="font-light">Views</span>
                         </div>
                         
-                        <div>
+                        <div class="hidden">
                             <span class="font-bold">
                                 {{$article->shares}}
                             </span>

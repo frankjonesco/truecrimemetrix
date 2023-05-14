@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('hex', 11)->unique();
             $table->foreignId('user_id');
+            $table->foreignId('criminal_case_id')->references('id')->on('criminal_cases');
+            $table->foreignId('topic_id')->references('id')->on('topics');
             $table->string('title')->nullable();
             $table->string('caption')->nullable();
             $table->longText('body')->nullable();

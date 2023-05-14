@@ -14,8 +14,8 @@
                         @endif
                     </div>
                     
-                    <div class="font-bold leading-5 mb-4">
-                        <a href="/articles/{{$article->hex}}">
+                    <div class="text-lg font-bold leading-5 tracking-tight mb-4">
+                        <a href="/articles/{{$article->hex}}" class="no-underline px-0.5 py-0.5 block hover:bg-yellow-300 hover:text-gray-900">
                             {{$article->title}}
                         </a>
                     </div>

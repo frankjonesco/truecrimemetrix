@@ -18,7 +18,7 @@ class ImageProcess extends Model
         $directory_path = public_path('images/'.$target.'/'.$item->hex);
         $request->file('image')->move($directory_path, $image_name);
         self::encode($directory_path, $image_name);
-        self::deleteOtherFiles($directory_path, $image_name);
+        // self::deleteOtherFiles($directory_path, $image_name);
         self::saveToDatabase($item, $image_name);
         // self::batchSizes(Image::make($directory_path.'/'.$image_name), 480, $directory_path, $image_name);
         return true;
