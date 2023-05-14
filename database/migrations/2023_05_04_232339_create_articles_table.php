@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('caption')->nullable();
             $table->longText('body')->nullable();
-            $table->string('main_image')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_caption')->nullable();
+            $table->string('image_copyright')->nullable();
             $table->integer('views')->nullable();
             $table->integer('shares')->nullable();
             $table->timestamps();

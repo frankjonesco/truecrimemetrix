@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Carbon;
+use App\Models\Article;
 use App\Models\Criminal;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
     public function home(){
-        return view('home');
+        $articles = Article::orderBy('id', 'DESC')->where('status', 'public')->get();
+        return view('articles.index', [
+            'articles' => $articles
+        ]);
     }
 
     public function viewCriminals(){

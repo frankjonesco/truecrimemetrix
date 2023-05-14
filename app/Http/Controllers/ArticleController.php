@@ -6,11 +6,31 @@ use App\Models\Article;
 use Illuminate\Support\Str;
 use App\Models\ImageProcess;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ArticleController extends Controller
 {
-    // Articles index
-    public function articlesIndex(){
+
+    // List public articles
+    public function index(){
+        $articles = Article::orderBy('id', 'DESC')->where('status', 'public')->get();
+        return view('articles.index', [
+            'articles' => $articles
+        ]);
+    }
+
+    // Show single article index
+    public function show(Article $article){
+        $other_articles = Article::orderBy('id', 'DESC')->where('status', 'public')->where('hex', '!=', $article->hex)->get();
+        return view('articles.show', [
+            'article' => $article,
+            'other_articles' => $other_articles
+        ]);
+    }
+
+
+    // Admin articles index
+    public function adminIndex(){
         $articles = Article::orderBy('id', 'DESC')->get();
         return view('dashboard.articles-index', [
             'articles' => $articles
@@ -84,7 +104,24 @@ class ArticleController extends Controller
             $article->saveImage($request);
         }
         
-        return redirect('dashboard/articles/'.$article->hex.'/images/crop')->with('success', 'Your image was uploaded. Now let\'s crop it.');
+        return redirect('dashboard/articles/'.$article->hex.'/images/crop')->with('message', 'Your image was uploaded. Now let\'s crop it.');
+    }
+
+    // Upload images that have been added to the article body
+    public function uploadArticleImages(Request $request): JsonResponse
+    {
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+      
+            $request->file('upload')->move(public_path('media'), $fileName);
+      
+            $url = asset('media/' . $fileName);
+  
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
+        }
     }
 
     // Crop Image
@@ -107,14 +144,9 @@ class ArticleController extends Controller
 
         $article->saveRenderedImage($data);
 
-        return redirect('dashboard/articles/'.$article->hex)->with('success', 'Your image has been cropped.');
+        return redirect('dashboard/articles')->with('message', 'Your image has been cropped.');
     }
 
-    // Save rendered image (update)
-    public function saveRenderedImage($data){
-        $image = new ImageProcess();
-        $this->image = $image->renderCrop($data, 'articles', $this, 760, 428);
-        return $this;  
-    }
+    
 
 }

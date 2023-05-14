@@ -56,7 +56,7 @@ class ImageProcess extends Model
         // })
         // ->save($directory_path.'/lg-'.$image_name, 100);
 
-        $img->resize(null, $full_size / 3, function ($constraint){ 
+        $img->resize(null, 153, function ($constraint){ 
             $constraint->aspectRatio(); 
         })
         ->save($directory_path.'/tn-'.$image_name, 100);
@@ -79,7 +79,7 @@ class ImageProcess extends Model
         
         // Save full size image
         $img->resize($width, $height);
-        $img->save('images/'.$target.'/'.$item->hex.'/'.$item->image);
+        $img->save('images/'.$target.'/'.$item->hex.'/'.$item->image, 100);
         
         self::batchSizes($img, $height, public_path('images/'.$target.'/'.$item->hex), $item->image);
     }

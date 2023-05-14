@@ -33,7 +33,6 @@
         }
     </style>
     
-    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
 
 
 </head>

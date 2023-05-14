@@ -53,7 +53,7 @@ class Article extends Model
     // Save rendered image (update)
     public function saveRenderedImage($data){
         $image = new ImageProcess();
-        $this->image = $image->renderCrop($data, 'articles', $this, 867, 423);
+        $this->image = $image->renderCrop($data, 'articles', $this, 760, 428);
         return $this;  
     }
 

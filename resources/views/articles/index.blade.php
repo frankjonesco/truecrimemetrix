@@ -1,13 +1,7 @@
 <x-layout>
     <div class="container">
-        <h1>Articles</h1>
-        <h2>Manage the True Crime Metrix articles.</h2>
-
-        <div class="grid grid-cols-1 mb-10">
-            <a href="/dashboard/articles/create" class="btn btn-dark">
-                New article
-            </a>
-        </div>
+        <h1>True Crime News Articles</h1>
+        <h2>Browse our list of news articles on true crime.</h2>
 
         <div class="grid grid-cols-4 gap-6 border-t p-6">
             @foreach($articles as $article)
@@ -20,12 +14,12 @@
                         @endif
                     </div>
                     
-                    <div class="font-bold leading-5 mb-4">{{$article->title}}</div>
-                    <div>
-                        <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark btn-sm">
-                            Edit
+                    <div class="font-bold leading-5 mb-4">
+                        <a href="/articles/{{$article->hex}}">
+                            {{$article->title}}
                         </a>
                     </div>
+                    
                 </div>
             
             @endforeach

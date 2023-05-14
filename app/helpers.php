@@ -5,10 +5,18 @@ use Illuminate\Support\Facades\Config;
     // FORMATTERS
 
     // Show date
-    if(!function_exists('showDate')){
-        function showDate($date){
-            $date_format = Config::get('date_format');
-            return $date->format($date_format);
+    if(!function_exists('showDateTime')){
+        function showDateTime($date){
+
+            $time = $date;
+            // May 2, 2023 at 10:52am
+            $date_format = 'F j, Y';
+            $formatted_date = $date->format($date_format);
+            
+            $time_format = 'g:ia';
+            $formatted_time = $time->format($time_format);
+
+            return $formatted_date.' at '.$formatted_time;
         }
     }
 
@@ -22,3 +30,4 @@ if(!function_exists('compileArticleDetails')){
         ];
     }
 }
+

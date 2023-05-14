@@ -202,13 +202,14 @@
         line-height: 1;
         letter-spacing: -0.0525em;
         @apply text-center;
-        @apply my-10;
+        @apply mb-10;
     }
 
     h2{
         @apply text-xl;
         @apply font-light;
         @apply text-center;
+        @apply mb-12;
         font-family: 'Poppins', sans-serif;
     }
 
