@@ -17,7 +17,7 @@ class TopicSeeder extends Seeder
             [
                 'hex' => 'p8GDrtsr5Ds',
                 'criminal_case_id' => 1,
-                'title' => 'Rivera & Garcia Pringles',
+                'title' => 'Rivera & Garcia',
                 'status' => 'public'
 
             ]

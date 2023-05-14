@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Config;
 
     // FORMATTERS
@@ -21,13 +22,21 @@ use Illuminate\Support\Facades\Config;
     }
 
 
-// Compile article details
-if(!function_exists('compileArticleDetails')){
-    function compileArticleDetails($article) {
-        return [
-            'hex' => 'jWDX1QWLXkb',
-            'image' => 'iGciAy-1684058759.webp'
-        ];
+    // Truncate
+    if(!function_exists('truncate')){
+        function truncate($str, $limit = 45) {
+            return Str::limit($str, $limit);
+        }
     }
-}
+
+
+    // Compile article details
+    if(!function_exists('compileArticleDetails')){
+        function compileArticleDetails($article) {
+            return [
+                'hex' => 'jWDX1QWLXkb',
+                'image' => 'iGciAy-1684058759.webp'
+            ];
+        }
+    }
 

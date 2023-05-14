@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    @php
+
+    
+        if(!isset($meta)){
+            $meta = [
+                'title' => 'True Crime Metrix',
+                'description' => 'True Crime blog and news articles on some of the most bizarre facts behind the true crime cases we have come to know and love.',
+                'image' => null,
+            ];
+        }
+    @endphp
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TrueCrime Metrix</title>
+    <title>{{$meta['title']}}</title>
+    <meta name="description" content="{{$meta['description']}}">
+    <meta name="author" content="TrueCrimeMetrix 2023">
+
+    {{-- Open graph information --}}
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{$meta['title']}}" />
+    <meta property="og:description" content="{{$meta['description']}}" />
+    <meta property="og:image" content="{{$meta['image']}}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,22 +39,7 @@
       referrerpolicy="origin"
     ></script>; --}}
     
-    <style>
-        #container {
-            width: 1000px;
-            margin: 20px auto;
-        }
-        .ck-editor__editable[role="textbox"] {
-            /* editing area */
-            min-height: 200px;
-        }
-        .ck-content .image {
-            /* block images */
-            max-width: 80%;
-            margin: 20px auto;
-        }
-    </style>
-    
+
 
 
 </head>

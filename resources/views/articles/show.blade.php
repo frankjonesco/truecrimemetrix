@@ -1,6 +1,6 @@
-<x-layout>
+<x-layout :meta="$meta">
     <div class="container">
-        <div class="breadcrumbs mt-12 mb-4">
+        <div class="breadcrumbs mt-12 mb-6">
             <ul class="flex gap-2 w-min whitespace-nowrap mx-auto font-roboto">
                 <li>
                     <a href="#" class="no-underline tracking-tight">
@@ -10,13 +10,13 @@
                 <li>></li>
                 <li class="font-bold">
                     <a href="#" class="no-underline tracking-tight">
-                        Dan Markel Case
+                        {{$article->criminal_case->title}}
                     </a>
                 </li>
                 <li>></li>
                 <li class="font-bold">
                     <a href="#" class="no-underline tracking-tight text-sky-600">
-                        Rivera & Garcia
+                        {{$article->topic->title}}
                     </a>
                 </li>
             </ul>
@@ -24,10 +24,10 @@
         <h1 class="text-center mb-8">
             {{$article->title}}
         </h1>
-        <h2 class="text-center mb-14 px-20">
+        <h2 class="text-center mb-7 px-20">
             {{$article->caption}}
         </h2>
-        <div class="flex">
+        <div class="flex border-t pt-8 px-2">
             <div class="w-2/3">
                 <div class="article-image w-full aspect-video mb-4">
                     @if($article->image)
@@ -47,7 +47,7 @@
             <div class="w-1/3 pl-24 tracking-tight font-roboto">
                 <div class="px-5 border-b border-gray-200 py-4 flex flex-col gap-5 mb-5">
                     <div class="flex gap-4 mx-auto w-fit">
-                        <a id="shareFacebook" href="#" rel="Share on Facebook" class="share-link hover:bg-[#3b5998] hover:text-white animate-150-in">
+                        <a id="shareFacebook" href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}&display=popup" rel="Share on Facebook" class="share-link hover:bg-[#3b5998] hover:text-white animate-150-in">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a id="shareTwitter" href="#" rel="Share on Twitter" class="share-link hover:bg-[#1da1f2] hover:text-white animate-150-in">

@@ -28,7 +28,12 @@ class ArticleController extends Controller
         $other_articles = Article::orderBy('id', 'DESC')->where('status', 'public')->where('hex', '!=', $article->hex)->get();
         return view('articles.show', [
             'article' => $article,
-            'other_articles' => $other_articles
+            'other_articles' => $other_articles,
+            'meta' => [
+                'title' => $article->title.' - True Crime Metrix',
+                'description' => truncate(strip_tags($article->body), 140),
+                'image' => 'https://truecrimemetrix.test/images/articles/'.$article->hex.'/'.$article->image
+            ]
         ]);
     }
 

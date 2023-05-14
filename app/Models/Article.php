@@ -33,6 +33,19 @@ class Article extends Model
     }
 
 
+    // Relationship to category
+    public function criminal_case(){
+        return $this->belongsTo(CriminalCase::class, 'criminal_case_id');
+    }
+
+    // Relationship to category
+    public function topic(){
+        return $this->belongsTo(Topic::class, 'topic_id');
+    }
+
+
+
+
     public function getFullImage(){
         if(!$this->image){
             return asset('images/no-image.webp');
