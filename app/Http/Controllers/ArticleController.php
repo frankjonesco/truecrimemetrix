@@ -21,6 +21,10 @@ class ArticleController extends Controller
 
     // Show single article index
     public function show(Article $article){
+
+        $article->views = $article->views + 1;
+        $article->save();
+
         $other_articles = Article::orderBy('id', 'DESC')->where('status', 'public')->where('hex', '!=', $article->hex)->get();
         return view('articles.show', [
             'article' => $article,
