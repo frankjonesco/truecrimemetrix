@@ -18,6 +18,7 @@
         @apply duration-150;
         @apply ease-out;
         @apply mt-20;
+        font-family: 'Roboto Slab', serif;
     }
 
 
@@ -242,6 +243,10 @@
 
 
     /* Text Styles */
+
+    .font-roboto{
+        font-family: 'Roboto', sans-serif;
+    }
 
     .bull-before::before {
         content: '\00b7';

@@ -12,40 +12,21 @@
         <div class="grid grid-cols-4 gap-6 border-t p-6">
             @foreach($articles as $article)
                 <div>
-                    <img src="{{asset('images/articles/'.$article->hex.'/'.$article->main_image)}}" alt="" class="w-fit mb-4">
-                    <div class="flex flex-rows">
-                        <div class="font-bold leading-5">{{$article->title}}</div>
-                        <div>
-                        <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark btn-sm inline-block">Edit</a></div>
+                    <div class="w-full aspect-video mb-4">
+                        @if($article->image)
+                            <div class="w-full h-full bg-no-repeat bg-auto bg-center" style="background-image:url('{{asset('images/articles/'.$article->hex.'/tn-'.$article->image)}}');"></div>
+                        @else
+                            <div class="bg-gradient-to-tr from-yellow-400 to-amber-100 h-full"></div>
+                        @endif
+                    </div>
+                    
+                    <div class="font-bold leading-5 mb-4">{{$article->title}}</div>
+                    <div>
+                        <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark btn-sm">
+                            Edit
+                        </a>
                     </div>
                 </div>
-            
-                <div>
-                <img src="{{asset('images/articles/'.$article->hex.'/'.$article->main_image)}}" alt="" class="w-fit mb-4">
-                <div class="flex flex-rows">
-                    <div class="font-bold leading-5">{{$article->title}}</div>
-                    <div>
-                    <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark btn-sm inline-block">Edit</a></div>
-                </div>
-            </div>
-            
-            <div>
-                <img src="{{asset('images/articles/'.$article->hex.'/'.$article->main_image)}}" alt="" class="w-fit mb-4">
-                <div class="flex flex-rows">
-                    <div class="font-bold leading-5">{{$article->title}}</div>
-                    <div>
-                    <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark btn-sm inline-block">Edit</a></div>
-                </div>
-            </div>
-            
-            <div>
-                <img src="{{asset('images/articles/'.$article->hex.'/'.$article->main_image)}}" alt="" class="w-fit mb-4">
-                <div class="flex flex-rows">
-                    <div class="font-bold leading-5">{{$article->title}}</div>
-                    <div>
-                    <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark btn-sm inline-block">Edit</a></div>
-                </div>
-            </div>
             
             @endforeach
         </div>

@@ -44,6 +44,13 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
 Route::controller(ArticleController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/articles', 'articlesIndex');
     Route::get('/dashboard/articles/create', 'create');
+    Route::post('/dashboard/articles/store', 'store');
+    Route::get('/dashboard/articles/{article}/edit', 'edit');
+    Route::post('/dashboard/articles/{article}/update', 'update');
+    Route::get('/dashboard/articles/{article}/images/upload', 'selectImage');
+    Route::post('/dashboard/articles/{article}/images/upload', 'uploadImage');
+    Route::get('/dashboard/articles/{article}/images/crop', 'cropImage');
+    Route::post('/dashboard/articles/{article}/images/render', 'renderImage');  
 });
 
 

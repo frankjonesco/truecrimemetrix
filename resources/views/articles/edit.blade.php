@@ -9,18 +9,25 @@
 
     
     <div class="container">
-        <h1>Create a new article</h1>
-        <h2>Add the information to your new article.</h2>
-        <form id="createArticleForm" action="/dashboard/articles/store" method="post" class="mx-auto w-4/5 mt-16 flex flex-col">
-            @csrf
+        <h1>Edit this article</h1>
+        <h2>Update the article information accordingly and click Update article.</h2>
 
+        <div class="grid grid-cols-1 mt-12">
+            <a href="/dashboard/articles/{{$article->hex}}/images/upload" class="btn btn-dark">
+                Upload image
+            </a>           
+        </div>
+
+        <form id="editArticleForm" action="/dashboard/articles/{{$article->hex}}/update" method="post" class="mx-auto w-4/5 mt-16 flex flex-col">
+            @csrf
+            
             {{-- Title --}}
             @error('title')
                 <p class="form-error">
                     Enter a title
                 </p>
             @enderror
-            <input type="text" name="title" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Title" value="{{old('title')}}" autofocus>
+            <input type="text" name="title" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Title" value="{{old('title')?:$article->title}}" autofocus>
             
             {{-- Caption --}}
             @error('caption')
@@ -28,7 +35,7 @@
                     Enter a caption
                 </p>
             @enderror
-            <input type="text" name="caption" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Caption" value="{{old('title')}}">
+            <input type="text" name="caption" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Caption" value="{{old('caption')?:$article->caption}}">
 
             {{-- Body --}}
             @error('body')
@@ -40,10 +47,10 @@
             {{-- <textarea id="editor">True Crime Metrix</textarea>  --}}
             <div class="article-body mx-0">
                 <textarea id="editor" name="body">
-                    {{old('body')}}
+                    {!!$article->body!!}
                 </textarea>
             </div>
-        
+
             <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
 
             <script>
@@ -69,7 +76,7 @@
                             'alignment', '|',
                             'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
                             'specialCharacters', 'horizontalLine', 'pageBreak', '|',
-                            'textPartLanguage', '|',
+                            // 'textPartLanguage', '|',
                             'sourceEditing'
                         ],
                         shouldNotGroupWhenFull: true
@@ -96,7 +103,7 @@
                         ]
                     },
                     // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-                    placeholder: 'Welcome to CKEditor 5!',
+                    placeholder: 'Enter text for the article body.',
                     // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
                     fontFamily: {
                         options: [
@@ -204,12 +211,12 @@
                 </p>
             @enderror
             <select name="status" class="text-3xl text-thin text-gray-600 w-2/5 mx-auto mb-20">
-                <option value="private">Private</option>
-                <option value="public">Public</option>
+                <option value="private" {{$article->status == 'private' ? 'selected' : null}}>Private</option>
+                <option value="public" {{$article->status == 'public' ? 'selected' : null}}>Public</option>
             </select>
 
             <div class="flex justify-center">
-                <button type="submit" class="btn btn-dark">Create article</button>
+                <button type="submit" class="btn btn-dark">Update article</button>
             </div>
 
             

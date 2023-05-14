@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container">
         <div class="breadcrumbs mt-12 mb-4">
-            <ul class="flex gap-2 w-min whitespace-nowrap mx-auto">
+            <ul class="flex gap-2 w-min whitespace-nowrap mx-auto font-roboto">
                 <li>
                     <a href="#" class="no-underline tracking-tight">
                         True Crime Metrix
@@ -15,7 +15,7 @@
                 </li>
                 <li>></li>
                 <li class="font-bold">
-                    <a href="#" class="no-underline tracking-tight">
+                    <a href="#" class="no-underline tracking-tight text-sky-600">
                         Rivera & Garcia
                     </a>
                 </li>
@@ -70,7 +70,7 @@
                 </div>
 
             </div>
-            <div class="w-1/3 pl-24 tracking-tight">
+            <div class="w-1/3 pl-24 tracking-tight font-roboto">
                 <div class="px-5 border-b border-gray-200 py-4 flex flex-col gap-5 mb-5">
                     <div class="flex gap-4 mx-auto w-fit">
                         <a id="shareFacebook" href="#" rel="Share on Facebook" class="share-link hover:bg-[#3b5998] hover:text-white animate-150-in">

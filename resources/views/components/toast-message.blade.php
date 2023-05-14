@@ -2,7 +2,7 @@
     <div class="">
         <div 
             id="toast-success" 
-            class="opacity-0 fixed left-1/2 -translate-x-1/2 top-1/2 translate-y-full bg-lime-400 w-min-content p-8 rounded-sm transform transition-all duration-500 ease-out z-50 border-2 shadow-md border-gray-900 shadow-xl" data-replace="{ 'opacity-0': 'opacity-100', 'translate-y-full': '-translate-y-1/2' }" role="alert" 
+            class="opacity-0 fixed left-1/2 -translate-x-1/2 top-1/4 translate-y-full bg-lime-400 w-min-content p-8 rounded-sm transform transition-all duration-500 ease-out z-50 border-2 shadow-md border-gray-900" data-replace="{ 'opacity-0': 'opacity-100', 'translate-y-full': '-translate-y-1/2' }" role="alert" 
         >
             <div 
                 class="mx-3 !text-3xl font-black text-center text-gray-900"

@@ -12,10 +12,30 @@
 
     @vite('resources/css/app.css')
 
-    <script
+    {{-- <script
       src="https://cdn.tiny.cloud/1/gcyfgn25uv73qdldpp8acrdjq17xlw8j6dvrtm3r0i7e0jph/tinymce/6/tinymce.min.js"
       referrerpolicy="origin"
-    ></script>;
+    ></script>; --}}
+    
+    <style>
+        #container {
+            width: 1000px;
+            margin: 20px auto;
+        }
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 200px;
+        }
+        .ck-content .image {
+            /* block images */
+            max-width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+
+
 </head>
 <body>
 
@@ -29,10 +49,16 @@
                 </form>
             </div>
         </div>
-        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all duration-300 ease-out"></div> 
-        {{$slot}}       
-    </div>
+        <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all duration-300 ease-out"></div>
 
+        {{-- Alerts component --}}
+        <x-alerts />
+
+        {{$slot}}     
+
+    </div>
+    
+    {{-- Toast messages --}}
     <x-toast-message />
 
     <script>
