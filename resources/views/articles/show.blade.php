@@ -31,7 +31,7 @@
             <div class="w-2/3">
                 <div class="article-image w-full aspect-video mb-4">
                     @if($article->image)
-                        <div class="w-full h-full bg-no-repeat bg-cover bg-center shadow" style="background-image:url('{{asset('images/articles/'.$article->hex.'/'.$article->image)}}');"></div>
+                        <div class="w-full h-full bg-no-repeat bg-cover bg-center shadow-xl" style="background-image:url('{{asset('images/articles/'.$article->hex.'/'.$article->image)}}');"></div>
                     @else
                         <div class="bg-gradient-to-tr from-yellow-400 to-amber-100 h-full"></div>
                     @endif
