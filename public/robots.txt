@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow:
+Disallow: /login/
+
+
+
+Sitemap: https://truecrimemetrix.com/sitemap.xml

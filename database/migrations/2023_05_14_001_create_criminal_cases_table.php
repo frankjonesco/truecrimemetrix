@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('criminal_cases', function (Blueprint $table) {
             $table->id();
             $table->string('hex', 11);
+            $table->foreignId('user_id')->nullable();
             $table->string('title');
+            $table->string('caption')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_caption')->nullable();
+            $table->string('image_copyright')->nullable();
+            $table->integer('views')->nullable();
             $table->timestamps();
             $table->string('status');
         });

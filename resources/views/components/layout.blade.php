@@ -14,6 +14,7 @@
         }
     @endphp
 
+    {{-- Meta information --}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -28,11 +29,25 @@
     <meta property="og:description" content="{{$meta['description']}}" />
     <meta property="og:image" content="{{$meta['image']}}" />
 
+    {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;0,700;1,300;1,400;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
 
-    @vite('resources/css/app.css')
+    {{-- Assert builds --}}
+    @php
+        $environment = 'prod';
+    @endphp
+    @if($environment == 'dev')
+        {{-- Development scripts --}}
+        {{-- @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js']) --}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        {{-- Production scripts --}}
+        <link href="{{ asset('build/assets/app-4e99c183.css') }}"  rel="preload" as="style" onload="this.rel='stylesheet'">
+        <script src="{{ asset('build/assets/app-032e7394.js') }}" defer></script>
+    @endif
 
     {{-- <script
       src="https://cdn.tiny.cloud/1/gcyfgn25uv73qdldpp8acrdjq17xlw8j6dvrtm3r0i7e0jph/tinymce/6/tinymce.min.js"
@@ -40,7 +55,15 @@
     ></script>; --}}
     
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-41956QHQLE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-41956QHQLE');
+    </script>
 
 </head>
 <body>

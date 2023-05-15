@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TopicController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\CriminalCaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +47,57 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 
 // UserController (auth only)
 Route::controller(UserController::class)->middleware('auth')->group(function(){
-    Route::get('/dashboard', 'viewDashboard');
     Route::post('/logout', 'logout');
+});
+
+
+
+// DASHBORD CONTROLLER
+
+// DashboardController (auth only)
+Route::controller(DashboardController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard', 'index');
+});
+
+
+
+// CRIMINAL CASE CONTROLLER
+
+// CriminalCaseController (auth only)
+Route::controller(CriminalCaseController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/criminal-cases', 'adminIndex');
+    Route::get('/dashboard/criminal-cases/create', 'create');
+    Route::post('/dashboard/criminal-cases/store', 'store');
+    Route::get('/dashboard/criminal-cases/{criminal_case}/edit', 'edit');
+    Route::post('/dashboard/criminal-cases/{criminal_case}/update', 'update');
+    Route::get('/dashboard/criminal-cases/{criminal_case}/images/upload', 'selectImage');
+    Route::post('/dashboard/criminal-cases/{criminal_case}/images/upload', 'uploadImage');
+    Route::get('/dashboard/criminal-cases/{criminal_case}/images/crop', 'cropImage');
+    Route::post('/dashboard/criminal-cases/{criminal_case}/images/render', 'renderImage');
+});
+
+// CriminalCaseController (auth and guest)
+
+Route::controller(CriminalCaseController::class)->group(function(){
+    Route::get('/criminal-cases', 'index');
+    Route::get('/criminal-cases/{criminal_case}', 'show');
+});
+
+
+
+// TOPIC CONTROLLER
+
+// TopicController (auth only)
+Route::controller(TopicController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/topics', 'adminIndex');
+    Route::get('/dashboard/topics/create', 'create');
+    Route::post('/dashboard/topics/store', 'store');
+    Route::get('/dashboard/topics/{topic}/edit', 'edit');
+    Route::post('/dashboard/topics/{topic}/update', 'update');
+    Route::get('/dashboard/topics/{topic}/images/upload', 'selectImage');
+    Route::post('/dashboard/topics/{topic}/images/upload', 'uploadImage');
+    Route::get('/dashboard/topics/{topic}/images/crop', 'cropImage');
+    Route::post('/dashboard/topics/{topic}/images/render', 'renderImage');
 });
 
 
@@ -66,20 +118,11 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function(
     Route::post('/dashboard/articles/{article}/upload-article-images', 'storeBodyImage')->name('image.upload');
 });
 
-// Article Controller (auth and guest)
+// ArticleController (auth and guest)
 
 Route::controller(ArticleController::class)->group(function(){
     Route::get('/articles', 'index');
     Route::get('/articles/{article}', 'show');
-});
-
-
-
-// CRIMINAL CASE CONTROLLER
-
-// CriminalCaseController (auth only)
-Route::controller(CriminalCaseController::class)->middleware('auth')->group(function(){
-    Route::get('/dashboard/criminal-cases', 'adminIndex');
 });
 
 

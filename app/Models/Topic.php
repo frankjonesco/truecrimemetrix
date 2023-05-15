@@ -28,4 +28,29 @@ class Topic extends Model
     public function getRouteKeyName(){
         return 'hex';
     }
+
+
+    public function getFullImage(){
+        if(!$this->image){
+            return asset('images/no-image.webp');
+        }
+        elseif(file_exists(public_path('images/topics/'.$this->hex.'/'.$this->image))){
+            return asset('images/topics/'.$this->hex.'/'.$this->image);
+        }
+        return asset('images/no-image.webp');
+    }
+
+    // Save image (update)
+    public function saveImage($request){
+        $image = new ImageProcess();
+        $this->image = $image->upload($request, 'topics', $this);
+        return $this;
+    }
+
+    // Save rendered image (update)
+    public function saveRenderedImage($data){
+        $image = new ImageProcess();
+        $this->image = $image->renderCrop($data, 'topics', $this, 760, 428);
+        return $this;  
+    }
 }

@@ -34,6 +34,9 @@
             <a href="/" id="homeBtn">Home</a>
         </li>
         <li>
+            <a href="/criminal-cases">Criminal Cases</a>
+        </li>
+        <li>
             <a href="/articles">Articles</a>
         </li>
         

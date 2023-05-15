@@ -31,12 +31,12 @@ use Illuminate\Support\Facades\Config;
 
 
     // Compile article details
-    if(!function_exists('compileArticleDetails')){
-        function compileArticleDetails($article) {
-            return [
-                'hex' => 'jWDX1QWLXkb',
-                'image' => 'iGciAy-1684058759.webp'
-            ];
+    if(!function_exists('countArticles')){
+        function countArticles($item) {
+            if(count($item->articles) === 1){
+                return count($item->articles).' article';
+            }
+            return count($item->articles).' articles';
         }
     }
 
