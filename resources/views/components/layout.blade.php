@@ -56,6 +56,7 @@
             </div>
         </div>
         <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all duration-300 ease-out"></div>
+        <div class="mb-16"></div>
 
         {{-- Alerts component --}}
         <x-alerts />

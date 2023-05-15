@@ -19,6 +19,9 @@ use App\Http\Controllers\ImageUploadController;
 
 
 
+// SITE CONRTROLLER
+
+// SiteController (auth & guest)
 Route::controller(SiteController::class)->group(function (){
     Route::get('/', 'home')->name('home');
     Route::get('/criminals', 'viewCriminals');
@@ -28,6 +31,10 @@ Route::controller(SiteController::class)->group(function (){
 });
 
 
+
+// USER CONRTROLLER
+
+// UserController (guest only)
 Route::controller(UserController::class)->middleware('guest')->group(function(){
     Route::get('/login', 'login')->name('login');
     Route::post('/users/authenticate', 'authenticate');
@@ -35,6 +42,7 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
     Route::post('/users/store', 'store');
 });
 
+// UserController (auth only)
 Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard', 'viewDashboard');
     Route::post('/logout', 'logout');
@@ -42,6 +50,9 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
 
 
 
+// ARTICLE CONTROLLER
+
+// ArticleController (auth only)
 Route::controller(ArticleController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/articles', 'adminIndex');
     Route::get('/dashboard/articles/create', 'create');
@@ -52,12 +63,10 @@ Route::controller(ArticleController::class)->middleware('auth')->group(function(
     Route::post('/dashboard/articles/{article}/images/upload', 'uploadImage');
     Route::get('/dashboard/articles/{article}/images/crop', 'cropImage');
     Route::post('/dashboard/articles/{article}/images/render', 'renderImage');
-    Route::post('/dashboard/articles/upload-article-images', 'uploadArticleImages')->name('upload.article.images');
+    Route::post('/dashboard/articles/{article}/upload-article-images', 'storeBodyImage')->name('image.upload');
 });
 
-Route::post('/dashboard/articles/{article}/upload-article-images', [ImageUploadController::class, 'storeImage'])->middleware('auth')->name('image.upload');
-
-
+// Article Controller (auth and guest)
 
 Route::controller(ArticleController::class)->group(function(){
     Route::get('/articles', 'index');
@@ -66,5 +75,11 @@ Route::controller(ArticleController::class)->group(function(){
 
 
 
+// CRIMINAL CASE CONTROLLER
+
+// CriminalCaseController (auth only)
+Route::controller(CriminalCaseController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/criminal-cases', 'adminIndex');
+});
 
 

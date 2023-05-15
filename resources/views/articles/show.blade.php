@@ -1,24 +1,28 @@
 <x-layout :meta="$meta">
     <div class="container">
-        <div class="breadcrumbs mt-12 mb-6">
+        <div class="breadcrumbs mb-6">
             <ul class="flex gap-2 w-min whitespace-nowrap mx-auto font-roboto">
                 <li>
-                    <a href="#" class="no-underline tracking-tight">
+                    <a href="/" class="no-underline tracking-tight">
                         True Crime Metrix
                     </a>
                 </li>
-                <li>></li>
-                <li class="font-bold">
-                    <a href="#" class="no-underline tracking-tight">
-                        {{$article->criminal_case->title}}
-                    </a>
-                </li>
-                <li>></li>
-                <li class="font-bold">
-                    <a href="#" class="no-underline tracking-tight text-sky-600">
-                        {{$article->topic->title}}
-                    </a>
-                </li>
+                @if($article->criminal_case)
+                    <li>></li>
+                    <li class="font-bold">
+                        <a href="#" class="no-underline tracking-tight">
+                            {{$article->criminal_case->title}}
+                        </a>
+                    </li>
+                @endif
+                @if($article->criminal_case)
+                    <li>></li>
+                    <li class="font-bold">
+                        <a href="#" class="no-underline tracking-tight text-sky-600">
+                            {{$article->topic->title}}
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
         <h1 class="text-center mb-8">
