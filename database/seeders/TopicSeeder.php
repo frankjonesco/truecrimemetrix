@@ -12,20 +12,12 @@ class TopicSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
-        $items = [
-            [
-                'hex' => 'p8GDrtsr5Ds',
-                'criminal_case_id' => 1,
-                'title' => 'Rivera & Garcia',
-                'status' => 'public'
-
-            ]
-        ];
-
-
+    {   
+        $model = new Topic();
+        
+        $items = $model::on('mysql_import')->get()->toArray();
         foreach($items as $item){
-            Topic::create($item);
+            $model::create($item);
         }
     }
 }

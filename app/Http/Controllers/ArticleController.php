@@ -35,7 +35,7 @@ class ArticleController extends Controller
             'meta' => [
                 'title' => $article->title.' - True Crime Metrix',
                 'description' => truncate(strip_tags($article->body), 140),
-                'image' => 'https://truecrimemetrix.test/images/articles/'.$article->hex.'/'.$article->image
+                'image' => 'https://truecrimemetrix.com/images/articles/'.$article->hex.'/'.$article->image
             ]
         ]);
     }
@@ -120,8 +120,6 @@ class ArticleController extends Controller
 
     // Crop Image
     public function cropImage(Article $article){
-        
-        $article->details = compileArticleDetails($article);
         return view('articles.crop-image', [
             'article' => $article
         ]);

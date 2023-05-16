@@ -51,7 +51,7 @@
             <div class="w-1/3 pl-24 tracking-tight font-roboto">
                 <div class="px-5 border-b border-gray-200 py-4 flex flex-col gap-5 mb-5">
                     <div class="flex gap-4 mx-auto w-fit">
-                        <a id="shareFacebook" href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}&display=popup" rel="Share on Facebook" class="share-link hover:bg-[#3b5998] hover:text-white animate-150-in">
+                        <a id="shareFacebook" href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}&display=popup" target="_blank" rel="Share on Facebook" class="share-link hover:bg-[#3b5998] hover:text-white animate-150-in">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a id="shareTwitter" href="#" rel="Share on Twitter" class="share-link hover:bg-[#1da1f2] hover:text-white animate-150-in">

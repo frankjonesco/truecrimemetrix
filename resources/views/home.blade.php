@@ -9,6 +9,7 @@
         <div class="border-t border-t-gray-300 mt-12 pt-8">
             <section class="latest-content">
                 <h2>Latest posts</h2>
+                <x-articles-grid :articles="$articles" />
             </section>
         </div>
     </div>

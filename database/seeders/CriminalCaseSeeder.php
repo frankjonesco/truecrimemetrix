@@ -12,19 +12,12 @@ class CriminalCaseSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
-        $items = [
-            [
-                'hex' => 'p8GDrtsr5Ds',
-                'title' => 'Dan Markel Case',
-                'status' => 'public'
-
-            ]
-        ];
-
-
+    {   
+        $model = new CriminalCase();
+        
+        $items = $model::on('mysql_import')->get()->toArray();
         foreach($items as $item){
-            CriminalCase::create($item);
+            $model::create($item);
         }
     }
 }

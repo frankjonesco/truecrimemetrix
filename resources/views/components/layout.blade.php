@@ -2,22 +2,13 @@
 <html lang="en">
 <head>
 
-    @php
-
-    
-        if(!isset($meta)){
-            $meta = [
-                'title' => 'True Crime Metrix',
-                'description' => 'True Crime blog and news articles on some of the most bizarre facts behind the true crime cases we have come to know and love.',
-                'image' => null,
-            ];
-        }
-    @endphp
-
     {{-- Meta information --}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @php
+        $meta = setMeta(isset($meta)?$meta:null);
+    @endphp
     <title>{{$meta['title']}}</title>
     <meta name="description" content="{{$meta['description']}}">
     <meta name="author" content="TrueCrimeMetrix 2023">
@@ -33,15 +24,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;0,700;1,300;1,400;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
 
-    {{-- Assert builds --}}
+    {{-- Asset builds --}}
     @php
         $environment = 'prod';
     @endphp
     @if($environment == 'dev')
         {{-- Development scripts --}}
-        {{-- @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js']) --}}
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         {{-- Production scripts --}}
@@ -49,11 +38,9 @@
         <script src="{{ asset('build/assets/app-032e7394.js') }}" defer></script>
     @endif
 
-    {{-- <script
-      src="https://cdn.tiny.cloud/1/gcyfgn25uv73qdldpp8acrdjq17xlw8j6dvrtm3r0i7e0jph/tinymce/6/tinymce.min.js"
-      referrerpolicy="origin"
-    ></script>; --}}
-    
+    {{-- Google AdSense --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7001324347428811"
+     crossorigin="anonymous"></script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41956QHQLE"></script>

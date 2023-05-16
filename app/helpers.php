@@ -21,13 +21,31 @@ use Illuminate\Support\Facades\Config;
         }
     }
 
-
     // Truncate
     if(!function_exists('truncate')){
         function truncate($str, $limit = 45) {
             return Str::limit($str, $limit);
         }
     }
+
+
+
+    // COMPILERS
+
+    // Compile meta
+    if(!function_exists('setMeta')){
+        function setMeta($meta) {
+            if(!isset($meta)){
+                return [
+                    'title' => 'True Crime Metrix',
+                    'description' => 'True Crime blog and news articles on some of the most bizarre facts behind the true crime cases we have come to know and love.',
+                    'image' => null,
+                ];
+            }
+            return $meta;
+        }
+    }
+    
 
 
     // Compile article details
