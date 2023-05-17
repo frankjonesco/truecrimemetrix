@@ -1,14 +1,14 @@
 <x-layout :meta="$meta">
     <div class="container">
-        <div class="breadcrumbs mb-6">
-            <ul class="flex gap-2 w-min whitespace-nowrap mx-auto font-roboto">
-                <li>
+        <div class="breadcrumbs">
+            <ul class="flex flex-col sm:flex-row gap-0 sm:gap-2 items-center w-min whitespace-nowrap mx-auto font-roboto">
+                <li class="hidden sm:block">
                     <a href="/" class="no-underline tracking-tight">
                         True Crime Metrix
                     </a>
                 </li>
                 @if($article->criminal_case)
-                    <li>></li>
+                    <li class="hidden sm:block">></li>
                     <li class="font-bold">
                         <a href="#" class="no-underline tracking-tight">
                             {{$article->criminal_case->title}}
@@ -16,7 +16,7 @@
                     </li>
                 @endif
                 @if($article->criminal_case)
-                    <li>></li>
+                    <li class="hidden sm:block">></li>
                     <li class="font-bold">
                         <a href="#" class="no-underline tracking-tight text-sky-600">
                             {{$article->topic->title}}
@@ -28,18 +28,18 @@
         <h1 class="text-center mb-8">
             {{$article->title}}
         </h1>
-        <h2 class="text-center mb-7 px-20">
+        <h2 class="text-center mb-7 px-10 m:px-20">
             {{$article->caption}}
         </h2>
-        <div class="flex border-t pt-8 px-2">
-            <div class="w-2/3">
+        <div class="flex flex-col lg:flex-row border-t pt-8 px-2">
+            <div class="w-full lg:w-2/3">
                 <div class="article-image w-full aspect-video mb-4">
                     @if($article->image)
                         <div class="w-full h-full bg-no-repeat bg-cover bg-center shadow-xl" style="background-image:url('{{asset('images/articles/'.$article->hex.'/'.$article->image)}}');"></div>
                     @else
                         <div class="bg-gradient-to-tr from-yellow-400 to-amber-100 h-full"></div>
                     @endif
-                    <x-article-image-meta :article="$article" link="https://tallahassee.com/" />
+                    <x-article-image-meta :article="$article" />
                 </div>
 
 
@@ -127,6 +127,14 @@
                         </span>
                     </div>
                 </div>
+
+                @auth
+                    <div class="mt-6">
+                        <a href="/dashboard/articles/{{$article->hex}}/edit" class="btn btn-dark mx-auto block">
+                            Edit article
+                        </a>
+                    </div>
+                @endauth
             </div>
         </div>
     </div>

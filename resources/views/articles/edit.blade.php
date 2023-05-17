@@ -35,7 +35,53 @@
                     Enter a caption
                 </p>
             @enderror
-            <input type="text" name="caption" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center !mb-20" placeholder="Caption" value="{{old('caption')?:$article->caption}}">
+            <input type="text" name="caption" class="w-full text-3xl text-thin placeholder-gray-300 placeholder-thin text-center" placeholder="Caption" value="{{old('caption')?:$article->caption}}">
+
+            {{-- Criminal Case --}}
+            @error('criminal_case_id')
+                <p class="form-error">
+                    Choose a criminal case for this article.
+                </p>
+            @enderror
+            <select id="criminalCaseList" name="criminal_case_id" class="text-3xl text-thin text-gray-600 w-3/4 mx-auto">
+                <option disabled selected class="text-center">Select a criminal case</option>
+                @foreach ($criminal_cases as $criminal_case)
+                    <option class="text-center" value="{{$criminal_case->id}}" {{$article->criminal_case_id == $criminal_case->id ? 'selected' : null}}>{{$criminal_case->title}}</option>
+                @endforeach
+            </select>
+
+            <select id="topicList" class="text-3xl text-thin text-gray-600 w-3/4 mx-auto" name="topic_id" required disabled>
+                <option disabled selected class="text-center">Select a topic</option>
+                @foreach ($topics as $topic)
+                    <option value="{{ $topic->id }}" class='parent-{{ $topic->criminal_case_id }} topics'>{{ $topic->title }}</option>
+                @endforeach
+            </select>
+
+            <script>
+                var criminalCaseList = document.querySelector('#criminalCaseList');
+                var topicList = document.querySelector('#topicList');
+                var topics = document.querySelectorAll('.topics');
+
+                criminalCaseList.addEventListener('change', function(){
+                    var selectedCriminalCase = criminalCaseList.options[criminalCaseList.selectedIndex].value;
+
+                    // Enable topicList <select>
+                    topicList.disabled = false;
+                    
+                    // Disable and hide all topic <select> options
+                    topics.forEach(e => {
+                        e.disabled = true;
+                        e.classList.add('hidden');
+                    });
+
+                    // Show and enable topics for this criminal case
+                    var theseTopics = document.querySelectorAll('.parent-' + selectedCriminalCase);
+                        theseTopics.forEach(e => {
+                        e.disabled = false;
+                        e.classList.remove('hidden');
+                    });
+                });
+            </script>
 
             {{-- Body --}}
             @error('body')
@@ -62,7 +108,7 @@
                         }
                     })
                     .catch( error => {
-                        console.error( error );
+                        // console.error( error );
                     } );
             </script>
 
@@ -87,22 +133,4 @@
         </form>
     </div>
 
-    {{-- <script>
-        tinymce.init({
-          selector: "#editor",
-          plugins: "advcode advlist advtable anchor autocorrect autolink autosave casechange charmap checklist codesample directionality editimage emoticons export footnotes formatpainter help image insertdatetime link linkchecker lists media mediaembed mergetags nonbreaking pagebreak permanentpen powerpaste searchreplace table tableofcontents tinymcespellchecker typography visualblocks visualchars wordcount",
-          toolbar: "undo redo spellcheckdialog  | blocks fontfamily fontsize | bold italic underline forecolor backcolor | link image | align lineheight checklist bullist numlist | indent outdent | removeformat typography",
-          height: '700px',
-          toolbar_sticky: true,
-          autosave_restore_when_empty: true,
-          spellchecker_active: true,
-          spellchecker_language: 'en_US',
-          spellchecker_languages: 'English (United States)=en_US,English (United Kingdom)=en_GB,Danish=da,French=fr,German=de,Italian=it,Polish=pl,Spanish=es,Swedish=sv',
-          typography_langs: [ 'en-US' ],
-          typography_default_lang: 'en-US',
-          content_style: "@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;0,700;1,300;1,400;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');body{background: #fff;font-size: 1.875rem;line-height: 2.25rem;font-weight: 900;font-family: 'Roboto Slab', serif;text-transform: capitalize;letter-spacing: -0.05em;margin-top: 0px;margin-bottom: 0px;text-decoration-line: none;}",
-          font_family_formats : "Roboto Slab=roboto slab,serif;"+
-            "Poppins=poppins, sans-serif"
-        });
-      </script> --}}
 </x-layout>

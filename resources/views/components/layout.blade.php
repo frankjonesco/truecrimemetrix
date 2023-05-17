@@ -27,14 +27,14 @@
 
     {{-- Asset builds --}}
     @php
-        $environment = 'prod';
+        $environment = 'dev';
     @endphp
     @if($environment == 'dev')
         {{-- Development scripts --}}
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         {{-- Production scripts --}}
-        <link href="{{ asset('build/assets/app-4e99c183.css') }}"  rel="preload" as="style" onload="this.rel='stylesheet'">
+        <link href="{{ asset('build/assets/app-7762f0f2.css') }}"  rel="preload" as="style" onload="this.rel='stylesheet'">
         <script src="{{ asset('build/assets/app-032e7394.js') }}" defer></script>
     @endif
 
@@ -66,7 +66,6 @@
             </div>
         </div>
         <div id="blackout" class="w-screen h-screen fixed hidden bg-gray-900 bg-opacity-60 z-30 transition-all duration-300 ease-out"></div>
-        <div class="mb-16"></div>
 
         {{-- Alerts component --}}
         <x-alerts />

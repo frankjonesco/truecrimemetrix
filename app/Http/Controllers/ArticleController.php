@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use App\Models\Article;
 use Illuminate\Support\Str;
+use App\Models\CriminalCase;
 use App\Models\ImageProcess;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -59,6 +61,7 @@ class ArticleController extends Controller
 
     // Store article in database
     public function store(Request $request, Article $article){
+        // dd($request);
         $request->validate([
             'title' => 'required'
         ]);
@@ -78,16 +81,22 @@ class ArticleController extends Controller
     // View edit article form
     public function edit(Article $article){
         return view('articles/edit', [
-            'article' => $article
+            'article' => $article,
+            'criminal_cases' => CriminalCase::orderBy('title', 'ASC')->get(),
+            'topics' => Topic::orderBy('title', 'ASC')->get(),
         ]);
     }
 
     // Update article in database
     public function update(Article $article, Request $request){
         $form_data = $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            'criminal_case_id' => 'required',
+            'topic_id' => 'required'
         ]);
 
+        $article->criminal_case_id = $request->criminal_case_id;
+        $article->topic_id = $request->topic_id;
         $article->title = $request->title;
         $article->caption = $request->caption;
         $article->body = $request->body;

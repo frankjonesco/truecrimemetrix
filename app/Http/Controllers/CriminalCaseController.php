@@ -114,8 +114,6 @@ class CriminalCaseController extends Controller
 
     // Crop Image
     public function cropImage(CriminalCase $criminal_case){
-        
-        $criminal_case->details = compileArticleDetails($criminal_case);
         return view('criminal-cases.crop-image', [
             'criminal_case' => $criminal_case
         ]);
