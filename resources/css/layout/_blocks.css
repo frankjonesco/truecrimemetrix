@@ -1,0 +1,22 @@
+body{
+    @apply w-screen;
+    @apply h-screen;
+    @apply flex;
+    @apply flex-col;
+}
+
+
+main{
+    @apply grow;
+}
+
+
+/* CONTAINERS */
+
+
+.container{
+
+    @apply w-2/3;
+    @apply mx-auto;
+    
+}

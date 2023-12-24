@@ -1,0 +1,127 @@
+/*************************/
+/* SITE NAV */
+/*************************/
+
+
+#siteNav{
+
+    @apply w-screen;
+    @apply h-20;
+
+    @apply flex;
+    @apply items-center;
+
+    @apply border-b;
+    @apply shadow;
+
+    @apply text-3xl;
+
+
+    ul{
+        @apply container;
+
+        @apply flex;
+        @apply justify-center;
+
+
+        li{
+
+            @apply w-[12.5%];
+
+            
+            a{
+                @apply hover-dip;
+            }
+
+        }
+
+
+        li:nth-child(2){
+
+            @apply w-3/4;
+
+            @apply text-center;
+            
+        }
+
+        li:nth-child(3){
+
+            @apply text-end;
+
+        }
+
+
+    }
+
+    
+}
+
+
+
+
+
+/*************************/
+/* MAIN MENU */
+/*************************/
+
+
+#mainMenu{
+
+    @apply fixed;
+    @apply left-0;
+    @apply top-0;
+    @apply w-screen;
+    @apply h-screen;
+
+    @apply flex;
+
+    @apply bg-gradient-to-t;
+    @apply from-white;
+    @apply to-white;
+    @apply border-r;
+    @apply shadow;
+
+    @apply font-roboto-slab;
+    @apply text-5xl;
+    @apply font-black;
+
+    @apply animate-300;
+
+
+    a#closeMainMenuIcon{
+
+        @apply fixed;
+        @apply right-0;
+        @apply top-0;
+        @apply mr-10;
+        @apply mt-6;
+
+        @apply hover-spin;
+    }
+
+
+    ul{
+        @apply w-fit;
+        @apply mx-auto;
+
+        @apply grid;
+        @apply grid-cols-1;
+        @apply justify-center;
+        @apply items-center;
+
+
+
+        li{
+
+            a{
+
+                @apply px-4;
+                @apply py-1;
+
+            }
+            
+        }
+
+    }
+
+}
