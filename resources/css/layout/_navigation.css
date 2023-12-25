@@ -22,6 +22,7 @@
 
 
     ul{
+
         @apply container;
 
         @apply flex;
@@ -34,7 +35,9 @@
 
             
             a{
+
                 @apply hover-dip;
+
             }
 
         }
@@ -129,7 +132,9 @@
             
         }
 
+
     }
+
 
 }
 
@@ -172,14 +177,15 @@
             @apply text-center;
             @apply font-medium;
             
-            
-            
-            
         }
+        
 
         input::placeholder{
+
             @apply font-light;
             
         }
+
     }
+
 }

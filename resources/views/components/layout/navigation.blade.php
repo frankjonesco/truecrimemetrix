@@ -1,5 +1,13 @@
-<nav id="siteNav">
+{{-- SITE NAVIGATION --}}
+
+
+<nav id="siteNav" class="bg-white">
+
+
+    {{-- FIXED TOP BAR --}}
+
     <ul>
+
         <li>
             <a 
                 id="openMainMenuIcon"
@@ -10,29 +18,37 @@
                 <i class="fa-solid fa-bars"></i>
             </a>
         </li>
+
         <li>
             <a 
                 href="/" 
-                title="Go to True Crime Metrix homepage" 
-                aria-label="Go to True Crime Metrix homepage"
+                title="Go to {{config('app.name')}} homepage" 
+                aria-label="Go to {{config('app.name')}} homepage"
             >
-                True Crime Metrix
+                {{config('app.name')}}
             </a>
         </li>
+
         <li>
             <a
                 id="toggleSearchBar"
                 href="#"
-                title="Search True Crime Metrix" 
-                aria-label="Search True Crime Metrix"
+                title="Search {{config('app.name')}}" 
+                aria-label="Search {{config('app.name')}}"
             >
                 <i class="fa-solid fa-search"></i>
             </a>
         </li>
+
     </ul>
+
 </nav>
 
+
+{{-- MAIN MENU --}}
+
 <nav id="mainMenu" class="-translate-x-full">
+
     <a
         id="closeMainMenuIcon"
         href="#"
@@ -41,7 +57,9 @@
     >
         <i class="fa-solid fa-times"></i>
     </a>
+
     <ul>
+
         <li>
             <a 
                 href="/login"
@@ -50,13 +68,29 @@
             >
                 Log in
             </a>
+
         </li>
+
     </ul>
+
 </nav>
 
+
+{{-- SEARCH BAR --}}
+
 <div id="navSearchBar">
+
     <form action="/search" method="POST">
+
         @csrf
-        <input id="navSearchInput" type="text" name="search_term" placeholder="Search...">
+
+        <input
+            id="navSearchInput"
+            type="text"
+            name="search_term"
+            placeholder="Search..."
+        >
+
     </form>
+
 </div>

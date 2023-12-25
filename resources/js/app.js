@@ -25,7 +25,6 @@ const navSearchInput = document.querySelector('#navSearchInput');
 openMainMenuIcon.onclick = function(e) {
     e.preventDefault();
     mainMenu.classList.replace('-translate-x-full', 'translate-x-0');
-
     if(navSearchBar.classList.contains('translate-y-20')){
         navSearchBar.classList.toggle('translate-y-20');
     }
@@ -42,7 +41,7 @@ toggleSearchBar.onclick = function(e) {
     e.preventDefault();
     blackout.classList.toggle('hidden');
     navSearchBar.classList.toggle('translate-y-20');
-    navSearchInput.focus();
+    navSearchInput.focus();    
 }
 
 blackout.onclick = function(e) {
