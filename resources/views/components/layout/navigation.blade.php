@@ -59,17 +59,44 @@
     </a>
 
     <ul>
+        
+        @auth
 
-        <li>
-            <a 
-                href="/login"
-                title="Go to login page" 
-                aria-label="Go to login page"
-            >
-                Log in
-            </a>
+            <li>
+                    
+                <form 
+                    action="/logout" 
+                    method="post"
+                >
+                    @csrf
+                    <a 
+                        id="slideMenuLastItem"
+                        href="#" 
+                        onclick="this.parentNode.submit()"
+                    >
+                        Log out
+                    </a>
+                </form>
 
-        </li>
+            </li>
+            
+            
+        @else
+            
+            <li>
+                
+                <a 
+                    href="/login"
+                    title="Go to login page" 
+                    aria-label="Go to login page"
+                >
+                    Log in
+                </a>
+
+            </li>
+
+        @endauth
+        
 
     </ul>
 

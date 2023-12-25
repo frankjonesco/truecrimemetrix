@@ -38,11 +38,32 @@ class UserController extends Controller
 
         if(auth()->attempt($credentials)){
             $request->session()->regenerate();
-            return redirect('/dashboard')->with('toast', 'Welcome back!');
+            return redirect('/admin')->with('toast', 'Welcome back!');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
 
     }
+
+
+
+
+    // LOG USER OUT AND DESTRY SESSION
+
+    public function logout(Request $request){
+
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('toast', 'You are logged out.');
+
+    }
+
+
+
+
+// END OF CLASS
 
 }

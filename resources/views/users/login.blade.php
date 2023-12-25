@@ -32,7 +32,7 @@
                         type="password"
                         name="password"
                         placeholder="Password"
-                        {{$errors->has('email') ? 'autofocus' : null}}
+                        {{$errors->has('password') ? 'autofocus' : null}}
                     >
 
                 </div>
