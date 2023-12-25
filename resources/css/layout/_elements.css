@@ -1,0 +1,55 @@
+.btn{
+    @apply px-4;
+    @apply py-1;
+    @apply w-fit;
+
+    @apply bg-black;
+    @apply text-white;
+    @apply rounded-sm;
+    @apply shadow;
+    
+    @apply font-bold;
+    
+    @apply hover-dip;
+}
+
+.btn-lg{
+    
+}
+
+
+label{
+
+    @apply text-sm;
+    @apply text-gray-400;
+    @apply font-normal;
+    @apply uppercase;    
+
+}
+
+
+input[type='text'],
+input[type='email'],
+input[type='password']{
+
+    @apply px-4;
+    @apply py-2;
+
+    @apply bg-white;
+    @apply border;
+    @apply border-slate-300;
+    @apply rounded-sm;
+
+    @apply text-lg;
+
+    @apply placeholder:text-gray-300;
+    @apply focus:outline-none;
+    @apply focus:border-slate-600;
+
+}
+
+form .field{
+
+    
+
+}

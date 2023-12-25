@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/png" href="{{asset('images/favicon-94x94.png')}}">
     
+
     @meta_tags
 
 
@@ -34,22 +35,45 @@
     </script>
 
 
+    {{-- BUILD SCRIPTS --}}
 
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link href="{{ asset('build/assets/app-gpIJNYej.css')}}"  rel="preload" as="style" onload="this.rel='stylesheet'">
-    <script src="{{ asset('build/assets/app-ukowwLvl.js')}}" defer></script>
-
-
-    
+    {{-- <link href="{{ asset('build/assets/app-gpIJNYej.css')}}"  rel="preload" as="style" onload="this.rel='stylesheet'">
+    <script src="{{ asset('build/assets/app-ukowwLvl.js')}}" defer></script> --}}
 
 </head>
+
 <body>
+
+
     <x-layout.navigation />
+
+    
     <main>
-        {{$slot}}
+
+        <x-blocks.container class="{{isset($containerClass) ? $containerClass : null}}">
+
+            @if(empty($breadcrumbs) === false)
+                <x-cards.breadcrumbs :breadcrumbs="$breadcrumbs" />
+            @endif
+
+            @if(empty($pageHeadings) === false)
+                <x-cards.page-headings :pageHeadings="$pageHeadings" />
+            @endif
+
+            {{$slot}}
+    
+        </x-blocks.container>
+
     </main>
+
+
     <x-layout.footer />
+
+
     <x-blocks.blackout />
+
+
 </body>
 </html>

@@ -11,7 +11,7 @@
         title="Go to True Crime Metrix homepage"
         aria-label="Go to True Crime Metrix homepage"
     >
-        True Crime Metrix
+        {{config('app.name')}}
     </a>
 
 

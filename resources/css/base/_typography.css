@@ -40,6 +40,31 @@ body{
 
 
 /*************************/
+/* HEADING TEXT */
+/*************************/
+
+h1,h2,h3,h4,h5,h6{
+    @apply text-center;
+}
+
+h1{
+    @apply py-5;
+    @apply text-5xl;
+    @apply font-roboto-slab;
+    @apply font-black;
+    @apply tracking-tight;
+}
+
+h2{
+    @apply mb-10;
+    @apply text-3xl;
+    @apply font-thin;
+}
+
+
+
+
+/*************************/
 /* LOGO FONT */
 /*************************/
 

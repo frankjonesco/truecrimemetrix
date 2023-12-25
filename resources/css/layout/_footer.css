@@ -77,17 +77,19 @@
 
         @apply gap-6;        
         
-        >li:first-child{
 
-            @apply pr-2;
-            @apply text-gray-400;
+        li{
 
-        }
+            @apply first:pr-2;
+            @apply first:text-gray-400;
 
-        >li{
-            >a{
+
+            a{
+
                 @apply text-lg;
+
             }
+
         }
 
     }
