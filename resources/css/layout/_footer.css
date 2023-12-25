@@ -1,66 +1,139 @@
+/*************************/
+/* SITE FOOTER */
+/*************************/
+
+
 #siteFooter{
 
     @apply w-screen;
-    @apply py-4;
-    @apply pb-6;
+    @apply pt-20;
+    @apply pb-10;
+
     @apply flex;
     @apply flex-col;
+    @apply gap-12;
     @apply items-center;
-    @apply bg-black;
-    @apply text-white;
 
+    @apply bg-black;
+
+    @apply text-xs;
+    @apply text-white;
+    @apply font-bold;
+    @apply uppercase;
+
+
+    
+    /* LOGO */
 
     >a{
-        @apply mt-10;
-        @apply text-3xl;
-        @apply font-roboto-slab;
-        @apply font-black;
+
+        @apply font-logo;
         @apply hover-dip;
+
     }
 
 
-    >ul{
-        @apply mt-10;
-        @apply mb-16;
+    /* UNORDERED LISTS */
+
+    ul{
+
         @apply flex;
-        @apply gap-7;
-        @apply text-xs;
-        @apply uppercase;
-        @apply tracking-widest;
+        @apply items-center;
+        @apply tracking-tight;
+
 
         li{
+
             a{
-                @apply text-stone-300;
+
                 @apply hover-rise;
                 @apply hover-inflate;
+
             }
+
         }
+
+    }
+
+
+    /* MENU */
+
+    >ul.menu{
+
+        @apply px-6;
+        @apply py-4;
+
+        @apply gap-12;
+
+        @apply border-y;
+        @apply border-gray-800;
         
     }
 
-    >div{
-        @apply flex;
-        @apply gap-0;
-        @apply text-xs;
-        @apply text-stone-300;
 
-        span{
-            a{
-                @apply underline;
-                @apply hover:no-underline;
-                @apply underline-offset-2;
+    /* SOCIALS */
 
+    >ul.socials{
+
+        @apply gap-6;        
+        
+        >li:first-child{
+
+            @apply pr-2;
+            @apply text-gray-400;
+
+        }
+
+        >li{
+            >a{
+                @apply text-lg;
             }
         }
-        span::after{
-            @apply mx-1;
-            content: '\00b7';
-        }
-        span:last-child::after{
-            @apply mx-0;
-            content: '';
-        }
+
     }
 
+
+    /* LEGALS */
+
+    >div.legals{
+
+        @apply flex;
+        @apply gap-0;
+
+        @apply text-xs;
+        @apply text-gray-400;
+        @apply font-light;
+        @apply normal-case;
+
+
+        span{
+
+            a{
+
+                @apply text-yellow-200;
+                @apply no-underline;
+                @apply underline-offset-2;
+
+                @apply hover:underline;
+
+            }
+
+        }
+
+        span::after{
+
+            @apply mx-1;
+            content: '\00b7';
+
+        }
+
+        span:last-child::after{
+
+            @apply mx-0;
+            content: '';
+
+        }
+
+    }
 
 }

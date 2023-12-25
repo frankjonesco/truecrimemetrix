@@ -20,7 +20,12 @@
             </a>
         </li>
         <li>
-            <a href="">
+            <a
+                id="toggleSearchBar"
+                href="#"
+                title="Search True Crime Metrix" 
+                aria-label="Search True Crime Metrix"
+            >
                 <i class="fa-solid fa-search"></i>
             </a>
         </li>
@@ -48,3 +53,10 @@
         </li>
     </ul>
 </nav>
+
+<div id="navSearchBar">
+    <form action="/search" method="POST">
+        @csrf
+        <input id="navSearchInput" type="text" name="search_term" placeholder="Search...">
+    </form>
+</div>

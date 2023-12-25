@@ -40,6 +40,24 @@ body{
 
 
 /*************************/
+/* LOGO FONT */
+/*************************/
+
+
+.font-logo{
+
+    @apply text-3xl;
+    @apply font-black;
+    @apply font-roboto-slab;
+    @apply normal-case;
+    @apply tracking-tighter;
+    
+}
+
+
+
+
+/*************************/
 /* NAVIGATION */
 /*************************/
 
@@ -48,4 +66,6 @@ body{
     @apply font-roboto-slab;
     @apply font-black;
 }
+
+
 

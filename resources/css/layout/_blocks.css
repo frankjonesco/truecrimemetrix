@@ -20,3 +20,22 @@ main{
     @apply mx-auto;
     
 }
+
+
+/* BLACKOUT */
+
+#blackout{
+    @apply fixed;
+    @apply left-0;
+    @apply top-0;
+    @apply w-screen;
+    @apply h-screen;
+
+    @apply bg-green-300;
+    @apply bg-opacity-80;
+
+    @apply z-20;
+
+    @apply animate-300;
+
+}
