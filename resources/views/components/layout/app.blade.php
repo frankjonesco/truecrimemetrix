@@ -62,6 +62,10 @@
                 <x-cards.page-headings :pageHeadings="$pageHeadings" />
             @endif
 
+            <div class="alert-danger">
+                This is an error.
+            </div>
+
             {{$slot}}
     
         </x-blocks.container>

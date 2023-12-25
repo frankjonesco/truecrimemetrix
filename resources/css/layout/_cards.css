@@ -56,3 +56,13 @@
     }
 
 }
+
+
+.page-headings{
+
+    @apply mb-12;
+    
+    @apply border-b;
+    @apply border-slate-300;
+    
+}

@@ -1,3 +1,8 @@
+/*************************/
+/* BUTTONS */
+/*************************/
+
+
 .btn{
     @apply px-4;
     @apply py-1;
@@ -13,9 +18,17 @@
     @apply hover-dip;
 }
 
+
 .btn-lg{
     
 }
+
+
+
+
+/*************************/
+/* FORM ELEMENTS */
+/*************************/
 
 
 label{
@@ -48,8 +61,115 @@ input[type='password']{
 
 }
 
+
 form .field{
 
-    
 
 }
+
+
+
+
+/*************************/
+/* ALERTS */
+/*************************/
+
+.alert{
+
+    @apply mx-auto;
+    @apply mb-12;
+    @apply px-8;
+    @apply py-2;
+    @apply w-fit;
+
+    @apply bg-gray-50;
+    @apply border;
+    @apply border-slate-300;
+    @apply border-l-8;
+    @apply border-l-gray-700;
+    @apply shadow;
+
+    @apply text-gray-800;
+
+}
+
+
+.alert-primary{
+
+    @apply alert;
+
+    @apply bg-primary-50;
+    @apply border-l-primary-700;
+    @apply text-primary-800;
+
+}
+
+
+.alert-secondary{
+
+    @apply alert;
+
+    @apply bg-secondary-50;
+    @apply border-l-secondary-700;
+    @apply text-secondary-800;
+
+}
+
+
+.alert-success{
+
+    @apply alert;
+
+    @apply bg-success-50;
+    @apply border-l-success-700;
+    @apply text-success-800;
+
+}
+
+
+.alert-danger{
+
+    @apply alert;
+
+    @apply bg-danger-50;
+    @apply border-l-danger-700;
+    @apply text-danger-800;
+
+}
+
+
+.alert-warning{
+
+    @apply alert;
+
+    @apply bg-warning-50;
+    @apply border-l-warning-700;
+    @apply text-warning-800;
+
+}
+
+
+.alert-info{
+
+    @apply alert;
+
+    @apply bg-info-50;
+    @apply border-l-info-700;
+    @apply text-info-800;
+
+}
+
+
+.alert-action{
+
+    @apply alert;
+
+    @apply bg-action-50;
+    @apply border-l-action-700;
+    @apply text-action-800;
+
+}
+
+
+
+
