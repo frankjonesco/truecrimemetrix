@@ -142,7 +142,7 @@
                 href="https://soapboxcoder.com"
                 target="_blank"
                 title="Go to soapboxcoder.com"
-                aria-title="Go to soapboxcoder.com"
+                aria-label="Go to soapboxcoder.com"
             >
                 SoapboxCoder
             </a>
