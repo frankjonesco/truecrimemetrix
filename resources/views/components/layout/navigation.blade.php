@@ -64,6 +64,18 @@
 
             <li>
                     
+                <a 
+                    href="/admin"
+                    title="Go to admin" 
+                    aria-label="Go to admin"
+                >
+                    Admin
+                </a>
+
+            </li>
+
+            <li>
+                    
                 <form 
                     action="/logout" 
                     method="post"

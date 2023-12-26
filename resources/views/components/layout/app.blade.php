@@ -74,6 +74,9 @@
 
     <x-blocks.blackout />
 
+    
+    <x-elements.toast />
+
 
 </body>
 </html>

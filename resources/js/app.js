@@ -49,3 +49,64 @@ blackout.onclick = function(e) {
     navSearchBar.classList.remove('translate-y-20')
     blackout.classList.add('hidden');
 }
+
+
+
+
+/**************************************/
+/* DATA REPLACE FOR SWITCHING CLASSES */
+/**************************************/
+
+
+// EVENT LISTENER
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    // TIMEOUT
+
+    setTimeout(function(){
+
+
+        var replacers = document.querySelectorAll('[data-replace]');
+
+
+        for( var i = 0; i < replacers.length; i++){
+
+            let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+
+            Object.keys(replaceClasses).forEach(function(key){
+                replacers[i].classList.remove(key);
+                replacers[i].classList.add(replaceClasses[key]);
+            });
+
+        }
+
+
+    }, 0 );
+
+
+    // TIMEOUT
+
+    setTimeout(function(){
+
+
+        var replacers = document.querySelectorAll('[data-replace]');
+
+
+        for(var i=0; i<replacers.length; i++){
+
+            let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+
+            Object.keys(replaceClasses).forEach(function(key) {
+                replacers[i].classList.add(key);
+                replacers[i].classList.remove(replaceClasses[key]);
+            });
+
+        }
+
+
+    }, 2000 );
+
+
+});

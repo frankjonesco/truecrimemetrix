@@ -31,7 +31,7 @@
 
         <li>
             <a 
-                href="/contact"
+                href="/contact-us"
                 title="Contact us"
                 aria-label="Contact us"
             >
@@ -131,10 +131,7 @@
             {{config('app.name')}} Ltd.
         </span>
         <span>
-            All rights reserved.
-        </span>
-        <span>
-            &copy; {{date('Y', time())}}
+            All rights reserved. &copy; {{date('Y', time())}}
         </span>
         <span>
             Powered by 

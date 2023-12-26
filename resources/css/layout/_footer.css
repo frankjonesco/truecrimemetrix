@@ -21,6 +21,11 @@
     @apply font-bold;
     @apply uppercase;
 
+    
+    a{
+        @apply no-underline;
+    }
+
 
     
     /* LOGO */
@@ -124,7 +129,8 @@
 
         span::after{
 
-            @apply mx-1;
+            @apply ml-1;
+            @apply mr-2;
             content: '\00b7';
 
         }

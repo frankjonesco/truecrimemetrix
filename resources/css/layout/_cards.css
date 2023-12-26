@@ -50,8 +50,15 @@
 
 
     &.form-sm{
-
-        @apply w-2/5;
+        @apply w-full;
+       
+        
+        @apply sm:w-full;
+        @apply md:w-3/4;
+        @apply lg:w-2/3;
+        @apply xl:w-2/5;
+        
+        
 
     }
 

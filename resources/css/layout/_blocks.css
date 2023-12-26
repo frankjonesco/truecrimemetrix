@@ -17,9 +17,12 @@ main{
 
 
 .container{
-
-    @apply w-2/3;
+    
+    @apply w-full;
+    @apply lg:w-3/4;
+    
     @apply mx-auto;
+    @apply px-6;
     
 }
 

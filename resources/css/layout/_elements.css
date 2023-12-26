@@ -173,3 +173,42 @@ form .field{
 
 
 
+/*************************/
+/* TOAST */
+/*************************/
+
+
+.toast-box{
+
+    @apply fixed;
+    @apply p-8;
+    @apply left-1/2;
+    @apply -translate-x-1/2;
+    
+    @apply bg-yellow-400;
+    @apply border-2;
+    @apply border-gray-900;
+    @apply rounded-sm;
+    @apply shadow-md;
+
+    @apply z-50;
+
+    @apply animate-300;
+
+}
+
+
+.toast-text{
+
+    @apply mx-3;
+
+    @apply text-3xl;
+    @apply text-center;
+    @apply font-black;
+    @apply capitalize;
+
+}
+
+
+
+
