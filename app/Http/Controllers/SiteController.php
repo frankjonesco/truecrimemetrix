@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SiteController extends Controller
 {
@@ -11,6 +13,15 @@ class SiteController extends Controller
     // VIEW HOME
 
     public function viewHome(){
+
+        // // Grab settings from database as a list
+        // $settings = Site::where('id', 1)->get();
+
+        // // Generate and save config file
+        // $filePath = config_path() . '/settings.php';
+        // $content = '<?php return ' . var_export($settings, true) . ';';
+        // File::put($filePath, $content);
+
         return view('pages.home', [
             'pageHeadings' => [
                 'A true crime corner of the internet',

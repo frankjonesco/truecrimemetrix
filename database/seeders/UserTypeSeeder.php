@@ -15,35 +15,20 @@ class UserTypeSeeder extends Seeder
     public function run(): void
     {
         
-        // SEED FROM ARRAY
+        // SEED FROM IMPORT DATABASE
 
         $model = new UserType();
-
-        $items = [
-            [
-                'hex' => Str::random(11),
-                'name' => 'Registered'
-            ],
-            [
-                'hex' => Str::random(11),
-                'name' => 'Author'
-            ],
-            [
-                'hex' => Str::random(11),
-                'name' => 'Publisher'
-            ],
-            [
-                'hex' => Str::random(11),
-                'name' => 'Admin'
-            ],
-            [
-                'hex' => Str::random(11),
-                'name' => 'Super Admin'
-            ],
-        ];
+            
+        $items = $model::on('mysql_import')->get();
 
         foreach($items as $item){
-            $model::create($item);
+            $model::create([
+                'id' => $item->id,
+                'hex' => $item->hex,
+                'name' => $item->name  
+            ]);
         }
+
     }
+    
 }

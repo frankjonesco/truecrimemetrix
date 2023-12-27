@@ -171,6 +171,9 @@ return [
 
         App\Providers\MetaTagsServiceProvider::class,
         App\Providers\CookiesServiceProvider::class,
+
+        App\Providers\ConfigServiceProvider::class,
+
     ])->toArray(),
 
     /*
