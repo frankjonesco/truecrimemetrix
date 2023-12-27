@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\UserType;
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

@@ -24,7 +24,7 @@ class SiteController extends Controller
 
         return view('pages.home', [
             'pageHeadings' => [
-                'A true crime corner of the FULL internet',
+                'A true crime corner of the internet',
                 'News and statistics on high profile true crime cases.'
             ]
         ]);

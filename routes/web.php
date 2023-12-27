@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +72,17 @@ use App\Http\Controllers\UserController;
         Route::get('/login', 'viewLogin')->name('login');
         Route::post('/authenticate', 'authenticate');
     });
+
+
+
+
+// ADMIN CONTROLLER 
+
+
+// AUTHENTICATED USERS
+
+Route::controller(AdminController::class)->group(function(){
+
+    Route::get('/admin', 'index');
+    
+});

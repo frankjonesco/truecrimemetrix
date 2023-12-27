@@ -25,9 +25,7 @@
                 title="Go to {{config('app.name')}} homepage" 
                 aria-label="Go to {{config('app.name')}} homepage"
             >
-                {{-- {{config('app.name')}} --}}
-
-                {{config('settings.hex')}}
+                {{config('app.name')}}
             </a>
         </li>
 
