@@ -8,9 +8,11 @@
     @apply mx-auto;
     @apply px-8;
     @apply py-10;
+
     @apply bg-slate-50;
     @apply border;
     @apply border-gray-300;
+
     @apply rounded-md;
     @apply shadow;
 
@@ -21,6 +23,7 @@
 
 
         form{
+
             @apply grid;
             @apply grid-cols-2;
             @apply gap-8;
@@ -31,11 +34,13 @@
             .field, .buttons{
 
                 @apply col-span-2;
+
                 @apply flex;
                 @apply flex-col;
                 @apply gap-3;
                 
             }
+
 
             .buttons{
 
@@ -50,19 +55,24 @@
 
 
     &.form-sm{
+
         @apply w-full;
-       
-        
         @apply sm:w-full;
         @apply md:w-3/4;
         @apply lg:w-2/3;
         @apply xl:w-2/5;
-        
-        
 
     }
 
+
 }
+
+
+
+
+/*************************/
+/* PAGE HEADINGS */
+/*************************/
 
 
 .page-headings{
@@ -72,4 +82,125 @@
     @apply border-b;
     @apply border-slate-300;
     
+}
+
+
+
+
+/*************************/
+/* DOCUMENT CARD */
+/*************************/
+
+
+.document-card{
+
+    @apply mx-auto;
+    @apply w-3/4;
+
+
+    .section{
+
+        @apply mb-10;
+        @apply px-6;
+        @apply py-10;
+
+        @apply bg-stone-50;
+        @apply border;
+        @apply border-slate-300;
+
+        @apply rounded;
+
+
+        .sub-heading{
+
+            @apply mb-10;
+            
+            @apply text-center;
+            @apply text-base;
+            @apply font-semibold;
+
+        }
+
+
+        .sub-section{
+
+            @apply mb-10;
+
+        }
+
+
+        h2{
+
+            @apply font-bold;
+
+        }
+
+
+        ul{
+
+            @apply ml-8;
+            @apply mt-4;
+            @apply mb-6;
+
+            @apply list-disc;
+
+
+            li{
+
+                @apply py-0.5;
+
+            }
+
+
+        }
+
+        .bold{
+
+            @apply font-medium;
+
+        }
+
+    }
+
+
+}
+
+
+
+
+/*************************/
+/* TOAST */
+/*************************/
+
+
+.toast-box{
+
+    @apply fixed;
+    @apply p-8;
+    @apply left-1/2;
+    @apply -translate-x-1/2;
+    
+    @apply bg-yellow-400;
+    @apply border-2;
+    @apply border-gray-900;
+
+    @apply rounded-sm;
+    @apply shadow-md;
+
+    @apply z-50;
+
+    @apply animate-300;
+
+}
+
+
+.toast-text{
+
+    @apply mx-3;
+
+    @apply text-3xl;
+    @apply text-center;
+    @apply font-black;
+    @apply capitalize;
+
 }

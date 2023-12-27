@@ -42,6 +42,11 @@
     {{-- <link href="{{ asset('build/assets/app-gpIJNYej.css')}}"  rel="preload" as="style" onload="this.rel='stylesheet'">
     <script src="{{ asset('build/assets/app-ukowwLvl.js')}}" defer></script> --}}
 
+
+    {{-- COOKIE CONSENT --}}
+
+    @cookieconsentscripts
+
 </head>
 
 <body>
@@ -75,7 +80,10 @@
     <x-blocks.blackout />
 
     
-    <x-elements.toast />
+    <x-cards.toast />
+
+
+    @cookieconsentview
 
 
 </body>

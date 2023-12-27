@@ -4,7 +4,7 @@
     <x-layout.side-navigation :navButtons="$navButtons" />
    
 
-    <div class="document-body">
+    <div class="document-card">
 
 
         {{-- OVERVIEW --}}

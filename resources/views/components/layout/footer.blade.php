@@ -10,6 +10,7 @@
         href="/"
         title="Go to True Crime Metrix homepage"
         aria-label="Go to True Crime Metrix homepage"
+        class="logo"
     >
         {{config('app.name')}}
     </a>

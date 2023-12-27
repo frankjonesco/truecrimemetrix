@@ -1,32 +1,4 @@
 /*************************/
-/* BUTTONS */
-/*************************/
-
-
-.btn{
-    @apply px-4;
-    @apply py-1;
-    @apply w-fit;
-
-    @apply bg-black;
-    @apply text-white;
-    @apply rounded-sm;
-    @apply shadow;
-    
-    @apply font-bold;
-    
-    @apply hover-dip;
-}
-
-
-.btn-lg{
-    
-}
-
-
-
-
-/*************************/
 /* FORM ELEMENTS */
 /*************************/
 
@@ -51,6 +23,7 @@ input[type='password']{
     @apply bg-white;
     @apply border;
     @apply border-slate-300;
+
     @apply rounded-sm;
 
     @apply text-lg;
@@ -62,8 +35,29 @@ input[type='password']{
 }
 
 
-form .field{
 
+
+/*************************/
+/* BUTTONS */
+/*************************/
+
+
+.btn{
+
+    @apply px-4;
+    @apply py-1;
+
+    @apply w-fit;
+
+    @apply bg-black;
+    
+    @apply rounded-sm;
+    @apply shadow;
+
+    @apply text-white;
+    @apply font-bold;
+    
+    @apply hover-dip;
 
 }
 
@@ -74,12 +68,14 @@ form .field{
 /* ALERTS */
 /*************************/
 
+
 .alert{
 
     @apply mx-auto;
     @apply mb-12;
     @apply px-8;
     @apply py-2;
+
     @apply w-fit;
 
     @apply bg-gray-50;
@@ -87,6 +83,7 @@ form .field{
     @apply border-slate-300;
     @apply border-l-8;
     @apply border-l-gray-700;
+
     @apply shadow;
 
     @apply text-gray-800;
@@ -169,46 +166,3 @@ form .field{
     @apply text-action-800;
 
 }
-
-
-
-
-/*************************/
-/* TOAST */
-/*************************/
-
-
-.toast-box{
-
-    @apply fixed;
-    @apply p-8;
-    @apply left-1/2;
-    @apply -translate-x-1/2;
-    
-    @apply bg-yellow-400;
-    @apply border-2;
-    @apply border-gray-900;
-    @apply rounded-sm;
-    @apply shadow-md;
-
-    @apply z-50;
-
-    @apply animate-300;
-
-}
-
-
-.toast-text{
-
-    @apply mx-3;
-
-    @apply text-3xl;
-    @apply text-center;
-    @apply font-black;
-    @apply capitalize;
-
-}
-
-
-
-

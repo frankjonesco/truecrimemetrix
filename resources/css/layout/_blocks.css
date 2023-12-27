@@ -1,16 +1,28 @@
+/*************************/
+/* HTML BLOCKS */
+/*************************/
+
+
 body{
+
     @apply w-screen;
     @apply h-screen;
+
     @apply flex;
     @apply flex-col;
+
 }
 
 
 main{
+    
     @apply my-20;
     @apply py-5;
+
     @apply grow;
+    
 }
+
 
 
 /* CONTAINERS */
@@ -27,12 +39,16 @@ main{
 }
 
 
+
 /* BLACKOUT */
 
+
 #blackout{
+
     @apply fixed;
     @apply left-0;
     @apply top-0;
+
     @apply w-screen;
     @apply h-screen;
 

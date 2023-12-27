@@ -8,27 +8,38 @@
 /*************************/
 
 
-.font-nunito {
+.font-nunito{
+
     font-family: 'Nunito', sans-serif;  
+
 }
 
-.font-poppins {
+
+.font-poppins{
+
     font-family: 'Poppins', sans-serif;
+
 }
 
-.font-roboto {
+
+.font-roboto{
+
     font-family: 'Roboto', sans-serif;
+
 }
 
-.font-roboto-slab {
+
+.font-roboto-slab{
+
     font-family: 'Roboto Slab', serif;
+
 }
 
 
 
 
 /*************************/
-/* BODY */
+/* BODY TEXT */
 /*************************/
 
 
@@ -43,41 +54,71 @@ body{
 /* HEADING TEXT */
 /*************************/
 
+
 h1,h2,h3,h4,h5,h6{
+
     @apply text-center;
+
 }
+
 
 h1{
+
     @apply py-5;
-    @apply text-5xl;
-    @apply font-roboto-slab;
+    
+    @apply text-4xl;
+    @apply sm:text-5xl;
+    
     @apply font-black;
+    @apply font-roboto-slab;
     @apply tracking-tight;
+
 }
+
 
 h2{
+
     @apply mb-10;
-    @apply text-3xl;
+    @apply text-2xl;
+    @apply sm:text-3xl;
     @apply font-thin;
+
 }
 
+
 h3{
+
     @apply text-xl;
     @apply font-bold;
     @apply mb-5;
+
 }
+
+
+
+
+/*************************/
+/* TEXT GLOBALS */
+/*************************/
+
 
 p{
+
     @apply mb-4;
+
 }
 
+
 a{
-    @apply hover-dip;
-    @apply hover-text-red;
+
     @apply underline;
     @apply underline-offset-2;
+
+    @apply hover-dip;
+    @apply hover-text-red;
     @apply hover:no-underline;
     @apply hover:translate-y-0.5;
+
 }
 
 
@@ -108,83 +149,15 @@ a{
 
 #siteNav{
 
-    @apply font-roboto-slab;
     @apply font-black;
+    @apply font-roboto-slab;
 
 }
 
 
 
 
-/*************************/
-/* TERMS TEXT */
-/*************************/
 
-
-.document-body{
-
-    @apply mx-auto;
-    @apply w-3/4;
-
-
-    .section{
-
-        @apply mb-10;
-        @apply px-6;
-        @apply py-10;
-        @apply bg-stone-50;
-        @apply border;
-        @apply border-slate-300;
-        @apply rounded;
-
-
-        h2{
-            @apply font-bold;
-        }
-
-
-        h3{
-
-        }
-
-
-        ul{
-            @apply list-disc;
-            @apply ml-8;
-            @apply mt-4;
-            @apply mb-6;
-
-
-            li{
-                @apply py-0.5;
-            }
-
-
-        }
-
-        .bold{
-            @apply font-medium;
-        }
-
-
-        .sub-heading{
-            @apply mb-10;
-            @apply text-center;
-            @apply text-base;
-            @apply font-semibold;
-        }
-
-
-        .sub-section{
-            @apply mb-10;
-
-            
-
-        }
-
-    }
-
-}
 
 
 

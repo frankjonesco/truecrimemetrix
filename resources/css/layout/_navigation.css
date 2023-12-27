@@ -6,6 +6,7 @@
 #siteNav{
 
     @apply fixed;
+
     @apply w-screen;
     @apply h-20;
 
@@ -14,6 +15,7 @@
 
     @apply bg-white;
     @apply border-b;
+
     @apply shadow;
 
     @apply text-3xl;
@@ -21,10 +23,18 @@
     @apply z-40;
 
 
+    
+    /* SITE NAV LINKS */
+
+
     a{
         @apply no-underline;
         @apply hover:text-inherit;
     }
+
+
+
+    /* UNORDERED LISTS */
 
 
     ul{
@@ -58,18 +68,17 @@
             
         }
 
+
         li:nth-child(3){
 
             @apply text-end;
 
         }
 
-
     }
 
     
 }
-
 
 
 
@@ -84,6 +93,7 @@
     @apply fixed;
     @apply left-0;
     @apply top-0;
+
     @apply w-screen;
     @apply h-screen;
 
@@ -93,33 +103,39 @@
     @apply from-white;
     @apply to-white;
     @apply border-r;
+    
     @apply shadow;
 
-    @apply font-roboto-slab;
+    
     @apply text-5xl;
     @apply font-black;
+    @apply font-roboto-slab;
 
     @apply z-50;
 
     @apply animate-300;
 
 
+
+    /* CLOSE MENU ICON */
+    
+
     a#closeMainMenuIcon{
 
         @apply fixed;
         @apply right-0;
         @apply top-0;
+
         @apply mr-10;
         @apply mt-6;
 
         @apply hover-spin;
+
     }
 
 
-    a{
-        @apply no-underline;
-        @apply hover:text-inherit;
-    }
+
+    /* MAIN MENU ITEMS */
 
 
     ul{
@@ -135,16 +151,23 @@
 
         li{
 
+
             a{
 
                 @apply px-4;
                 @apply py-1;
 
+                @apply no-underline;
+                
+                @apply hover-dip;
+                @apply hover:bg-yellow-300;
+                @apply hover:text-inherit;
+
+
             }
             
         }
-
-
+        
     }
 
 
@@ -159,9 +182,11 @@
 
 
 #navSearchBar{
+
     @apply fixed;
     @apply top-0;
     @apply left-0;
+
     @apply w-screen;
 
     @apply text-xl;
@@ -173,9 +198,9 @@
     @apply z-30;
 
 
-    >form{
+    form{
 
-        >input{
+        input{
             
             @apply py-4;
             @apply w-full;
@@ -190,44 +215,56 @@
             @apply text-center;
 
             @apply placeholder:text-gray-400;
-            @apply placeholder:!font-thin;
+            @apply placeholder:font-thin;
             @apply focus:outline-none;
             @apply focus:border-0;
             
         }
-
-
-        input::placeholder{
-
-            @apply !font-thin;
-
-        }
         
-
     }
+
 
 }
 
 
 
-.scroll-to-nav{
+
+/*************************/
+/* SIDE NAVIGATION */
+/*************************/
+
+
+.side-nav{
 
     @apply fixed;
     @apply left-0;
     @apply top-1/2;
-    @apply p-6;
-    @apply mx-auto;
-    @apply mb-10;
-    @apply w-fit;
     @apply -translate-y-1/2;
 
+    
+
+    @apply w-fit;
+
     @apply flex;
-    @apply flex-col;
-    @apply gap-3;
+    
 
-
-    @apply  bg-sky-50;
+    @apply bg-sky-50;
     @apply border;
-    @apply  border-slate-300;
+    @apply border-slate-300;
+
+
+    ul{
+
+        @apply flex;
+        @apply flex-col;
+        @apply gap-3;
+
+        @apply mx-auto;
+        @apply p-6;
+
+        
+    
+    }
+
     
 }

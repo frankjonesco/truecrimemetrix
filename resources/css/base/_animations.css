@@ -1,3 +1,8 @@
+/*************************/
+/* ANIMATION SPEEDS */
+/*************************/
+
+
 .animate-150{
 
     @apply transition-all;
@@ -13,6 +18,13 @@
     @apply ease-in;
 
 }
+
+
+
+
+/*************************/
+/* HOVER ANIMATIONS */
+/*************************/
 
 
 .hover-dip{
@@ -58,14 +70,4 @@
 
 }
 
-#mainMenu{
 
-    ul{
-        li{
-            a{
-                @apply hover-dip;
-                @apply hover:bg-yellow-300;
-            }
-        }
-    }
-}
