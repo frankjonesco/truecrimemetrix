@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 
@@ -31,6 +32,48 @@ class AdminController extends Controller
                 'View, create, edit and delete your content.'
             ]
         ]);
+    }
+
+
+
+
+    // VIEW DATABASES
+
+    public function viewDatabases(){
+        return view('admin.databases', [
+            'pageHeadings' => [
+                'Manage databases',
+                'Clone the '.config('app.name').' database to import.'
+            ],
+        ]);
+    }
+
+
+
+
+    // CLONE DATABASE
+
+    public function cloneDatabase(){
+
+        Artisan::call('migrate:fresh --database="mysql_import"');
+
+        $live_db_tables = DB::select('SHOW TABLES');
+
+        $db = "Tables_in_".env('DB_DATABASE');
+        $tables = [];
+
+        foreach($live_db_tables as $table){
+            $tables[] = $table->{$db};
+        }
+
+        foreach($tables as $i => $table){
+            $row_to_copy = DB::connection('mysql')->table($table)->distinct()->select('*')->get()->toArray();
+            $row_to_paste = json_decode(json_encode($row_to_copy), true);    
+            DB::connection('mysql_import')->table($table)->insert($row_to_paste);         
+        }
+
+        return redirect('admin')->with('toast', 'Database copied to import database!');
+        
     }
 
 
@@ -107,6 +150,46 @@ class AdminController extends Controller
         File::put($filePath, $content);
 
         return redirect('admin')->with('toast', 'Configuration updated!');
+
+    }
+
+
+
+
+    // VIEW EDIT ENVIRONMENT FORM
+
+    public function editEnvironment(){
+        return view('admin.edit-environment', [
+            'pageHeadings' => [
+                'Edit environment',
+                'Environment settings for '.config('app.name').'.'
+            ],
+            'config' => $this->site->getConfig()
+        ]);
+    }
+
+
+
+
+    // UPDATE ENVIRONMENT
+        
+    public function updateEnvironment(Request $request){
+
+        $request->validate([
+            'environment' => 'required',
+            'css_assets' => 'required',
+            'js_assets' => 'required',
+        ]);
+
+        $config = $this->site->getConfig();
+
+        $config->environment = $request->environment;
+        $config->css_assets = $request->css_assets;
+        $config->js_assets = $request->js_assets;
+
+        $config->save();
+
+        return redirect('admin')->with('toast', 'Environment set to '.$request->environment.'!');
 
     }
 }

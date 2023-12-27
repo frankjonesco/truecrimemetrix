@@ -84,7 +84,14 @@ use App\Http\Controllers\AdminController;
 Route::controller(AdminController::class)->group(function(){
 
     Route::get('/admin', 'index');
+    
     Route::get('/admin/config/edit', 'editConfig');
     Route::put('/admin/config/update', 'updateConfig');
+
+    Route::get('/admin/databases', 'viewDatabases');
+    Route::post('/admin/databases/clone', 'cloneDatabase');
+
+    Route::get('/admin/environment/edit', 'editEnvironment');
+    Route::put('/admin/environment/update', 'updateEnvironment');
     
 });

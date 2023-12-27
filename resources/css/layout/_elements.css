@@ -62,6 +62,8 @@ select{
     
     @apply hover-dip;
 
+    @apply hover:text-white;
+
 }
 
 .btn-primary{

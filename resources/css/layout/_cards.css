@@ -29,6 +29,23 @@
             @apply gap-8;
             @apply justify-center;
             @apply items-center;
+            
+
+            span.section-heading{
+
+                @apply block;
+                @apply mt-4;
+                @apply mb-4;
+                @apply pb-3;
+
+                @apply border-b;
+                @apply border-b-gray-200;
+                
+                @apply text-lg;
+                @apply font-bold;
+                @apply text-gray-600;
+
+            }
 
 
             .field, .buttons{
@@ -41,11 +58,17 @@
                 
             }
 
+            .hidden-field{
+
+                @apply hidden;
+                
+            }
+
 
             .buttons{
 
-                @apply flex;
-                @apply items-center;
+                @apply flex-row;
+                @apply justify-center;
 
             }
 

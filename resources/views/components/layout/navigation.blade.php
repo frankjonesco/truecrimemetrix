@@ -25,7 +25,7 @@
                 title="Go to {{config('app.name')}} homepage" 
                 aria-label="Go to {{config('app.name')}} homepage"
             >
-                {{config('settings.meta_author')}}
+                {{config('app.name')}}
             </a>
         </li>
 
