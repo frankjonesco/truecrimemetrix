@@ -14,4 +14,10 @@ class Site extends Model
 
     protected $table = 'config';
 
+
+
+    public function getConfig(){
+        return Site::where('id', 1)->first();
+    }
+
 }

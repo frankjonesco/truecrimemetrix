@@ -15,7 +15,9 @@ label{
 
 input[type='text'],
 input[type='email'],
-input[type='password']{
+input[type='password'],
+textarea,
+select{
 
     @apply px-4;
     @apply py-2;
@@ -56,9 +58,45 @@ input[type='password']{
 
     @apply text-white;
     @apply font-bold;
+    @apply no-underline;
     
     @apply hover-dip;
 
+}
+
+.btn-primary{
+    @apply btn;
+    @apply bg-primary-600;
+}
+
+.btn-secondary{
+    @apply btn;
+    @apply bg-secondary-600;
+}
+
+.btn-success{
+    @apply btn;
+    @apply bg-success-600;
+}
+
+.btn-danger{
+    @apply btn;
+    @apply bg-danger-600;
+}
+
+.btn-warning{
+    @apply btn;
+    @apply bg-warning-600;
+}
+
+.btn-info{
+    @apply btn;
+    @apply bg-info-600;
+}
+
+.btn-action{
+    @apply btn;
+    @apply bg-action-600;
 }
 
 

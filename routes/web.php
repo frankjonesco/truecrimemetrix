@@ -84,5 +84,7 @@ use App\Http\Controllers\AdminController;
 Route::controller(AdminController::class)->group(function(){
 
     Route::get('/admin', 'index');
+    Route::get('/admin/config/edit', 'editConfig');
+    Route::put('/admin/config/update', 'updateConfig');
     
 });

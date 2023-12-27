@@ -57,10 +57,29 @@
     &.form-sm{
 
         @apply w-full;
-        @apply sm:w-full;
+
         @apply md:w-3/4;
         @apply lg:w-2/3;
         @apply xl:w-2/5;
+
+    }
+
+
+    &.form-md{
+
+        @apply w-full;
+        
+        @apply lg:w-3/4;
+        @apply xl:w-1/2;
+
+    }
+
+
+    &.form-lg{
+
+        @apply w-full;
+        
+        @apply xl:w-3/4;
 
     }
 
