@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,21 @@ use App\Http\Controllers\AdminController;
         Route::get('/terms-of-use', 'viewTermsOfUse');
 
     });
+
+
+
+
+// CATEGORY CONTROLLER 
+
+
+// ALL USERS
+
+Route::controller(CategoryController::class)->group(function(){
+
+    Route::get('/categories', 'index');
+   
+
+});
 
 
 

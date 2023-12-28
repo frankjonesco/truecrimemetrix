@@ -1,15 +1,17 @@
 <x-layout.app :pageHeadings="$pageHeadings">
-    <form 
-        action="/admin/databases/clone" 
-        method="post"
-    >
-        @csrf
-        <a 
-            href="#" 
-            class="btn-danger"
-            onclick="this.parentNode.submit()"
+    <div class="flex justify-center gap-3">
+        <form 
+            action="/admin/databases/clone" 
+            method="post"
         >
-            Clone database
-        </a>
-    </form>
+            @csrf
+            <a 
+                href="#" 
+                class="btn-danger"
+                onclick="this.parentNode.submit()"
+            >
+                Clone database
+            </a>
+        </form>
+    </div>
 </x-layout.app>

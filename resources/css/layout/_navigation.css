@@ -71,6 +71,8 @@
 
         li:nth-child(3){
 
+            @apply flex;
+            @apply gap-9;
             @apply text-end;
 
         }

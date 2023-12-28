@@ -22,7 +22,6 @@ class AdminController extends Controller
 
 
 
-
     // ADMIN INDEX
 
     public function index(){
@@ -55,25 +54,49 @@ class AdminController extends Controller
 
     public function cloneDatabase(){
 
+        
+        // EMPTY IMPORT DATABASE
+
         Artisan::call('migrate:fresh --database="mysql_import"');
+        
 
-        $live_db_tables = DB::select('SHOW TABLES');
 
-        $db = "Tables_in_".env('DB_DATABASE');
-        $tables = [];
+        // BUILD ARRAY OF TABLE IN LIVE DATABASEs
 
-        foreach($live_db_tables as $table){
-            $tables[] = $table->{$db};
+        $db = 'Tables_in_'.env('DB_DATABASE');
+        $live_tables = DB::select('SHOW TABLES');
+        $copy_tables = [];
+        foreach($live_tables as $live_table){
+            $copy_tables[] = $live_table->$db;
         }
 
-        foreach($tables as $i => $table){
-            $row_to_copy = DB::connection('mysql')->table($table)->distinct()->select('*')->get()->toArray();
-            $row_to_paste = json_decode(json_encode($row_to_copy), true);    
-            DB::connection('mysql_import')->table($table)->insert($row_to_paste);         
+
+
+        // FOR EACH TABLE, COPY THE TABLES TO THE IMPORT DATABASE
+
+        foreach($copy_tables as $i => $copy_table){
+
+            $row_to_copy = DB::connection('mysql')
+                ->table($copy_table)
+                ->distinct()
+                ->select('*')
+                ->get()
+                ->toArray();
+
+            $row_to_paste = json_decode( json_encode($row_to_copy), true );  
+
+            DB::connection('mysql_import')
+                ->table($copy_table)
+                ->insert($row_to_paste);       
         }
+
+
+
+        // RETURN TO ADMIN WITH TOAST
 
         return redirect('admin')->with('toast', 'Database copied to import database!');
         
+
     }
 
 
@@ -121,6 +144,7 @@ class AdminController extends Controller
         ]);
 
         $config = $this->site->getConfig();
+        
         $config->meta_title = $request->meta_title;
         $config->meta_description = $request->meta_description;
         $config->meta_keywords = $request->meta_keywords;

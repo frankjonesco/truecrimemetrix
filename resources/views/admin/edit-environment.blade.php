@@ -55,7 +55,7 @@
 
                 {{-- ASSET BUILD TITLE --}}
 
-                <span class="block mt-4 mb-4 pb-3 text-lg font-bold text-gray-600 border-b border-b-gray-200">
+                <span class="section-heading">
                     Asset builds
                 </span>
 

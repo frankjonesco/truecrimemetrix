@@ -10,17 +10,20 @@ class SiteController extends Controller
 {
 
 
+    protected $site;
+
+    public function __construct(Site $site){
+
+        $this->site = $site;
+        
+    }
+
+
+
+
     // VIEW HOME
 
     public function viewHome(){
-
-        // // Grab settings from database as a list
-        // $settings = Site::where('id', 1)->get();
-
-        // // Generate and save config file
-        // $filePath = config_path() . '/settings.php';
-        // $content = '<?php return ' . var_export($settings, true) . ';';
-        // File::put($filePath, $content);
 
         return view('pages.home', [
             'pageHeadings' => [
@@ -28,6 +31,7 @@ class SiteController extends Controller
                 'News and statistics on high profile true crime cases.'
             ]
         ]);
+
     }
 
 
@@ -36,12 +40,14 @@ class SiteController extends Controller
     // VIEW ABOUT
 
     public function viewAbout(){
+
         return view('pages.about', [
             'pageHeadings' => [
                 'About',
                 'What we do at '.config('app.name').'.'
             ]
         ]);
+
     }
 
 
@@ -50,12 +56,14 @@ class SiteController extends Controller
     // VIEW CONTACT US
 
     public function viewContactUs(){
+
         return view('pages.contact-us', [
             'pageHeadings' => [
                 'Contact us',
                 'Ask us anything'
             ]
         ]);
+
     }
 
 
@@ -64,12 +72,14 @@ class SiteController extends Controller
     // VIEW OPPORTUNITIES
 
     public function viewOpportunities(){
+
         return view('pages.opportunities', [
             'pageHeadings' => [
                 'Opportunities',
                 'Become a contributer at '.config('app.name').'.'
             ]
         ]);
+
     }
 
 
@@ -78,6 +88,7 @@ class SiteController extends Controller
     // VIEW PRIVACY POLICY
 
     public function viewPrivacyPolicy(){
+
         return view('pages.privacy-policy', [
             'pageHeadings' => [
                 'Privacy policy',
@@ -114,6 +125,7 @@ class SiteController extends Controller
                 ],
             ],
         ]);
+
     }
 
 
@@ -122,6 +134,7 @@ class SiteController extends Controller
     // VIEW TERMS OF USE
 
     public function viewTermsOfUse(){
+
         return view('pages.terms-of-use', [
             'pageHeadings' => [
                 'Terms of use',
@@ -158,10 +171,12 @@ class SiteController extends Controller
                 ],
             ]
         ]);
+
     }
 
 
 
 
+// END OF CLASS
     
 }

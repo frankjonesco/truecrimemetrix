@@ -206,3 +206,63 @@ select{
     @apply text-action-800;
 
 }
+
+
+
+
+/* PAGINATION BUTTONS */
+
+
+.pagination-btn{
+
+    @apply px-3;
+    @apply py-1;
+
+    @apply flex;
+    @apply items-center;
+
+    @apply bg-white;
+    @apply border;
+    @apply border-slate-300;
+    
+    @apply text-base;
+    @apply text-gray-500;
+    @apply font-medium;
+    @apply no-underline;
+    
+    @apply cursor-pointer;
+
+    
+    .start{
+
+        @apply rounded-l-lg;
+
+    }
+
+
+    .end{
+
+        @apply rounded-r-lg;
+
+    }
+
+
+    .inactive{
+
+        @apply text-gray-400;
+        @apply cursor-default;
+
+    }
+
+
+    .current{
+
+        @apply bg-white;
+        @apply text-sky-600;
+
+        @apply cursor-default;
+
+    }
+
+    
+}

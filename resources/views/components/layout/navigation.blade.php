@@ -30,6 +30,16 @@
         </li>
 
         <li>
+            @auth
+                <a
+                    href="/admin"
+                    title="Admin - Manage content" 
+                    aria-label="Admin - Manage content"
+                >
+                    <i class="fa-solid fa-wrench"></i>
+                </a>
+            @endauth
+
             <a
                 id="toggleSearchBar"
                 href="#"
@@ -59,6 +69,18 @@
     </a>
 
     <ul>
+
+        <li>
+                
+            <a 
+                href="/categories"
+                title="True crime categories" 
+                aria-label="True crime categories"
+            >
+                Categories
+            </a>
+
+        </li>
         
         @auth
 
