@@ -1,4 +1,4 @@
-<x-layout.app :pageHeadings="$pageHeadings">
+<x-layout.app :pageHeadings="$pageHeadings" :viewAssets="$viewAssets">
     
     <x-cards.form class="form-md">
     

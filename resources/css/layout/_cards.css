@@ -217,8 +217,6 @@
 
 section.admin-content{
 
-    @apply py-6;
-
 
     .heading{
 
@@ -253,18 +251,27 @@ section.admin-content{
 
         @apply w-full;
 
+        @apply border;
+        @apply border-slate-300;
+
 
         thead{
+
+            
             @apply bg-slate-500;
             @apply text-white;
             @apply text-lg;
+
+            th{
+                @apply py-1;
+            }
         }
 
 
         tr{
 
-            @apply border-b;
-            @apply border-b-slate-100;
+            @apply border-t;
+            @apply border-t-slate-200;
 
 
             &.alternate-row{
@@ -275,9 +282,13 @@ section.admin-content{
 
 
             td{
-                @apply py-1;
+
+                @apply p-2.5;
+
+                @apply text-sm;
                 @apply text-center;
                 @apply font-light;
+                
             }
 
         }
@@ -285,6 +296,52 @@ section.admin-content{
 
     }
 
+
+}
+
+
+
+
+/*************************/
+/* TOAST */
+/*************************/
+
+
+.delete-content-card{
+
+    @apply p-4;
+    @apply w-full;
+    
+    @apply bg-white;
+    @apply border;
+    @apply border-gray-300;
+    @apply rounded;
+
+
+    div{
+
+        @apply flex;
+        @apply flex-col;
+        @apply gap-3;
+        @apply items-center;
+
+
+        img{
+
+            @apply w-full;
+
+        }
+
+        span{
+
+            @apply inline-block;
+
+            @apply text-2xl;
+            @apply font-semibold;
+        
+        }
+            
+    }
 
 }
 

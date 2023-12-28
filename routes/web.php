@@ -62,6 +62,12 @@ use App\Http\Controllers\CategoryController;
     Route::controller(CategoryController::class)->middleware('auth')->group(function(){
 
         Route::get('/admin/categories', 'adminIndex');
+        Route::get('/categories/create', 'create');
+        Route::post('/categories/store', 'store');
+        Route::get('/categories/{category}/edit', 'edit');
+        Route::put('/categories/{category}/update', 'update');
+        Route::get('/categories/{category}/confirm-delete', 'confirmDelete');
+        Route::delete('/categories/{category}/destroy', 'destroy');
     
 
     });

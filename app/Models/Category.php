@@ -2,12 +2,39 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
     use HasFactory;
+
+
+
+     // DATABASE COLUMNS FOR MASS ASSIGNMENT
+
+     protected $fillable = [
+        'hex',
+        'user_id',
+        'name',
+        'slug',
+        'description',
+        'color',
+        'status'
+    ];
+
+    
+
+    public function modelData(){
+        
+        $name = class_basename(__CLASS__);
+        $site = new Site();
+        return $site->formatModelData($name, 'md', false);
+
+    }
+
+
 
 
     // ROUTE KEY
@@ -23,36 +50,34 @@ class Category extends Model
 
 
     // RETRIEVE ROUTE KEY VALUE
+
     public function routeKeyValue(){
 
         $routeKeyValue = $this->getRouteKeyName();
+
         return $this->$routeKeyValue;
 
     }
 
 
-    // GET MODEL DATA
+
+    // MUTATORS
 
 
-    public function getModelData(){
+    public function getTitleAttribute($date){
 
-        $data = (object) array(
-            'name' => class_basename(__CLASS__),
-            'directory' => 'categories',
-            'label' => 'category',
-            'plural' => 'categories',
-        );
-        
-        return $data;
-
+        return $this->name;
+            
     }
+
+    
 
 
     // RESOURCE LINK URL
     
     public function link($extended_path = null){
 
-        $path = '/'.self::getModelData()->directory.'/'.$this->routeKeyValue();
+        $path = '/'.self::modelData()->directory.'/'.$this->routeKeyValue();
 
         if($extended_path)
             return $path.'/'.$extended_path;
@@ -66,7 +91,7 @@ class Category extends Model
 
     public function linkLabel(){
 
-        return 'View '.self::getModelData()->label.': '.$this->title;
+        return 'View '.self::modelData()->label.': '.$this->title;
         
     }
 

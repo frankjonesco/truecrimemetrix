@@ -1,37 +1,41 @@
 <nav class="admin-nav">
 
-    <a 
-        href="/admin"
-        class="btn"
-    >
-        <i class="fa-solid fa-list"></i>
-        Content
-    </a>
+    <x-blocks.container>
 
-    <span class="grow"></span>
+        <a 
+            href="/admin"
+            class="btn"
+        >
+            <i class="fa-solid fa-list"></i>
+            Content
+        </a>
 
-    <a 
-        href="/admin/databases" 
-        class="btn"
-    >
-        <i class="fa-solid fa-database"></i>
-        <span>Databases</span>
-    </a>
+        <span class="grow"></span>
 
-    <a
-        href="/admin/config/edit"
-        class="btn"
-    >
-        <i class="fa-solid fa-gear"></i>
-        Config
-    </a>
+        <a 
+            href="/admin/databases" 
+            class="btn"
+        >
+            <i class="fa-solid fa-database"></i>
+            <span>Databases</span>
+        </a>
 
-    <a 
-        href="/admin/environment/edit"
-        class="btn"
-    >   
-        <i class="fa-solid fa-server"></i>
-        Environment
-    </a>
+        <a
+            href="/admin/config/edit"
+            class="btn"
+        >
+            <i class="fa-solid fa-gear"></i>
+            Config
+        </a>
+
+        <a 
+            href="/admin/environment/edit"
+            class="btn"
+        >   
+            <i class="fa-solid fa-server"></i>
+            Environment
+        </a>
+    
+    </x-blocks.container>
 
 </nav>

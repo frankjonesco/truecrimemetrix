@@ -70,10 +70,25 @@
 
     <x-layout.navigation />
 
+    @if(isset($viewAssets->showAdminNav) && $viewAssets->showAdminNav === true)
+
+        <x-layout.navigation-admin />
+
+        <main class="mt-32">
+
+    @else
+
+        <main>
+            
+    @endif
+
     
-    <main>
+    
+        
 
         <x-blocks.container class="{{isset($containerClass) ? $containerClass : null}}">
+
+            
 
             @if(empty($breadcrumbs) === false)
                 <x-cards.breadcrumbs :breadcrumbs="$breadcrumbs" />

@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Artisan;
 class AdminController extends Controller
 {
 
-    protected $site;
+    protected $site, $model, $toast, $viewAssets;
 
-    public function __construct(Site $site){
+    public function __construct(){
 
-        $this->site = $site;
+        $this->site = new Site();
+        $this->viewAssets = (object) array(
+            'showAdminNav' => true
+        );
         
     }
 
@@ -30,7 +33,8 @@ class AdminController extends Controller
                 'Manage content',
                 'View, create, edit and delete your content.'
             ],
-            'categories' => $this->site->categories(true, 12)
+            'categories' => $this->site->categories(true, 12),
+            'viewAssets' => $this->viewAssets
         ]);
     }
 
@@ -45,6 +49,7 @@ class AdminController extends Controller
                 'Manage databases',
                 'Clone the '.config('app.name').' database to import.'
             ],
+            'viewAssets' => $this->viewAssets
         ]);
     }
 
@@ -111,7 +116,8 @@ class AdminController extends Controller
                 'Edit configuration',
                 'Global settings for '.config('app.name').'.'
             ],
-            'config' => $this->site->getConfig()
+            'config' => $this->site->getConfig(),
+            'viewAssets' => $this->viewAssets
         ]);
     }
 
@@ -189,7 +195,8 @@ class AdminController extends Controller
                 'Edit environment',
                 'Environment settings for '.config('app.name').'.'
             ],
-            'config' => $this->site->getConfig()
+            'config' => $this->site->getConfig(),
+            'viewAssets' => $this->viewAssets
         ]);
     }
 

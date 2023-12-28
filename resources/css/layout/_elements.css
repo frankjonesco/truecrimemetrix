@@ -37,6 +37,15 @@ select{
 }
 
 
+input::placeholder,
+textarea::placeholder,
+select:not(:valid){
+
+    @apply text-slate-300;
+
+}
+
+
 
 
 /*************************/

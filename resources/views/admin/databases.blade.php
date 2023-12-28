@@ -1,4 +1,4 @@
-<x-layout.app :pageHeadings="$pageHeadings">
+<x-layout.app :pageHeadings="$pageHeadings" :viewAssets="$viewAssets">
     <div class="flex justify-center gap-3">
         <form 
             action="/admin/databases/clone" 

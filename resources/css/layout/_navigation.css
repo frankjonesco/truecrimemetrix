@@ -72,8 +72,8 @@
         li:nth-child(3){
 
             @apply flex;
+            @apply justify-end;
             @apply gap-9;
-            @apply text-end;
 
         }
         
@@ -241,16 +241,31 @@
 
 nav.admin-nav{
 
-    @apply px-2;
-    @apply py-2;
+    @apply fixed;
+    @apply left-0;
+    @apply top-20;
+    
+    @apply w-screen;
+    @apply h-12;
+
     @apply bg-gray-100;
-    @apply border;
+    @apply border-b;
     @apply border-slate-300;
-    @apply rounded;
-    @apply shadow;
-    @apply flex;
-    @apply justify-center;
-    @apply gap-3;
+    
+
+
+    .container{
+
+        @apply h-full;
+
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply gap-3;
+
+    }
+
+    
     
 
 }

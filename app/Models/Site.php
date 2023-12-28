@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,31 @@ class Site extends Model
     protected $table = 'config';
 
 
+
+
+    // FORMAT MODEL DATA
+
+    public function formatModelData($name = null, $form_size = 'lg', $has_image = false){
+
+        if(empty($name))
+            return false;
+
+        $kebab = Str::kebab($name);
+        $kebab_plural = Str::plural($kebab);
+        $label = Str::replace('-', ' ', $kebab);
+        $plural = Str::plural($label);
+
+        return (object) array(
+            'name' => $name,
+            'directory' => $kebab_plural,
+            'form_size' => $form_size,
+            'label' => $label,
+            'plural' => $plural,
+            'has_image' => $has_image
+        );
+
+    }
+    
 
 
     // GET CONFIRATION
@@ -35,7 +61,8 @@ class Site extends Model
     private function getResources(
         object $model, 
         bool $paginate = false, 
-        int $limit = null, 
+        int $limit = null,
+        string $status = null,
         bool $random = false, 
         string $order = null, 
         string $sort = null
@@ -44,26 +71,29 @@ class Site extends Model
         $order = $order ?: 'created_at';
         $sort = $sort ?: 'desc';
 
+        $resources = $status ? $model::where('status', $status) : $model::whereNotNull('status');
+
         if($paginate){
 
             $limit = $limit ?: 12;
             $prepend = self::getController() == 'AdminController' ? 'admin/' : null;
 
-            return $model::orderBy($order, $sort)
+            return $resources
+                ->orderBy($order, $sort)
                 ->paginate($limit)
-                ->withPath($prepend.$model->getModelData()->directory);
+                ->withPath($prepend.$model->directory);
 
         }
 
         if($limit){
     
             if($random)
-                return $model::inRandomOrder()->take($limit)->get();
+                return $resources->inRandomOrder()->take($limit)->get();
             else
-                return $model::orderBy($order, 'desc')->take($limit)->get();
+                return $resources->orderBy($order, 'desc')->take($limit)->get();
         }
         
-        return $model::orderBy($order, $sort)->get();
+        return $resources->orderBy($order, $sort)->get();
 
     }
 
@@ -72,10 +102,10 @@ class Site extends Model
 
     // RESOURCE: CATEGORIES
 
-    public function categories(bool $paginate = false, int $limit = null, $random = false, $order = 'name', $sort = 'ASC'){
+    public function categories(bool $paginate = false, int $limit = null, $status = null, $random = false, $order = 'name', $sort = 'ASC'){
 
         $model = new Category();
-        return self::getResources($model, $paginate, $limit, $random, $order, $sort);
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
 
     }
 

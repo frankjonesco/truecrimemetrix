@@ -18,7 +18,7 @@
             
 
             <a
-                href="/admin/categories/create"
+                href="/categories/create"
                 class="btn"
             >
                 <i class="fa-solid fa-plus"></i>
@@ -39,6 +39,7 @@
             <tr>
                 <th>Hex</th>
                 <th>Name</th>
+                <th></th>
             </tr>
         </thead>
                 
@@ -48,6 +49,9 @@
                 <tr class="{{$loop->iteration % 2 == 0 ? 'alternate-row' : null}}">
                     <td>{{$category->hex}}</td>
                     <td>{{$category->name}}</td>
+                    <td>
+                        <x-elements.resource-crud-buttons :resource="$category" />
+                    </td>
                 </tr>
             @endforeach
 
