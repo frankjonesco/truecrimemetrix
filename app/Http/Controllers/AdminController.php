@@ -213,6 +213,12 @@ class AdminController extends Controller
 
         $config->save();
 
+        // Generate and save config file
+        $config_array = $config->toArray();
+        $filePath = config_path() . '/settings.php';
+        $content = '<?php return ' . var_export($config_array, true) . ';';
+        File::put($filePath, $content);
+
         return redirect('admin')->with('toast', 'Environment set to '.$request->environment.'!');
 
     }

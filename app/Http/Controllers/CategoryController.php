@@ -29,7 +29,7 @@ class CategoryController extends Controller
                 'True crime categories',
                 'Categories of true crime cases we have convered.'
             ],
-            'categories' => $this->site->categories(true, 4)
+            'categories' => $this->site->categories(true, 12)
         ]);
 
     }
