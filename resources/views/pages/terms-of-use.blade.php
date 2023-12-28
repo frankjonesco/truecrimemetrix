@@ -1,7 +1,7 @@
 <x-layout.app :pageHeadings="$pageHeadings">
 
     
-    <x-layout.side-navigation :navButtons="$navButtons" />
+    <x-layout.navigation-side-fixed :navButtons="$navButtons" />
 
 
     <div class="document-card">

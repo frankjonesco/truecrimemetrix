@@ -29,7 +29,8 @@ class AdminController extends Controller
             'pageHeadings' => [
                 'Manage content',
                 'View, create, edit and delete your content.'
-            ]
+            ],
+            'categories' => $this->site->categories(true, 12)
         ]);
     }
 

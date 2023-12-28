@@ -36,7 +36,7 @@
                     title="Admin - Manage content" 
                     aria-label="Admin - Manage content"
                 >
-                    <i class="fa-solid fa-wrench"></i>
+                    <i class="fa-solid fa-hammer"></i>
                 </a>
             @endauth
 

@@ -33,4 +33,27 @@ class CategoryController extends Controller
         ]);
 
     }
+
+
+
+
+    // ADMIN INDEX
+
+    public function adminIndex(){
+
+        return view('categories.admin-index', [
+            'pageHeadings' => [
+                'Manage categories',
+                'Manage the categories on '.config('app.title')
+            ],
+            'categories' => $this->site->categories(true, 12)
+        ]);
+
+    }
+
+
+
+
+// END OF CLASS
+
 }

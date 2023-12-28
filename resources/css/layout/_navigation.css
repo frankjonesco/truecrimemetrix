@@ -76,6 +76,7 @@
             @apply text-end;
 
         }
+        
 
     }
 
@@ -170,6 +171,7 @@
             
         }
         
+
     }
 
 
@@ -222,11 +224,37 @@
             @apply focus:border-0;
             
         }
+
         
     }
 
 
 }
+
+
+
+
+/*************************/
+/* ADMIN NAVIGATION */
+/*************************/
+
+
+nav.admin-nav{
+
+    @apply px-2;
+    @apply py-2;
+    @apply bg-gray-100;
+    @apply border;
+    @apply border-slate-300;
+    @apply rounded;
+    @apply shadow;
+    @apply flex;
+    @apply justify-center;
+    @apply gap-3;
+    
+
+}
+
 
 
 
@@ -264,7 +292,6 @@
         @apply mx-auto;
         @apply p-6;
 
-        
     
     }
 

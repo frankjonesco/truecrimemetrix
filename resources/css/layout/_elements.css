@@ -64,6 +64,12 @@ select{
 
     @apply hover:text-white;
 
+
+    i{
+        @apply mr-2;
+        @apply text-sm;
+    }
+
 }
 
 .btn-primary{

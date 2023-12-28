@@ -56,12 +56,13 @@ class Site extends Model
         }
 
         if($limit){
+    
             if($random)
                 return $model::inRandomOrder()->take($limit)->get();
             else
                 return $model::orderBy($order, 'desc')->take($limit)->get();
         }
-
+        
         return $model::orderBy($order, $sort)->get();
 
     }
@@ -71,7 +72,7 @@ class Site extends Model
 
     // RESOURCE: CATEGORIES
 
-    public function categories(bool $paginate = false, int $limit = 30, $random = false, $order = 'name', $sort = 'ASC'){
+    public function categories(bool $paginate = false, int $limit = null, $random = false, $order = 'name', $sort = 'ASC'){
 
         $model = new Category();
         return self::getResources($model, $paginate, $limit, $random, $order, $sort);

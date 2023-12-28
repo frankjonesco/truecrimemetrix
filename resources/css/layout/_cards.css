@@ -211,6 +211,87 @@
 
 
 /*************************/
+/* ADMIN CONTENT */
+/*************************/
+
+
+section.admin-content{
+
+    @apply py-6;
+
+
+    .heading{
+
+        @apply mb-6;
+
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+
+        @apply border-b;
+        @apply border-slate-300;
+
+
+        span{
+
+            @apply heading-1;
+            @apply text-4xl;
+
+        }
+
+
+        div{
+            @apply h-fit;
+            @apply flex;
+        }
+
+
+    }
+
+
+    table.content-table{
+
+        @apply w-full;
+
+
+        thead{
+            @apply bg-slate-500;
+            @apply text-white;
+            @apply text-lg;
+        }
+
+
+        tr{
+
+            @apply border-b;
+            @apply border-b-slate-100;
+
+
+            &.alternate-row{
+
+                @apply bg-yellow-50;
+
+            }
+
+
+            td{
+                @apply py-1;
+                @apply text-center;
+                @apply font-light;
+            }
+
+        }
+        
+
+    }
+
+
+}
+
+
+
+
+/*************************/
 /* TOAST */
 /*************************/
 

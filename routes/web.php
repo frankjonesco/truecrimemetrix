@@ -57,14 +57,25 @@ use App\Http\Controllers\CategoryController;
 // CATEGORY CONTROLLER 
 
 
-// ALL USERS
+    // AUTHENTICATED USERS
 
-Route::controller(CategoryController::class)->group(function(){
+    Route::controller(CategoryController::class)->middleware('auth')->group(function(){
 
-    Route::get('/categories', 'index');
-   
+        Route::get('/admin/categories', 'adminIndex');
+    
 
-});
+    });
+
+
+    // ALL USERS
+
+    Route::controller(CategoryController::class)->group(function(){
+
+        Route::get('/categories', 'index');
+    
+
+    });
+
 
 
 
