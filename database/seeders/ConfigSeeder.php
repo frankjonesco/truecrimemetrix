@@ -4,24 +4,19 @@ namespace Database\Seeders;
 
 use App\Models\Site;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ConfigSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-
-        // SEED FROM IMPORT DATABASE
-
         $model = new Site();
         
         $items = $model::on('mysql_import')->get();
 
         foreach($items as $item){
-            $model::create([
+
+            $model::on('mysql')->create([
                 'hex' => $item->hex,
                 'meta_title' => $item->meta_title,
                 'meta_description' => $item->meta_description,
@@ -47,7 +42,9 @@ class ConfigSeeder extends Seeder
                 'google_analytics_tag' => $item->google_analytics_tag,
                 'site_offline' => $item->site_offline
             ]);
+
         }
     
     }
+
 }

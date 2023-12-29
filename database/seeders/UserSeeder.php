@@ -4,24 +4,19 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-
-        // SEED FROM IMPORT DATABASE
-
         $model = new User();
         
         $items = $model::on('mysql_import')->get();
 
         foreach($items as $item){
-            $model::create([
+
+            $model::on('mysql')->create([
                 'id' => $item->id,
                 'hex' => $item->hex,
                 'first_name' => $item->first_name,
@@ -35,6 +30,7 @@ class UserSeeder extends Seeder
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             ]);
+
         }
 
     }
