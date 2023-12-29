@@ -138,28 +138,3 @@ a{
     @apply tracking-tighter;
     
 }
-
-
-
-
-/*************************/
-/* NAVIGATION */
-/*************************/
-
-
-#siteNav{
-
-    @apply font-black;
-    @apply font-roboto-slab;
-
-}
-
-
-
-
-
-
-
-
-
-
