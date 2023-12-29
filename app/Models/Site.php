@@ -110,6 +110,19 @@ class Site extends Model
 
     }
 
+
+    // RESOURCE: CRIMINAL CASES
+
+    public function criminalCases(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = null, string $sort = null){
+
+        $model = new CriminalCase();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
+
+
+
+
     // GET CONTROLLER NAME
 
     public function getController(){

@@ -21,9 +21,6 @@ class CategoryController extends Controller
     {
         $this->site = new Site();
         $this->model = $this->site->formatModelData('Category', 'md');
-        $this->directory = $this->model->directory;
-        $this->label = $this->model->label;
-        $this->plural = $this->model->plural;
         $this->pageHeadings = $this->site->getPageHeadings($this->model);
         $this->toast = "Good!";
         $this->viewAssets = (object) array(
@@ -35,14 +32,14 @@ class CategoryController extends Controller
 
 
 
-    // INDEX
+    // INDEX OF RESOURCES
 
 
     public function index() : View 
     {
-        $this->site->injectMetadata('Crime categories', true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
+        $this->site->injectMetadata('Crime '.$this->model->plural, true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
 
-        return view('categories.index', [
+        return view($this->model->directory.'.index', [
             'pageHeadings' => $this->pageHeadings,
             'categories' => $this->site->categories(true, 12, 'public')
         ]);
@@ -136,7 +133,7 @@ class CategoryController extends Controller
 
         $resource = Category::create($resource);
 
-        return redirect('admin/'.$this->directory)->with('toast', $this->toast);
+        return redirect('admin/'.$this->model->directory)->with('toast', $this->toast);
         
     }
 
@@ -192,7 +189,7 @@ class CategoryController extends Controller
             
         $resource->save();
 
-        return redirect('admin/'.$this->directory)->with('toast', $this->toast);
+        return redirect('admin/'.$this->model->directory)->with('toast', $this->toast);
             
     }
 
@@ -229,9 +226,9 @@ class CategoryController extends Controller
 
         $resource->delete();
 
-        File::deleteDirectory(public_path('images/'.$this->directory.'/'.$resource->routeKeyValue()));
+        File::deleteDirectory(public_path('images/'.$this->model->directory.'/'.$resource->routeKeyValue()));
 
-        return redirect('admin/'.$this->directory)->with('toast', $this->toast);
+        return redirect('admin/'.$this->model->directory)->with('toast', $this->toast);
 
     }
 

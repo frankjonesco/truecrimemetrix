@@ -102,6 +102,21 @@
 
         </li>
 
+
+        {{-- CRIMINAL CASES --}}
+
+        <li>
+                
+            <a 
+                href="/criminal-cases"
+                title="True crime criminal cases" 
+                aria-label="True crime criminal cases"
+            >
+                Criminal cases
+            </a>
+
+        </li>
+
         
         @auth
 
