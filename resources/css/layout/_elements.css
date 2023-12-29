@@ -225,7 +225,9 @@ select:not(:valid){
 
 
 
+/*************************/
 /* PAGINATION BUTTONS */
+/*************************/
 
 
 .pagination-btn{
@@ -281,3 +283,20 @@ select:not(:valid){
 
     
 }
+
+
+
+
+/*************************/
+/* CRUD BUTTONS */
+/*************************/
+
+
+.crud-buttons-row{
+
+    @apply flex;
+    @apply gap-3;
+    @apply justify-end;
+    
+}
+

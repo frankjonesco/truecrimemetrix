@@ -49,8 +49,10 @@
             options: [ 10, 12, 14, 'default', 18, 20, 22 ],
             supportAllValues: true
         },
+
         // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
         // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
+
         htmlSupport: {
             allow: [
                 {
@@ -61,12 +63,16 @@
                 }
             ]
         },
+
         // Be careful with enabling previews
         // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
+
         htmlEmbed: {
             showPreviews: true
         },
+
         // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
+
         link: {
             decorators: {
                 addTargetToExternalLinks: true,
@@ -80,7 +86,9 @@
                 }
             }
         },
+
         // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
+
         mention: {
             feeds: [
                 {
@@ -95,22 +103,28 @@
                 }
             ]
         },
+
         // The "super-build" contains more premium features that require additional configuration, disable them below.
         // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
+
         removePlugins: [
+
             // These two are commercial, but you can try them out without registering to a trial.
             // 'ExportPdf',
             // 'ExportWord',
+
             'AIAssistant',
             'CKBox',
             'CKFinder',
             'EasyImage',
+
             // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
             // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
             // Storing images as Base64 is usually a very bad idea.
             // Replace it on production website with other solutions:
             // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
             // 'Base64UploadAdapter',
+
             'RealTimeCollaborativeComments',
             'RealTimeCollaborativeTrackChanges',
             'RealTimeCollaborativeRevisionHistory',
@@ -121,21 +135,29 @@
             'RevisionHistory',
             'Pagination',
             'WProofreader',
+
             // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
             // from a local file system (file://) - load this site via HTTP server if you enable MathType.
+
             'MathType',
+
             // The following features are part of the Productivity Pack and require additional license.
+
             'SlashCommand',
             'Template',
             'DocumentOutline',
             'FormatPainter',
             'TableOfContents',
             'PasteFromOfficeEnhanced'
+
         ]
+
     });
+    
 </script>
 
 <script>
+
     function openEditPopupBox(e, name){
         e.preventDefault();
         const blackout = document.querySelector('#blackout');
@@ -152,4 +174,5 @@
         e = e || window.event;
         e.preventDefault();
     }
+    
 </script>

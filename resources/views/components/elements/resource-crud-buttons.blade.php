@@ -1,4 +1,4 @@
-<div class="flex gap-3 justify-end">
+<div class="crud-buttons-row">
 
     <a href="{{$resource->link('edit')}}">
         <i class="fa-solid fa-marker"></i>

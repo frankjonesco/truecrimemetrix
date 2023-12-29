@@ -7,7 +7,10 @@
             @csrf
             @method('PUT')
     
-    
+
+            
+            {{-- ROUTE KEY --}}
+
             <input type="hidden" name="hex" value="{{$config->hex}}">
     
     
@@ -43,7 +46,6 @@
     
     
             </div>
-
 
 
 
@@ -202,6 +204,7 @@
 
 
     </script>
+
 
 
 </x-layout.app>

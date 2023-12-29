@@ -9,6 +9,21 @@
 
     @meta_tags
 
+    {{-- <meta property="og:site_name" content="Colby Fayock" />
+    <meta property=“og:title” content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:type" content="article" />
+    <meta property="article:publisher" content="https://truecrimemetrix.com" />
+    <meta property="article:section" content="Coding" />
+    <meta property="article:tag" content="Coding" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="" />
+    <meta property="twitter:site" content="@truecrimemetrix" /> --}}
+
 
     {{-- GOOGLE FONTS --}}
 
@@ -18,6 +33,9 @@
 
 
     <!-- GOOGLE ADSENSE -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5443411235770747"
+     crossorigin="anonymous"></script>
 
     
 

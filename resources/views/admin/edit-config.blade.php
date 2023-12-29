@@ -1,18 +1,28 @@
 <x-layout.app :pageHeadings="$pageHeadings" :viewAssets="$viewAssets">
     
+    
     <x-cards.form class="form-lg">
+
 
         <form action="/admin/config/update" method="POST">
 
+
             @csrf
             @method('PUT')
+
+
+
+
+            {{-- ROUTE KEY --}}
 
 
             <input type="hidden" name="hex" value="{{$config->hex}}">
 
 
 
+
             {{-- META TITLE --}}
+
 
             <div class="field">
 
@@ -36,7 +46,9 @@
 
 
 
+
             {{-- META DESCRIPTION --}}
+
 
             <div class="field">
 
@@ -60,7 +72,9 @@
 
 
 
+
             {{-- META KEYWORDS --}}
+
 
             <div class="field">
 
@@ -84,7 +98,9 @@
 
 
 
+
             {{-- META AUTHOR --}}
+
 
             <div class="field">
 
@@ -109,7 +125,9 @@
 
 
 
+
             {{-- META IMAGE --}}
+
 
             <div class="field">
 
@@ -134,7 +152,9 @@
 
 
 
+
             {{-- CONTACT EMAIL --}}
+
 
             <div class="field">
 
@@ -159,7 +179,9 @@
 
 
 
+
             {{-- COPYRIGHT --}}
+
 
             <div class="field">
 
@@ -184,7 +206,9 @@
 
 
 
+
             {{-- POWERED BY --}}
+
 
             <div class="field">
 
@@ -209,7 +233,9 @@
 
 
 
+
             {{-- POWERED BY LINK --}}
+
 
             <div class="field">
 
@@ -234,7 +260,9 @@
 
 
 
+
             {{-- ALLOW REGISTRATION --}}
+
 
             <div class="field">
 
@@ -260,7 +288,9 @@
 
 
 
+
             {{-- ALLOW COMMENTS --}}
+
 
             <div class="field">
 
@@ -286,7 +316,9 @@
 
 
 
+
             {{-- FACEBOOK URL --}}
+
 
             <div class="field">
 
@@ -311,7 +343,9 @@
 
 
 
+
             {{-- TWITTER URL --}}
+
 
             <div class="field">
 
@@ -336,7 +370,9 @@
 
 
 
+
             {{-- YOUTUBE URL --}}
+
 
             <div class="field">
 
@@ -361,7 +397,9 @@
 
 
 
+
             {{-- INSTAGRAM URL --}}
+
 
             <div class="field">
 
@@ -386,7 +424,9 @@
 
 
 
+
             {{-- CONTENT IMAGE WIDTH --}}
+
 
             <div class="field">
 
@@ -411,7 +451,9 @@
 
 
 
+
             {{-- CONTENT IMAGE HEIGHT --}}
+
 
             <div class="field">
 
@@ -436,7 +478,9 @@
 
 
 
+
             {{-- PAGINATION ITEMS --}}
+
 
             <div class="field">
 
@@ -465,8 +509,10 @@
             </div>
 
 
+
             
             {{-- SITE OFFLINE --}}
+
 
             <div class="field">
 
@@ -492,20 +538,29 @@
 
 
 
+
             {{-- BUTTONS --}}
+
 
             <div class="buttons">
 
+                <button
+                    type="submit" 
+                    class="btn-success"
+                >Save</button>
 
-                <button type="submit" class="btn-success">Save</button>
-                <a href="/dashboard" class="btn-danger">Cancel</a>
-
+                <a 
+                    href="/admin"
+                    class="btn-danger"
+                >Cancel</a>
 
             </div>
 
 
         </form>
 
+
     </x-cards.form>
+
 
 </x-layout.app>

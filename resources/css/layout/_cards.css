@@ -130,6 +130,65 @@
 
 
 /*************************/
+/* CATEGORY LIST ITEM CARD */
+/*************************/
+
+
+.category-list-item{
+    
+    @apply py-4;
+    @apply pb-6;
+
+
+    @apply border-b;
+
+
+    >div{
+        
+        @apply w-full;
+        
+        @apply flex;
+        @apply justify-between;
+        @apply items-start;
+
+        @apply text-3xl;
+        @apply font-bold;
+
+        @apply tracking-tight;
+        @apply leading-7;
+
+
+        >span{
+        
+            >a{
+
+                @apply block;
+                @apply no-underline;
+                @apply animate-300;
+                @apply hover:translate-y-1;
+                @apply hover:text-red-400;
+
+            }
+
+
+            >div{
+
+                @apply font-thin;
+                @apply text-xl;
+                @apply mt-3;
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+/*************************/
 /* DOCUMENT CARD */
 /*************************/
 
@@ -201,6 +260,16 @@
             @apply font-medium;
 
         }
+
+    }
+
+
+    .updated-footer{
+        @apply px-3;
+        @apply font-light;
+        @apply flex;
+        @apply justify-between;
+        @apply text-sm;
 
     }
 
@@ -288,6 +357,16 @@ section.admin-content{
                 @apply text-sm;
                 @apply text-center;
                 @apply font-light;
+
+
+                &.title-thumbnail{
+
+                    @apply flex;
+                    @apply justify-start;
+                    @apply items-center;
+                    @apply gap-3;
+
+                }
                 
             }
 

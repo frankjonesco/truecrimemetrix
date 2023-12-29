@@ -20,6 +20,9 @@
 
     <ul class="menu">
 
+
+        {{-- ABOUT --}}
+
         <li>
             <a 
                 href="/about"
@@ -29,6 +32,9 @@
                 About
             </a>
         </li>
+
+
+        {{-- CONTACT US --}}
 
         <li>
             <a 
@@ -40,6 +46,9 @@
             </a>
         </li>
 
+
+        {{-- OPPORTUNITES --}}
+
         <li>
             <a 
                 href="/opportunities"
@@ -49,6 +58,9 @@
                 Opportunities
             </a>
         </li>
+
+
+        {{-- PRIVACY POLICY --}}
 
         <li>
             <a 
@@ -60,6 +72,9 @@
             </a>
         </li>
 
+
+        {{-- TERMS OF USE --}}
+
         <li>
             <a 
                 href="/terms-of-use"
@@ -69,6 +84,7 @@
                 Terms of use
             </a>
         </li>
+
 
     </ul>
 
@@ -81,6 +97,9 @@
             Stay connected
         </li>
 
+
+        {{-- FACEBOOK ICON --}}
+
         <li>
             <a 
                 href="#"
@@ -90,6 +109,9 @@
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
         </li>
+
+
+        {{-- TWITTER ICON --}}
 
         <li>
             <a
@@ -101,6 +123,9 @@
             </a>
         </li>
 
+
+        {{-- YOUTUBE ICON --}}
+
         <li>
             <a
                 href="#"
@@ -110,6 +135,9 @@
                 <i class="fa-brands fa-youtube"></i>
             </a>
         </li>
+
+
+        {{-- INSTAGRAM ICON --}}
 
         <li>
             <a
@@ -121,6 +149,7 @@
             </a>
         </li>
 
+
     </ul>
 
 
@@ -128,12 +157,18 @@
     {{-- LEGALS --}}
 
     <div class="legals">
+
+
         <span>
             {{config('app.name')}} Ltd.
         </span>
+
+        
         <span>
             All rights reserved. &copy; {{date('Y', time())}}
         </span>
+
+
         <span>
             Powered by 
             <a 
@@ -145,6 +180,8 @@
                 SoapboxCoder
             </a>
         </span>
+
+
     </div>
         
 

@@ -1,19 +1,28 @@
 <x-layout.app :pageHeadings="$pageHeadings" :viewAssets="$viewAssets">
 
+
+    {{-- FORM CARD --}}
+
     <x-cards.form class="form-{{$model->form_size}}">
+
 
         <form action="{{$resource->link('destroy')}}" method="POST">
             
+
             @csrf
             @method('DELETE')
 
 
-            <input 
+            {{-- RESOURCE --}}
+
+            <input
                 type="hidden" 
                 name="resource" 
                 value="{{$resource}}"
             >
 
+
+            {{-- FORM FIELD --}}
 
             <div class="field">
 
@@ -29,6 +38,8 @@
 
             </div>
 
+
+            {{-- BUTTONS --}}
 
             <div class="buttons">
 

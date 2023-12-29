@@ -14,6 +14,7 @@
     @php
         $field['ckeditor_field'] = ckEditorId('description');
     @endphp
+    
     @include('includes.ckeditor')
 
     <x-elements.validation-error element="description" />

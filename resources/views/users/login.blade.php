@@ -1,53 +1,69 @@
 <x-layout.app :pageHeadings="$pageHeadings">
 
-        <x-cards.form class="form-sm">
-            <form action="/authenticate" method="POST">
-                
-                @csrf
 
-                <div class="field">
+    <x-cards.form class="form-sm">
+        
 
-                    <label for="email">
-                        Email
-                    </label>
-
-                    <input 
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value="{{$errors->has('email') ? null : old('email')}}"
-                        {{$errors->has('email') ? 'autofocus' : null}}
-                    >
-
-                </div>
+        <form action="/authenticate" method="POST">
+            
+            
+            @csrf
+            @method('POST')
 
 
-                <div class="field">
+            {{-- EMAIL --}}
 
-                    <label for="password">
-                        Password
-                    </label>
+            <div class="field">
 
-                    <input 
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        {{$errors->has('password') ? 'autofocus' : null}}
-                    >
+                <label for="email">
+                    Email
+                </label>
 
-                </div>
+                <input 
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value="{{$errors->has('email') ? null : old('email')}}"
+                    {{$errors->has('email') ? 'autofocus' : null}}
+                >
+
+            </div>
 
 
-                <div class="buttons">
+            {{-- Password --}}
 
-                    <button type="submit" class="btn">
-                        Log in
-                    </button>
+            <div class="field">
 
-                </div>
+                <label for="password">
+                    Password
+                </label>
 
-            </form>
+                <input 
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    {{$errors->has('password') ? 'autofocus' : null}}
+                >
 
-        </x-cards.form>
+            </div>
+
+
+            {{-- BUTTONS --}}
+
+            <div class="buttons">
+
+                <button 
+                    type="submit" 
+                    class="btn"
+                >Log in</button>
+
+            </div>
+
+
+        </form>
+
+
+    </x-cards.form>
+
 
 </x-layout.app>

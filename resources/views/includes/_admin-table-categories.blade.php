@@ -1,5 +1,8 @@
 <section class="admin-content">
 
+
+    {{-- CONTENT HEADING --}}
+
     <div class="heading">
 
 
@@ -32,23 +35,34 @@
     </div>
 
 
+    {{-- CONTNT TABLE --}}
 
     <table class='content-table'>
 
+
+        {{-- TABLE HEAD --}}
+
         <thead>
+
             <tr>
                 <th>Hex</th>
                 <th class="text-left">Name</th>
                 <th></th>
             </tr>
+
         </thead>
+
+
+        {{-- TABLE BODY --}}
                 
         <tbody>
 
             @foreach($categories as $category)
+
                 <tr class="{{$loop->iteration % 2 == 0 ? 'alternate-row' : null}}">
+
                     <td>{{$category->hex}}</td>
-                    <td class="flex justify-start items-center gap-3">
+                    <td class="title-thumbnail">
                         <div class="w-4 h-3 bg-{{$category->color}}"></div>
                         <a 
                             href="{{$category->link()}}" 
@@ -61,14 +75,20 @@
                     <td>
                         <x-elements.resource-crud-buttons :resource="$category" />
                     </td>
+
                 </tr>
+
             @endforeach
 
         </tbody>
 
+
     </table>
 
 
-    {{ $categories->links(); }}
+    {{-- PAGINATION --}}
+
+    {{$categories->links()}}
+
 
 </section>

@@ -1,12 +1,12 @@
 {{-- SITE NAVIGATION --}}
 
-
 <nav id="siteNav" class="bg-white">
-
-
-    {{-- FIXED TOP BAR --}}
+    
 
     <ul>
+
+
+        {{-- MAIN MENU ICON --}}
 
         <li>
             <a 
@@ -19,6 +19,9 @@
             </a>
         </li>
 
+
+        {{-- APP NAME --}}
+
         <li>
             <a 
                 href="/" 
@@ -28,6 +31,9 @@
                 {{config('app.name')}}
             </a>
         </li>
+
+
+        {{-- SEARCH AND ADMIN ICONS --}}
 
         <li>
             @auth
@@ -50,7 +56,9 @@
             </a>
         </li>
 
+
     </ul>
+
 
 </nav>
 
@@ -59,16 +67,28 @@
 
 <nav id="mainMenu" class="-translate-x-full">
 
-    <a
-        id="closeMainMenuIcon"
-        href="#"
-        title="Close main menu" 
-        aria-label="Close main menu"
-    >
-        <i class="fa-solid fa-times"></i>
-    </a>
+
+    {{-- CLOSE MENU ICON --}}
+
+    <x-blocks.container class="close-icon">
+        <a
+            id="closeMainMenuIcon"
+            href="#"
+            title="Close main menu" 
+            aria-label="Close main menu"
+        >
+            <i class="fa-solid fa-times"></i>
+        </a>
+    </x-blocks.container>
+
+
+
+    {{-- MAIN MENU --}}
 
     <ul>
+
+
+        {{-- CATEGORIES --}}
 
         <li>
                 
@@ -81,8 +101,12 @@
             </a>
 
         </li>
+
         
         @auth
+
+
+            {{-- ADMIN --}}
 
             <li>
                     
@@ -95,6 +119,9 @@
                 </a>
 
             </li>
+
+
+            {{-- LOG OUT --}}
 
             <li>
                     
@@ -116,6 +143,9 @@
             
             
         @else
+
+            
+            {{-- LOG IN --}}
             
             <li>
                 
@@ -133,6 +163,7 @@
         
 
     </ul>
+
 
 </nav>
 

@@ -72,4 +72,5 @@
         >Pisces</option>
 
     </select>
+    
 </div>

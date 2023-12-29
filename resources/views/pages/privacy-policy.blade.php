@@ -76,6 +76,7 @@
 
             </div>
 
+
         </div>
 
 
@@ -88,11 +89,9 @@
         
             <h2>2. Hosting</h2>
 
-            
             <div class="sub-heading">
                 We are hosting the content of our website at the following provider:
             </div>
-
 
 
             <div class="sub-section">
@@ -359,6 +358,7 @@
 
             </div>
 
+            
         </div>
 
 
@@ -602,11 +602,9 @@
         </div>
 
 
-
         {{-- LAST UPDATED --}}
 
-
-        <div class="section font-light flex justify-between text-sm">
+        <div class="updated-footer">
 
             <span>Updated: December 25, 2023.</span>
             <span>True Crime Metrix Ltd. | &copy; 2023</span>

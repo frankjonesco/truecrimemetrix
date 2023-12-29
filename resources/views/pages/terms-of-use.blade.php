@@ -7,18 +7,18 @@
     <div class="document-card">
 
 
+        {{-- Overview --}}
+
         <div id="overview" class="section">
 
 
             <h2>These Terms govern:</h2>
-
 
             <ul class="bold">
                 <li>the use of this Application, and,</li>
                 <li>any other related Agreement or legal relationship with the Owner</li>
             </ul>
 
-        
             <p class="bold">in a legally binding way. Capitalized words are defined in the relevant dedicated section of this document.</p>
 
 
@@ -41,8 +41,11 @@
                 </p>
             </div>
 
+
         </div>
 
+        
+        {{-- INFORMATION --}}
 
         <div id="information" class="section">
 
@@ -60,6 +63,7 @@
         </div>
 
 
+        {{-- AT A GLANCE --}}
 
         <div id="atAGlance" class="section">
 
@@ -77,6 +81,7 @@
         </div>
 
 
+        {{-- TERMS OF USE --}}
 
         <div id="termsOfUse" class="section">
 
@@ -252,6 +257,7 @@
         </div>
 
 
+        {{-- LIABILITY --}}
 
         <div id="liability" class="section">
 
@@ -286,6 +292,7 @@
         </div>
 
 
+        {{-- US USERS --}}
 
         <div id="usUsers" class="section">
         
@@ -357,6 +364,7 @@
         </div>
 
 
+        {{-- COMMON PROVISIONS --}}
 
         <div id="commonProvisions" class="section">
 
@@ -548,8 +556,9 @@
         </div>
 
 
+        {{-- LAST UPDATED --}}
 
-        <div class="section font-light flex justify-between text-sm">
+        <div class="updated-footer">
 
             <span>Updated: December 22, 2023.</span>
             <span>True Crime Metrix Ltd. | &copy; 2023</span>

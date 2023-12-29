@@ -1,14 +1,15 @@
 <x-layout.app :pageHeadings="$pageHeadings">
 
+
     {{-- GRID --}}
 
-    <div class="grid grid-cols-2">
+    <div class="grid grid-cols-2 gap-10 px-6">
 
 
         @foreach($categories as $category)
 
 
-            {{-- CATEGORY LIST ITEM --}}
+            {{-- CATEGORY LIST ITEMS --}}
 
             <x-cards.category-list-item :category="$category" />
 
@@ -21,7 +22,7 @@
 
     {{-- PAGINATION --}}
 
-    {{ $categories->links() }}
+    {{$categories->links()}}
 
 
 </x-layout.app>

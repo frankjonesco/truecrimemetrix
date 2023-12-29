@@ -122,17 +122,28 @@
 
     /* CLOSE MENU ICON */
     
+    .container{
 
-    a#closeMainMenuIcon{
 
-        @apply fixed;
-        @apply right-0;
-        @apply top-0;
+        &.close-icon{
 
-        @apply mr-10;
-        @apply mt-6;
+            @apply absolute;
+            @apply right-0;
+            @apply h-20;
 
-        @apply hover-spin;
+            @apply flex;
+            @apply justify-end;
+            @apply items-center;
+            
+
+            a{
+
+                @apply hover-spin;
+
+            }
+
+        }
+
 
     }
 
@@ -193,9 +204,8 @@
 
     @apply w-screen;
 
-    @apply text-xl;
     @apply text-gray-600;
-    @apply font-roboto;
+    
 
     @apply animate-150;
 
@@ -215,8 +225,11 @@
             @apply shadow;
             @apply outline-0;
 
-            @apply text-xl;
+            @apply text-2xl;
             @apply text-center;
+            @apply font-poppins;
+            @apply font-medium;
+            
 
             @apply placeholder:text-gray-400;
             @apply placeholder:font-thin;
