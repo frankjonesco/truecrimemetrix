@@ -22,7 +22,7 @@ class Site extends Model
 
     // FORMAT MODEL DATA
 
-    public function formatModelData($name = null, $form_size = 'lg', $has_image = false){
+    public function formatModelData(string $name = null, string $form_size = 'lg', bool $has_image = false){
 
         if(empty($name))
             return false;
@@ -103,7 +103,7 @@ class Site extends Model
 
     // RESOURCE: CATEGORIES
 
-    public function categories(bool $paginate = false, int $limit = null, $status = null, $random = false, $order = 'name', $sort = 'ASC'){
+    public function categories(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = 'name', string $sort = 'ASC'){
 
         $model = new Category();
         return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);

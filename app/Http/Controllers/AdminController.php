@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Site;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
 
 class AdminController extends Controller
@@ -14,13 +16,15 @@ class AdminController extends Controller
 
     protected $site, $model, $toast, $viewAssets;
 
-    
-    public function __construct(){
+
+    public function __construct()
+    {
 
         $this->site = new Site();
         $this->viewAssets = (object) array(
             'showAdminNav' => true
         );
+
         
     }
 
@@ -30,7 +34,8 @@ class AdminController extends Controller
     // ADMIN INDEX
 
 
-    public function index(){
+    public function index() : View
+    {
 
         Meta::prependTitle('Manage content');
 
@@ -43,6 +48,7 @@ class AdminController extends Controller
             'viewAssets' => $this->viewAssets
         ]);
 
+
     }
 
 
@@ -51,7 +57,8 @@ class AdminController extends Controller
     // VIEW DATABASES
 
 
-    public function viewDatabases(){
+    public function viewDatabases() : View
+    {
 
         return view('admin.databases', [
             'pageHeadings' => [
@@ -61,6 +68,7 @@ class AdminController extends Controller
             'viewAssets' => $this->viewAssets
         ]);
 
+
     }
 
 
@@ -68,9 +76,9 @@ class AdminController extends Controller
 
     // CLONE DATABASE
 
-    public function cloneDatabase(){
+    public function cloneDatabase() : RedirectResponse
+    {        
 
-        
         // EMPTY IMPORT DATABASE
 
         Artisan::call('migrate:fresh --database="mysql_import"');
@@ -122,7 +130,8 @@ class AdminController extends Controller
     // VIEW EDIT CONFIG FORM
 
 
-    public function editConfig(){
+    public function editConfig() : View 
+    {
 
         return view('admin.edit-config', [
             'pageHeadings' => [
@@ -133,6 +142,7 @@ class AdminController extends Controller
             'viewAssets' => $this->viewAssets
         ]);
 
+
     }
 
 
@@ -141,7 +151,8 @@ class AdminController extends Controller
     // UPDATE CONFIG
 
 
-    public function updateConfig(Request $request){
+    public function updateConfig(Request $request) : RedirectResponse
+    {
 
         $request->validate([
             'meta_title' => 'required',
@@ -200,6 +211,7 @@ class AdminController extends Controller
 
         return redirect('admin')->with('toast', 'Configuration updated!');
 
+
     }
 
 
@@ -208,7 +220,8 @@ class AdminController extends Controller
     // VIEW EDIT ENVIRONMENT FORM
 
 
-    public function editEnvironment(){
+    public function editEnvironment() : View 
+    {
 
         return view('admin.edit-environment', [
             'pageHeadings' => [
@@ -219,6 +232,7 @@ class AdminController extends Controller
             'viewAssets' => $this->viewAssets
         ]);
 
+
     }
 
 
@@ -227,7 +241,8 @@ class AdminController extends Controller
     // UPDATE ENVIRONMENT
 
         
-    public function updateEnvironment(Request $request){
+    public function updateEnvironment(Request $request) : RedirectResponse
+    {
 
         $request->validate([
             'environment' => 'required',
@@ -253,6 +268,7 @@ class AdminController extends Controller
 
         return redirect('admin')->with('toast', 'Environment set to '.$request->environment.'!');
 
+        
     }
 
 

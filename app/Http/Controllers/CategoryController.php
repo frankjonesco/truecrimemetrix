@@ -6,8 +6,10 @@ use App\Models\Site;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+
 
 class CategoryController extends Controller
 {
@@ -15,8 +17,8 @@ class CategoryController extends Controller
     protected $site, $model, $directory, $label, $plural, $pageHeadings, $viewAssets, $toast;
 
 
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->site = new Site();
         $this->model = $this->site->formatModelData('Category', 'md');
         $this->directory = $this->model->directory;
@@ -36,8 +38,8 @@ class CategoryController extends Controller
     // INDEX
 
 
-    public function index(){
-
+    public function index() : View 
+    {
         $this->site->injectMetadata('Crime categories', true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
 
         return view('categories.index', [
@@ -50,11 +52,11 @@ class CategoryController extends Controller
 
 
 
-    // SHOW SING CATEGORY
+    // SHOW SINGLE CATEGORY
 
 
-    public function show(Category $category){
-
+    public function show(Category $category) : View
+    {
         $this->site->injectMetadata('Crime: '.$category->name, true, $category->description);
 
         return view('categories.show', [
@@ -72,7 +74,8 @@ class CategoryController extends Controller
     // ADMIN INDEX
 
 
-    public function adminIndex(){
+    public function adminIndex() : View
+    {
 
         $this->site->injectMetadata('Manage '.$this->model->plural, true, null, true);
 
@@ -91,8 +94,8 @@ class CategoryController extends Controller
     // VIEW CREATE FORM
     
 
-    public function create(){
-
+    public function create() : View
+    {
         $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
 
         return view('admin.resources.create', [
@@ -114,8 +117,8 @@ class CategoryController extends Controller
     // STORE IN DATABASE
 
 
-    public function store(Request $request){
-
+    public function store(Request $request) : RedirectResponse
+    {
         $request->merge([
             'hex' => Str::random(11),
             'user_id' => auth()->id(),
@@ -143,8 +146,8 @@ class CategoryController extends Controller
     // VIEW EDIT FORM
     
 
-    public function edit(Category $category){
-
+    public function edit(Category $category) : View
+    {
         $this->site->injectMetadata('Edit '.$this->model->label, true, null, true);
 
         return view('admin.resources.edit', [
@@ -166,8 +169,8 @@ class CategoryController extends Controller
 
     // UPDATE RESOURCE IN DATABASE
 
-    public function update(Category $category, Request $request){
-
+    public function update(Request $request, Category $category) : RedirectResponse
+    {
         $request->merge([
             'slug' => Str::slug($request->name),
         ]);
@@ -198,8 +201,8 @@ class CategoryController extends Controller
 
     // VIEW CONFIRM DELETE FORM
 
-    public function confirmDelete(Category $category){
-
+    public function confirmDelete(Category $category) : View
+    {
         $this->site->injectMetadata('Delete '.$this->model->label, true, null, true);
 
         return view('admin.resources.confirm-delete', [
@@ -216,8 +219,8 @@ class CategoryController extends Controller
 
     // DESTROY DATABASE RECORD AND DELETE IMAGE DIRECTORY
 
-    public function destroy(Category $category, Request $request){
-
+    public function destroy(Request $request, Category $category) : RedirectResponse
+    {
         $request->validate([
             'resource' => 'required'
         ]);
