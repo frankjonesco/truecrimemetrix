@@ -1,41 +1,49 @@
 <?php
 
-use Illuminate\Support\Str;
+
+/*******************************/
+/* ASSET BUILDS FOR PRODUCTION */
+/*******************************/
 
 
 
-if (! function_exists('plural_from_model')) {
-    function plural_from_model($model)
-    {
-        $plural = Str::plural(class_basename($model));
- 
-        return Str::kebab($plural);
-    }
-}
-
-
-
-
-// RETRIEVAL METHODS
-
+// CHECH IF ENVIRONMENT IS PRODUCTION
 
 if(!function_exists('environmentIsProduction')){
+
     function environmentIsProduction(){
             
         if(config('settings.environment') === 'production')
             return true;
+
         return false;
+
     }
+
 }
+
+
+// RETURN ARRAY OF CSS ASSETS
 
 if(!function_exists('explodeCssAssets')){
+
     function explodeCssAssets(){
+
         return explode(',', config('settings.css_assets'));
+
     }
+
 }
 
+
+// RETRURN ARRAY OF JS ASSETS
+
 if(!function_exists('explodeJsAssets')){
+
     function explodeJsAssets(){
+
         return explode(',', config('settings.js_assets'));
+
     }
+
 }
