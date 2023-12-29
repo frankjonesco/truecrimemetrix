@@ -5,6 +5,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CriminalCaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,29 @@ use App\Http\Controllers\CategoryController;
 
         Route::get('/categories', 'index');
         Route::get('/categories/{category}', 'show');
+
+    });
+
+
+
+
+// CRIMINAL CASE CONTROLLER
+
+
+    // AUTHENTICATED USERS
+    
+    Route::controller(CriminalCaseController::class)->middleware('auths')->group(function(){
+        
+        // Route::get('/criminal-cases', 'index');
+
+    });
+
+
+    // ALL USERS
+
+    Route::controller(CriminalCaseController::class)->group(function(){
+        
+        Route::get('/criminal-cases', 'index');
 
     });
 
