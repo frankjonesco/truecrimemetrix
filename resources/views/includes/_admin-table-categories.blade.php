@@ -38,7 +38,7 @@
         <thead>
             <tr>
                 <th>Hex</th>
-                <th>Name</th>
+                <th class="text-left">Name</th>
                 <th></th>
             </tr>
         </thead>
@@ -48,7 +48,16 @@
             @foreach($categories as $category)
                 <tr class="{{$loop->iteration % 2 == 0 ? 'alternate-row' : null}}">
                     <td>{{$category->hex}}</td>
-                    <td>{{$category->name}}</td>
+                    <td class="flex justify-start items-center gap-3">
+                        <div class="w-4 h-3 bg-{{$category->color}}"></div>
+                        <a 
+                            href="{{$category->link()}}" 
+                            title="{{$category->linkLabel()}}" 
+                            aria-label="{{$category->linkLabel()}}"
+                        >
+                            {{$category->name}}
+                        </a>
+                    </td>
                     <td>
                         <x-elements.resource-crud-buttons :resource="$category" />
                     </td>

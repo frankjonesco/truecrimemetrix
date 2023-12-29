@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\File;
 class CategoryController extends Controller
 {
 
-    
     protected $site, $model, $directory, $label, $plural, $viewAssets, $toast;
 
 
@@ -27,7 +26,6 @@ class CategoryController extends Controller
         $this->viewAssets = (object) array(
             'showAdminNav' => true
         );
-        
         
     }
 
@@ -52,10 +50,30 @@ class CategoryController extends Controller
 
 
 
+    // SHOW SING CATEGORY
+
+
+    public function show(Category $category){
+
+        return view('categories.show', [
+            'pageHeadings' => [
+                $category->name,
+                $category->description
+            ]
+        ]);
+
+    }
+
+
+
+
     // ADMIN INDEX
 
 
     public function adminIndex(){
+
+        Meta::setTitle('Admin: Categories - '.config('app.name'))
+            ->addMeta('robots', ['content' => 'noindex']);
 
         return view('admin.resources.index', [
             'pageHeadings' => [

@@ -263,7 +263,7 @@ section.admin-content{
             @apply text-lg;
 
             th{
-                @apply py-1;
+                @apply p-2;
             }
         }
 

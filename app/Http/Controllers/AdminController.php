@@ -13,6 +13,7 @@ class AdminController extends Controller
 
     protected $site, $model, $toast, $viewAssets;
 
+    
     public function __construct(){
 
         $this->site = new Site();
@@ -27,7 +28,9 @@ class AdminController extends Controller
 
     // ADMIN INDEX
 
+
     public function index(){
+
         return view('admin.index', [
             'pageHeadings' => [
                 'Manage content',
@@ -36,6 +39,7 @@ class AdminController extends Controller
             'categories' => $this->site->categories(true, 12),
             'viewAssets' => $this->viewAssets
         ]);
+
     }
 
 
@@ -43,7 +47,9 @@ class AdminController extends Controller
 
     // VIEW DATABASES
 
+
     public function viewDatabases(){
+
         return view('admin.databases', [
             'pageHeadings' => [
                 'Manage databases',
@@ -51,6 +57,7 @@ class AdminController extends Controller
             ],
             'viewAssets' => $this->viewAssets
         ]);
+
     }
 
 
@@ -72,6 +79,7 @@ class AdminController extends Controller
         $db = 'Tables_in_'.env('DB_DATABASE');
         $live_tables = DB::select('SHOW TABLES');
         $copy_tables = [];
+
         foreach($live_tables as $live_table){
             $copy_tables[] = $live_table->$db;
         }
@@ -110,7 +118,9 @@ class AdminController extends Controller
 
     // VIEW EDIT CONFIG FORM
 
+
     public function editConfig(){
+
         return view('admin.edit-config', [
             'pageHeadings' => [
                 'Edit configuration',
@@ -119,12 +129,14 @@ class AdminController extends Controller
             'config' => $this->site->getConfig(),
             'viewAssets' => $this->viewAssets
         ]);
+
     }
 
 
 
 
     // UPDATE CONFIG
+
 
     public function updateConfig(Request $request){
 
@@ -174,11 +186,14 @@ class AdminController extends Controller
 
         $config->save();
 
-        // Generate and save config file
+
+        // SAVE TO CONFIG FILE
+
         $config_array = $config->toArray();
         $filePath = config_path() . '/settings.php';
         $content = '<?php return ' . var_export($config_array, true) . ';';
         File::put($filePath, $content);
+
 
         return redirect('admin')->with('toast', 'Configuration updated!');
 
@@ -189,7 +204,9 @@ class AdminController extends Controller
 
     // VIEW EDIT ENVIRONMENT FORM
 
+
     public function editEnvironment(){
+
         return view('admin.edit-environment', [
             'pageHeadings' => [
                 'Edit environment',
@@ -198,12 +215,14 @@ class AdminController extends Controller
             'config' => $this->site->getConfig(),
             'viewAssets' => $this->viewAssets
         ]);
+
     }
 
 
 
 
     // UPDATE ENVIRONMENT
+
         
     public function updateEnvironment(Request $request){
 
@@ -221,7 +240,9 @@ class AdminController extends Controller
 
         $config->save();
 
-        // Generate and save config file
+        
+        // SAVE TO CONFIG FILE
+
         $config_array = $config->toArray();
         $filePath = config_path() . '/settings.php';
         $content = '<?php return ' . var_export($config_array, true) . ';';
@@ -230,4 +251,10 @@ class AdminController extends Controller
         return redirect('admin')->with('toast', 'Environment set to '.$request->environment.'!');
 
     }
+
+
+
+
+// END OF CLASS
+
 }

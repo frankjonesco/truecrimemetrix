@@ -15,6 +15,7 @@ use App\Http\Controllers\CategoryController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
+|
 --------------------------------------------------------------------------
 | Key Definitions
 |--------------------------------------------------------------------------
@@ -59,7 +60,7 @@ use App\Http\Controllers\CategoryController;
 
     // AUTHENTICATED USERS
 
-    Route::controller(CategoryController::class)->middleware('auth')->group(function(){
+    Route::controller(CategoryController::class)->middleware(['password.confirm'])->group(function(){
 
         Route::get('/admin/categories', 'adminIndex');
         Route::get('/categories/create', 'create');
@@ -78,7 +79,7 @@ use App\Http\Controllers\CategoryController;
     Route::controller(CategoryController::class)->group(function(){
 
         Route::get('/categories', 'index');
-    
+        Route::get('/categories/{category}', 'show');
 
     });
 
@@ -112,19 +113,19 @@ use App\Http\Controllers\CategoryController;
 // ADMIN CONTROLLER 
 
 
-// AUTHENTICATED USERS
+    // AUTHENTICATED USERS
 
-Route::controller(AdminController::class)->group(function(){
+    Route::controller(AdminController::class)->middleware('auth')->group(function(){
 
-    Route::get('/admin', 'index');
-    
-    Route::get('/admin/config/edit', 'editConfig');
-    Route::put('/admin/config/update', 'updateConfig');
+        Route::get('/admin', 'index');
+        
+        Route::get('/admin/config/edit', 'editConfig');
+        Route::put('/admin/config/update', 'updateConfig');
 
-    Route::get('/admin/databases', 'viewDatabases');
-    Route::post('/admin/databases/clone', 'cloneDatabase');
+        Route::get('/admin/databases', 'viewDatabases');
+        Route::post('/admin/databases/clone', 'cloneDatabase');
 
-    Route::get('/admin/environment/edit', 'editEnvironment');
-    Route::put('/admin/environment/update', 'updateEnvironment');
-    
-});
+        Route::get('/admin/environment/edit', 'editEnvironment');
+        Route::put('/admin/environment/update', 'updateEnvironment');
+        
+    });
