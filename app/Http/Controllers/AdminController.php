@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
@@ -30,6 +31,8 @@ class AdminController extends Controller
 
 
     public function index(){
+
+        Meta::prependTitle('Manage content');
 
         return view('admin.index', [
             'pageHeadings' => [

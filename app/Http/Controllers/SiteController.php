@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\File;
 
 class SiteController extends Controller
@@ -41,6 +42,8 @@ class SiteController extends Controller
 
     public function viewAbout(){
 
+        Meta::prependTitle('About us');
+
         return view('pages.about', [
             'pageHeadings' => [
                 'About',
@@ -56,6 +59,8 @@ class SiteController extends Controller
     // VIEW CONTACT US
 
     public function viewContactUs(){
+
+        Meta::prependTitle('Contact us');
 
         return view('pages.contact-us', [
             'pageHeadings' => [
@@ -73,6 +78,8 @@ class SiteController extends Controller
 
     public function viewOpportunities(){
 
+        Meta::prependTitle('Opportunities');
+
         return view('pages.opportunities', [
             'pageHeadings' => [
                 'Opportunities',
@@ -88,6 +95,8 @@ class SiteController extends Controller
     // VIEW PRIVACY POLICY
 
     public function viewPrivacyPolicy(){
+
+        Meta::prependTitle('Privacy policy');
 
         return view('pages.privacy-policy', [
             'pageHeadings' => [
@@ -134,6 +143,8 @@ class SiteController extends Controller
     // VIEW TERMS OF USE
 
     public function viewTermsOfUse(){
+
+        Meta::prependTitle('Terms of use');
 
         return view('pages.terms-of-use', [
             'pageHeadings' => [

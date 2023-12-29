@@ -60,7 +60,7 @@ use App\Http\Controllers\CategoryController;
 
     // AUTHENTICATED USERS
 
-    Route::controller(CategoryController::class)->middleware(['password.confirm'])->group(function(){
+    Route::controller(CategoryController::class)->middleware('auth')->group(function(){
 
         Route::get('/admin/categories', 'adminIndex');
         Route::get('/categories/create', 'create');

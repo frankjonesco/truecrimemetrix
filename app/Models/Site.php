@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -125,6 +126,96 @@ class Site extends Model
     public function getMethod(){
         list(, $method) = explode('@', Route::getCurrentRoute()->getActionName());
         return $method;
+    }
+
+
+
+    // GET PAGE HEADINGS
+
+    public function getPageHeadings($model){
+
+        $method = self::getMethod();
+        $label = $model->label;
+        $plural = $model->plural;
+
+        switch ($method){
+            
+            // INDEX
+            case 'index':
+                $pageHeadings = [
+                    'True crime '.$plural,
+                    'Browse our full index of '.$plural.'.'
+                ];
+            break;
+
+            // ADMIN INDEX
+            case 'adminIndex':
+                $pageHeadings = [
+                    'Manage '.$plural,
+                    'View, edit, manage your '.$plural.'.'
+                ];
+            break;
+
+            // CREATE
+            case 'create':
+                $pageHeadings = [
+                    'Create a new '.$label,
+                    'Add the information for this '.$label.'.'
+                ];
+            break;
+
+            // EDIT
+            case 'edit':
+                $pageHeadings = [
+                    'Edit this '.$label,
+                    'Update the information for this '.$label.'.'
+                ];
+            break;
+
+            // CONFIRM DELETE
+            case 'confirmDelete':
+                $pageHeadings = [
+                    'Delete this '.$label,
+                    'Are you sure you want to delete this '.$label.'?'
+                ];
+            break;
+            
+            // DEFAULT
+            default:
+                $pageHeadings = [];
+                
+        }
+
+        return $pageHeadings;
+
+    }
+
+
+
+
+    // INJECT METADATA
+
+    function injectMetadata(string $title = null, bool $prepend = false, string $description = null, bool $noindex = false){
+        
+        // TITLE
+
+        if($prepend)
+            Meta::prependTitle($title);
+        else
+            Meta::setTitle($title);
+
+
+        // DESCRIPTION
+
+        if($description)
+            Meta::setDescription($description);
+
+
+        // NO ROBOTS
+
+        if($noindex)
+            Meta::addMeta('robots', ['content' => 'noindex']);
+
     }
 
 }

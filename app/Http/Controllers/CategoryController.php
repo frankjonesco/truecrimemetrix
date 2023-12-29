@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 class CategoryController extends Controller
 {
 
-    protected $site, $model, $directory, $label, $plural, $viewAssets, $toast;
+    protected $site, $model, $directory, $label, $plural, $pageHeadings, $viewAssets, $toast;
 
 
     public function __construct(){
@@ -22,6 +22,7 @@ class CategoryController extends Controller
         $this->directory = $this->model->directory;
         $this->label = $this->model->label;
         $this->plural = $this->model->plural;
+        $this->pageHeadings = $this->site->getPageHeadings($this->model);
         $this->toast = "Good!";
         $this->viewAssets = (object) array(
             'showAdminNav' => true
@@ -37,11 +38,10 @@ class CategoryController extends Controller
 
     public function index(){
 
+        $this->site->injectMetadata('Crime categories', true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
+
         return view('categories.index', [
-            'pageHeadings' => [
-                'True crime categories',
-                'Categories of true crime cases we have convered.'
-            ],
+            'pageHeadings' => $this->pageHeadings,
             'categories' => $this->site->categories(true, 12, 'public')
         ]);
 
@@ -54,6 +54,8 @@ class CategoryController extends Controller
 
 
     public function show(Category $category){
+
+        $this->site->injectMetadata('Crime: '.$category->name, true, $category->description);
 
         return view('categories.show', [
             'pageHeadings' => [
@@ -72,14 +74,10 @@ class CategoryController extends Controller
 
     public function adminIndex(){
 
-        Meta::setTitle('Admin: Categories - '.config('app.name'))
-            ->addMeta('robots', ['content' => 'noindex']);
+        $this->site->injectMetadata('Manage '.$this->model->plural, true, null, true);
 
         return view('admin.resources.index', [
-            'pageHeadings' => [
-                'Manage categories',
-                'Manage the categories on '.config('app.name')
-            ],
+            'pageHeadings' => $this->pageHeadings,
             'model' => $this->model,
             'viewAssets' => $this->viewAssets,
             'categories' => $this->site->categories(true, 12)
@@ -95,14 +93,10 @@ class CategoryController extends Controller
 
     public function create(){
 
-        Meta::setTitle('Create category - '.config('app.name'))
-            ->addMeta('robots', ['content' => 'noindex']);
+        $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
 
         return view('admin.resources.create', [
-            'pageHeadings' => [
-                'Create a category',
-                'Add a new criminal category on '.config('app.name')
-            ],
+            'pageHeadings' => $this->pageHeadings,
             'form_fields' => [
                 'input-name',
                 'textarea-description',
@@ -151,14 +145,10 @@ class CategoryController extends Controller
 
     public function edit(Category $category){
 
-        Meta::setTitle('Edit category: '.$category->name.' - '.config('app.name'))
-            ->addMeta('robots', ['content' => 'noindex']);
+        $this->site->injectMetadata('Edit '.$this->model->label, true, null, true);
 
         return view('admin.resources.edit', [
-            'pageHeadings' => [
-                'Edit category',
-                'Update the information for this category.'
-            ],
+            'pageHeadings' => $this->pageHeadings,
             'form_fields' => [
                 'input-name',
                 'textarea-description',
@@ -210,14 +200,10 @@ class CategoryController extends Controller
 
     public function confirmDelete(Category $category){
 
-        Meta::setTitle('Delete category: '.$category->name.' - '.config('app.name'))
-            ->addMeta('robots', ['content' => 'noindex']);
+        $this->site->injectMetadata('Delete '.$this->model->label, true, null, true);
 
         return view('admin.resources.confirm-delete', [
-            'pageHeadings' => [
-                'Delete category',
-                'Are you sure you want to delete this '.$this->label
-            ],
+            'pageHeadings' => $this->pageHeadings,
             'model' => $this->model,
             'viewAssets' => $this->viewAssets,
             'resource' => $category

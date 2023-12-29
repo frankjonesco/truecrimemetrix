@@ -1,5 +1,9 @@
 <?php
 
+use Butschster\Head\Facades\Meta;
+
+
+
 
 /*******************************/
 /* ASSET BUILDS FOR PRODUCTION */
