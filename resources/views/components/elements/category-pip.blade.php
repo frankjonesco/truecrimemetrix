@@ -1,10 +1,10 @@
-@if($resource->category)
+@if($category)
 
         <a 
-            href="{{$resource->category->link()}}" 
-            {{$attributes->merge(['class' => 'category-pip bg-'.$resource->category->color])}}
+            href="{{$category->link()}}" 
+            {{$attributes->merge(['class' => 'category-pip bg-'.$category->color])}}
         >
-            {{$resource->category->name}}
+            {{$category->name}}
         </a>
 
 @endif

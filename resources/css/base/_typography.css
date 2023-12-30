@@ -111,11 +111,10 @@ p{
 
 a{
 
-    @apply underline;
+    @apply no-underline;
     @apply underline-offset-2;
 
     @apply hover-dip;
-    @apply hover-text-red;
     @apply hover:no-underline;
     @apply hover:translate-y-0.5;
 

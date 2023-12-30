@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ImageProcess;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rules\Exists;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CriminalCase extends Model
 {
@@ -28,13 +32,25 @@ class CriminalCase extends Model
         'status'
     ];
 
-    
 
-    public function modelData(){
+
+
+    // RETURN MODEL DATA   
+
+    public function modelData(string $key = ''){
         
         $name = class_basename(__CLASS__);
         $site = new Site();
-        return $site->formatModelData($name, 'md', false);
+
+        $modelData = $site->formatModelData($name, 'md', false);
+
+        if(empty($key))
+            return $modelData;
+
+        if(isset($modelData->$key))
+            return $modelData->$key;
+
+        return false;
 
     }
 
@@ -63,10 +79,44 @@ class CriminalCase extends Model
 
     }
 
+
+
+
+    // IMAGES
+
+
+    // FETCH IMAGE
+
+    public function imagePath(bool $fetch_main = false, string $size = '')
+    {
+        $image = new ImageProcess();
+
+        if($fetch_main)
+            return $image->mainImagePath($this, $size);
+        
+        return $image->imagePath($this, $size);
+
+    }
+
+
+    // IMAGE ALT TEXT
+
+    public function imageAltText(){
+        
+        return self::modelData('ndfame').': '.$this->title;
+
+    }
+
+
+
+
+    // LINKS
+
     
     // RESOURCE LINK URL
     
-    public function link($extended_path = null){
+    public function link(string $extended_path = '') : string
+    {
 
         $path = '/'.self::modelData()->directory.'/'.$this->routeKeyValue();
 
@@ -80,10 +130,39 @@ class CriminalCase extends Model
 
     // RESOURCE LINK ARIA LABEL
 
-    public function linkLabel(){
-
+    public function linkLabel() : string
+    {
         return 'View '.self::modelData()->label.': '.$this->title;
         
     }
+
+
+
+
+    // MODEL RELATIONSHIPS
+
+
+        // CATEGORY
+
+        public function category() : BelongsTo
+        {
+            return $this->belongsTo(Category::class);
+        }
+
+        
+        // MAIN IMAGE
+
+        public function main_image(): HasOne
+        {
+            return $this->hasOne(ImageProcess::class, 'id', 'main_image_id');
+        }
+
+
+        // USER
+
+        public function user(): BelongsTo
+        {
+            return $this->belongsTo(User::class);
+        }
 
 }

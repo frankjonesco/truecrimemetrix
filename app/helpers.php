@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Butschster\Head\Facades\Meta;
 
 
@@ -51,3 +52,48 @@ if(!function_exists('explodeJsAssets')){
     }
 
 }
+
+
+
+
+/*******************************/
+/* ASSET BUILDS FOR PRODUCTION */
+/*******************************/
+
+
+// SHOW DATE TIME
+
+if(!function_exists('showDateTime')){
+
+    function showDateTime(Carbon $date = null, bool $showTime = false, string $format = ''){
+
+        $date_format = 'F j, Y';
+        $time_format = 'H:i';
+            
+        if($format == 'short')
+            $date_format = 'M d, Y';
+            
+        if($showTime === true)
+            return $date->format($date_format).' at '.$date->format($time_format);
+                
+        return $date->format($date_format);
+       
+    }
+
+}
+
+
+
+
+// FORMAT VIEWS
+
+if(!function_exists('formatViews')){
+
+    function formatViews(int $views = 0){
+        // number_format(number,decimals,decimalpoint,separator)
+        return number_format($views , 0 , '.' , ',');
+    }
+    
+}
+
+

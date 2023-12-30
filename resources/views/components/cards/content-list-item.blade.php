@@ -9,12 +9,13 @@
 
         <a 
             href="{{$resource->link()}}" 
+            title="{{$resource->linkLabel()}}"
             aria-label="{{$resource->linkLabel()}}"
         >
 
             <img 
-                src="{{$resource->fetchImage(true, 'tn')}}"
-                alt="{{config('app.name').' - '.$resource->title}}"
+                src="{{$resource->imagePath(true, 'tn')}}"
+                alt="{{$resource->imageAltText()}}"
             >
 
         </a>
@@ -30,14 +31,19 @@
 
 
         {{-- CATEGORY PIP --}}
+
+        {{-- if resource hasPip
+            unless hidePip is TRUE  
+                showPip --}}
+
         @unless(isset($hidePip) && $hidePip === true)
             @if(isset($listSize) && $listSize === 'sm')
 
-                <x-elements.category-pip :resource="$resource->criminal_case" class="category-pip-sm" />
+                <x-elements.category-pip :category="$resource->category" class="category-pip-sm" />
 
             @else
 
-                <x-elements.category-pip :resource="$resource->criminal_case" />
+                <x-elements.category-pip :category="$resource->category" />
 
             @endif
         @endunless

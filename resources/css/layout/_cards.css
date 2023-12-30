@@ -192,90 +192,83 @@
 
 
 /*************************/
-/* DOCUMENT CARD */
+/* CONTENT LIST ITEM */
 /*************************/
 
 
-.document-card{
+.content-list-item{
 
-    @apply mx-auto;
-    @apply w-3/4;
-
-
-    .section{
-
-        @apply mb-10;
-        @apply px-6;
-        @apply py-10;
-
-        @apply bg-stone-50;
-        @apply border;
-        @apply border-slate-300;
-
-        @apply rounded;
+    @apply pl-5;
+    @apply py-1;
+    @apply flex;
+    @apply items-center;
+    @apply shadow;
 
 
-        .sub-heading{
+    >.image{
 
-            @apply mb-10;
-            
-            @apply text-center;
-            @apply text-base;
-            @apply font-semibold;
-
-        }
+        @apply w-2/5;
 
 
-        .sub-section{
+        >img{
 
-            @apply mb-10;
-
-        }
-
-
-        h2{
-
-            @apply font-bold;
-
-        }
-
-
-        ul{
-
-            @apply ml-8;
-            @apply mt-4;
-            @apply mb-6;
-
-            @apply list-disc;
-
-
-            li{
-
-                @apply py-0.5;
-
-            }
-
-
-        }
-
-        .bold{
-
-            @apply font-medium;
+            @apply w-full;
 
         }
 
     }
 
 
-    .updated-footer{
-        @apply px-3;
-        @apply font-light;
+    .text{
+
+        @apply px-8;
+        @apply py-8;
+
+        @apply w-3/5;
+
+        @apply -translate-y-1.5;
+
         @apply flex;
-        @apply justify-between;
-        @apply text-sm;
+        @apply flex-col;
+        @apply gap-4;        
+        @apply justify-center;
+        @apply items-center;
+        @apply text-center;
+
+
+        a.title{
+
+            @apply text-xl;
+            @apply font-bold;
+            @apply font-roboto-slab;
+
+        }
 
     }
 
+}
+
+
+
+
+.content-list-item-vertical{
+
+    @apply flex-col;
+    
+
+    >.image{
+        @apply w-full;
+    }
+
+
+    .text{
+
+        @apply px-2;
+        @apply py-8;
+    
+        @apply w-full;
+
+    }
 
 }
 
@@ -424,6 +417,97 @@ section.admin-content{
         }
             
     }
+
+}
+
+
+
+
+/*************************/
+/* DOCUMENT CARD */
+/*************************/
+
+
+.document-card{
+
+    @apply mx-auto;
+    @apply w-3/4;
+
+
+    .section{
+
+        @apply mb-10;
+        @apply px-6;
+        @apply py-10;
+
+        @apply bg-stone-50;
+        @apply border;
+        @apply border-slate-300;
+
+        @apply rounded;
+
+
+        .sub-heading{
+
+            @apply mb-10;
+            
+            @apply text-center;
+            @apply text-base;
+            @apply font-semibold;
+
+        }
+
+
+        .sub-section{
+
+            @apply mb-10;
+
+        }
+
+
+        h2{
+
+            @apply font-bold;
+
+        }
+
+
+        ul{
+
+            @apply ml-8;
+            @apply mt-4;
+            @apply mb-6;
+
+            @apply list-disc;
+
+
+            li{
+
+                @apply py-0.5;
+
+            }
+
+
+        }
+
+        .bold{
+
+            @apply font-medium;
+
+        }
+
+    }
+
+
+    .updated-footer{
+        @apply px-3;
+        @apply font-light;
+        @apply flex;
+        @apply justify-between;
+        @apply text-sm;
+
+    }
+
 
 }
 

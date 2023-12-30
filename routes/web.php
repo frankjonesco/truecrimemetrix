@@ -92,7 +92,7 @@ use App\Http\Controllers\CriminalCaseController;
 
     // AUTHENTICATED USERS
     
-    Route::controller(CriminalCaseController::class)->middleware('auths')->group(function(){
+    Route::controller(CriminalCaseController::class)->middleware('auth')->group(function(){
         
         // Route::get('/criminal-cases', 'index');
 

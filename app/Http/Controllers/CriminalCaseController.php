@@ -34,6 +34,7 @@ class CriminalCaseController extends Controller
     {
         $this->site->injectMetadata(ucfirst($this->model->plural), true, 'List of the true crime cases we have covered. Deep-dive information on the hottest cases in true crime. Statistics and news about upcoming court cases, criminal news stories and data gathering.');
 
+        
         return view($this->model->directory.'.index', [
             'pageHeadings' => $this->pageHeadings,
             'criminal_cases' => $this->site->criminalCases(true, 12, 'public')

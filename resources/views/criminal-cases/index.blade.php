@@ -3,11 +3,12 @@
 
     {{-- GRID --}}
 
-    <div class="grid-4-cols">
+    <div class="grid grid-cols-4">
         
 
         @foreach($criminal_cases as $criminal_case)
 
+        {{-- {{dd($criminal_case->category)}} --}}
 
             {{-- CONTENT LIST ITEM --}}
 
