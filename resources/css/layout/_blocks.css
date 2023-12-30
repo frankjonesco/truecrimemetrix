@@ -40,6 +40,17 @@ main{
 
 
 
+
+/* CONTENT GRID */
+
+.content-grid{
+    @apply grid;
+    @apply grid-cols-4;
+    @apply gap-3;
+}
+
+
+
 /* BLACKOUT */
 
 

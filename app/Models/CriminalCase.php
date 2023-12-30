@@ -89,12 +89,21 @@ class CriminalCase extends Model
 
     public function imagePath(bool $fetch_main = false, string $size = '')
     {
-        $image = new ImageProcess();
 
-        if($fetch_main)
-            return $image->mainImagePath($this, $size);
+        if($fetch_main){
+            $image = ImageProcess::where('id', $this->main_image_id)->first();
+        }else{
+            $image = ImageProcess::where('resource_model', self::modelData('name'))->where('resource_id', $this->id)->first();
+        }
         
-        return $image->imagePath($this, $size);
+        $size = empty($size) ? null : $size.'-';
+        $filename = $size.$image->filename;
+        $file_path = 'images/'.$this->modelData('directory').'/'.$this->hex.'/'.$filename;
+
+        if(file_exists(public_path($file_path)))
+            return asset($file_path);
+
+        return asset('images/'.$size.'default-image-true-crime-metrix.webp');
 
     }
 
@@ -103,7 +112,7 @@ class CriminalCase extends Model
 
     public function imageAltText(){
         
-        return self::modelData('ndfame').': '.$this->title;
+        return self::modelData('name').': '.$this->title;
 
     }
 

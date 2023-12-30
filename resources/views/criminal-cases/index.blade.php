@@ -3,7 +3,7 @@
 
     {{-- GRID --}}
 
-    <div class="grid grid-cols-4">
+    <div class="content-grid">
         
 
         @foreach($criminal_cases as $criminal_case)

@@ -288,6 +288,72 @@ select:not(:valid){
 
 
 /*************************/
+/* CATEGORY PIP */
+/*************************/
+
+
+a.category-pip{
+
+    @apply inline-block;
+    @apply px-2;
+    @apply py-1;
+
+    @apply rounded;
+    @apply shadow-sm;
+
+    @apply text-xs;
+    @apply text-white;
+    @apply font-bold;
+    @apply uppercase;
+    @apply no-underline;
+
+    @apply hover-dip;
+
+}
+
+a.category-pip-sm{
+
+    @apply inline-block;
+    @apply px-1;
+    @apply py-0;
+
+    @apply rounded;
+    @apply shadow-sm;
+
+    @apply text-[0.6rem];
+    @apply text-white;
+    @apply font-medium;
+    @apply uppercase;
+    @apply no-underline;
+
+    @apply hover-dip;
+
+}
+
+
+
+
+/*************************/
+/* RESOURCE PUBLISHING INFORMATION */
+/*************************/
+
+
+ul.resource-publishing-information{
+   
+    @apply flex;
+    @apply flex-row;
+    @apply gap-2;
+    @apply justify-center;
+    @apply items-center;
+    
+    @apply text-xs;
+    
+}
+
+
+
+
+/*************************/
 /* CRUD BUTTONS */
 /*************************/
 
