@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\View\View;
+use App\Models\CriminalCase;
 use Illuminate\Http\Request;
 
 class CriminalCaseController extends Controller
@@ -40,6 +41,22 @@ class CriminalCaseController extends Controller
             'criminal_cases' => $this->site->criminalCases(true, 12, 'public')
         ]);
 
+    }
+
+
+
+
+    // SHOW SINGLE RESOURCE
+
+    public function show(CriminalCase $criminal_case) : View
+    {
+        return view($this->model->directory.'.show', [
+            'pageHeadings' => [
+                $criminal_case->title,
+                $criminal_case->caption
+            ],
+            'criminal_case' => $criminal_case
+        ]);
     }
 
 
