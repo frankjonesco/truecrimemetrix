@@ -97,3 +97,12 @@ if(!function_exists('formatViews')){
 }
 
 
+
+
+if(!function_exists('ckEditorId')){
+    function ckEditorId($name = null){
+        return 'ckEditor'.ucfirst($name);
+    }
+}
+
+

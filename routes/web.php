@@ -94,7 +94,8 @@ use App\Http\Controllers\CriminalCaseController;
     
     Route::controller(CriminalCaseController::class)->middleware('auth')->group(function(){
         
-        // Route::get('/admin/criminal-cases', 'index');
+        Route::get('/admin/criminal-cases', 'adminIndex');
+        Route::get('/criminal-cases/create', 'create');
 
     });
 

@@ -72,7 +72,7 @@ class Site extends Model
         $order = $order ?: 'created_at';
         $sort = $sort ?: 'desc';
 
-        $resources = $status ? $model::where('status', $status) : $model::whereNotNull('status');
+        $resources = $status ? $model::where('status', $status) : $model::whereNotNull('id');
 
         if($paginate){
 
@@ -109,6 +109,40 @@ class Site extends Model
         return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
 
     }
+
+
+
+    // RESOURCE: STATES
+
+    public function states(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = 'name', string $sort = 'ASC'){
+
+        $model = new State();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
+
+
+
+    // RESOURCE: COUNTIES
+
+    public function counties(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = 'name', string $sort = 'ASC'){
+
+        $model = new County();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
+
+
+
+    // RESOURCE: CITIES
+
+    public function cities(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = 'name', string $sort = 'ASC'){
+
+        $model = new City();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
+
 
 
     // RESOURCE: CRIMINAL CASES
@@ -208,7 +242,7 @@ class Site extends Model
 
     // INJECT METADATA
 
-    function injectMetadata(string $title = null, bool $prepend = false, string $description = null, bool $noindex = false){
+    function injectMetadata(?string $title = null, bool $prepend = false, ?string $description = null, bool $noindex = false) : Void {
         
         // TITLE
 

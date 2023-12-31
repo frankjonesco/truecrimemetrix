@@ -264,6 +264,8 @@ nav.admin-nav{
     @apply bg-gray-100;
     @apply border-b;
     @apply border-slate-300;
+
+    @apply z-40;
     
 
 

@@ -9,12 +9,12 @@
             <img src="#" alt="Preview Uploaded Image" id="file-preview">
         </div>
 
-        <button id="uploadButton" type="button" onclick="document.getElementById('imageInput').click()" >
+        <button id="uploadButton" type="button" class="btn" onclick="document.getElementById('imageInput').click()" >
             <i class="fa-regular fa-image mr-2"></i> 
             <span id="browseText">Select image</span>
         </button>
 
-        <input aria-describedby="image_help" id="imageInput" name="image" type="file">
+        <input aria-describedby="image_help" id="imageInput" name="image" type="file" class="hidden">
                     
     </div>
 

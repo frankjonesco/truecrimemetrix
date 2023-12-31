@@ -19,6 +19,7 @@ class CategoryController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth')->except(['index', 'show']);
         $this->site = new Site();
         $this->model = $this->site->formatModelData('Category', 'md');
         $this->pageHeadings = $this->site->getPageHeadings($this->model);
@@ -26,7 +27,6 @@ class CategoryController extends Controller
         $this->viewAssets = (object) array(
             'showAdminNav' => true
         );
-        
     }
 
 
