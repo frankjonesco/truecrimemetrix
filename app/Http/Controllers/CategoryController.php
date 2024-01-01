@@ -100,6 +100,7 @@ class CategoryController extends Controller
             'form_fields' => [
                 'input-name',
                 'textarea-description',
+                'input-color',
                 'select-status'
             ],
             'model' => $this->model,
@@ -120,6 +121,7 @@ class CategoryController extends Controller
             'hex' => Str::random(11),
             'user_id' => auth()->id(),
             'slug' => Str::slug($request->name),
+            'color' => $request->color ? $request->color.'-700' : null
         ]);
 
         $resource = $request->validate([
@@ -128,8 +130,10 @@ class CategoryController extends Controller
             'name' => 'required|unique:categories,name',
             'slug' => 'required|unique:categories,slug',
             'description' => 'required',
+            'color' => '',
             'status' => 'required'
         ]);
+
 
         $resource = Category::create($resource);
 
@@ -152,6 +156,7 @@ class CategoryController extends Controller
             'form_fields' => [
                 'input-name',
                 'textarea-description',
+                'input-color',
                 'select-status'
             ],
             'model' => $this->model,
@@ -177,6 +182,7 @@ class CategoryController extends Controller
             'slug' => 'required|unique:categories,slug,'.$category->id,
             
             'description' => '',
+            'color' => '',
             'status' => 'required'
         ]);
 
@@ -185,6 +191,7 @@ class CategoryController extends Controller
         $resource->name = $request->name;
         $resource->slug = Str::slug($request->name);
         $resource->description = $request->description;
+        $resource->color = $request->color.'-700';
         $resource->status = $request->status;
             
         $resource->save();
