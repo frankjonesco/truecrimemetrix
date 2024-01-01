@@ -25,7 +25,7 @@
                 class="btn"
             >
                 <i class="fa-solid fa-plus"></i>
-                Create category
+                Create criminal case
             </a>
 
 

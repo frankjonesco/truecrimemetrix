@@ -19,7 +19,7 @@ class ImageController extends Controller
         $this->image = $image;
     }
     
-    public function cropImage($directory = null, $hex, ImageProcess $image, $set_as_main = null)
+    public function cropImage($directory = null, $slug, ImageProcess $image, $set_as_main = null)
     {      
         $model_name = Str::studly(Str::singular($directory));
         $model = $image->resourceModel($model_name);
@@ -32,7 +32,7 @@ class ImageController extends Controller
                 'Crop image',
                 'Select the area of the image you want to use.'
             ],
-            'resource' => $model->where('hex', $hex)->first(),
+            'resource' => $model->where('slug', $slug)->first(),
             'image' => $image,
             'set_as_main' => ($set_as_main === null ? false : true)
         ]);
@@ -43,7 +43,7 @@ class ImageController extends Controller
 
     // RENDER IMAGE 
 
-    public function renderImage($directory, $hex, ImageProcess $image, Request $request){
+    public function renderImage($directory, $slug, ImageProcess $image, Request $request){
 
         $request->validate([
             'x' => 'required',
@@ -55,7 +55,7 @@ class ImageController extends Controller
         $model_name = Str::studly(Str::singular($directory));
         $model = $image->resourceModel($model_name);
 
-        $resource = $model->where('hex', $hex)->first();
+        $resource = $model->where('slug', $slug)->first();
         
         if($request->set_as_main){
             $resource->main_image_id = $image->id;

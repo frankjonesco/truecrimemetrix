@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('hex', 11)->unique();
-            $table->foreignId('state_id');
+            $table->foreignId('state_id')->nullable();
             $table->string('name');
             $table->string('slug');
         });

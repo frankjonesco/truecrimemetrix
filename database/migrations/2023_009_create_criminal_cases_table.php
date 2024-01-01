@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('short_name')->nullable();
             $table->longText('caption')->nullable();
             $table->longText('description')->nullable();
-            $table->foreignId('state_id');
+            $table->foreignId('country_id')->nullable();
+            $table->foreignId('state_id')->nullable();
             $table->foreignId('city_id');
             $table->integer('views')->nullable();
             $table->bigInteger('main_image_id')->nullable();

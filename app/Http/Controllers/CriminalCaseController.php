@@ -101,13 +101,13 @@ class CriminalCaseController extends Controller
                 'select-category',
                 'textarea-description-ck-editor',
                 'input-image',
-                'select-state',
-                'input-city',
+                'input-country-state-city',
                 'select-status'
             ],
             'model' => $this->model,
             'viewAssets' => $this->viewAssets,
             'categories' => $this->site->categories(),
+            'countries' => $this->site->countries(),
             'states' => $this->site->states()
         ]);
 
@@ -137,12 +137,15 @@ class CriminalCaseController extends Controller
             'category_id' => '',
             'caption' => '',
             'description' => '',
-            'state_id' => 'required',
-            'city' => 'required',
+            'country_id' => '',
+            'city' => '',
             'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg|max:2048|dimensions:min_width=100,min_height=100',
             'views' => 'required|numeric',
             'status' => 'required',
         ]);
+
+
+       
 
 
         $resource = CriminalCase::create([
@@ -154,7 +157,8 @@ class CriminalCaseController extends Controller
             'category_id' => $request->category_id,
             'caption' => $request->caption,
             'description' => $request->description,
-            'state_id' => $request->state_id,
+            'country_id' => $request->country_id,
+            'state_id' => $request->state_id ?: null,
             'city_id' => City::createIfDoesNotExist($request),
             'views' => $request->views,
             'status' => $request->status

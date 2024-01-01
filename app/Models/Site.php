@@ -112,6 +112,16 @@ class Site extends Model
 
 
 
+    // RESOURCE: COUNTRIES
+
+    public function countries(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = 'name', string $sort = 'ASC'){
+
+        $model = new Country();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
+
+
     // RESOURCE: STATES
 
     public function states(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = 'name', string $sort = 'ASC'){

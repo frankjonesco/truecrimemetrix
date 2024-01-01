@@ -64,15 +64,15 @@ use App\Http\Controllers\CriminalCaseController;
 
     Route::controller(ImageController::class)->middleware('auth')->group(function(){
             
-        Route::get('/{model}/{hex}/images', 'adminImageIndex');
-        Route::put('/{model}/{hex}/images/upload', 'uploadImage');
-        Route::get('/{model}/{hex}/images/{image}/crop', 'cropImage');
-        Route::get('/{model}/{hex}/images/{image}/crop/{fetch_main}', 'cropImage');
-        Route::post('/{model}/{hex}/images/{image}/render', 'renderImage');
-        Route::put('/{model}/{hex}/images/{image}/set-as-main', 'setMainImage');
-        Route::put('/{model}/{hex}/images/{image}/update', 'updateDetails');
-        Route::get('/{model}/{hex}/images/{image}/delete', 'confirmDelete');
-        Route::delete('/{model}/{hex}/images/{image}/destory', 'destroy');
+        Route::get('/{model}/{slug}/images', 'adminImageIndex');
+        Route::put('/{model}/{slug}/images/upload', 'uploadImage');
+        Route::get('/{model}/{slug}/images/{image}/crop', 'cropImage');
+        Route::get('/{model}/{slug}/images/{image}/crop/{fetch_main}', 'cropImage');
+        Route::post('/{model}/{slug}/images/{image}/render', 'renderImage');
+        Route::put('/{model}/{slug}/images/{image}/set-as-main', 'setMainImage');
+        Route::put('/{model}/{slug}/images/{image}/update', 'updateDetails');
+        Route::get('/{model}/{slug}/images/{image}/delete', 'confirmDelete');
+        Route::delete('/{model}/{slug}/images/{image}/destory', 'destroy');
 
     });
 

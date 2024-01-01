@@ -12,7 +12,7 @@
 
             <x-cards.form>
                 <h3 class="font-bold pb-4">Image details</h3>
-                <form action="/{{$resource->modelData('directory')}}/{{$resource->hex}}/images/{{$image->hex}}/render" method="POST" class="flex flex-col">
+                <form action="/{{$resource->modelData('directory')}}/{{$resource->slug}}/images/{{$image->hex}}/render" method="POST" class="flex flex-col">
                     @csrf
 
                     <input type="hidden" name="set_as_main" value="{{$set_as_main}}">
