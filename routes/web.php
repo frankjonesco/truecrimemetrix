@@ -120,7 +120,8 @@ use App\Http\Controllers\CriminalCaseController;
         Route::get('/admin/criminal-cases', 'adminIndex');
         Route::get('/criminal-cases/create', 'create');
         Route::post('/criminal-cases/store', 'store');
-
+        Route::get('/criminal-cases/{criminal_case}/edit', 'edit');
+        Route::put('/criminal-cases/{criminal_case}/update', 'update');
         Route::get('/criminal-cases/{criminal_case}/confirm-delete', 'confirmDelete');
         Route::delete('/criminal-cases/{criminal_case}/destroy', 'destroy');
 

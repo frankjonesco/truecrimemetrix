@@ -4,7 +4,8 @@
     {{-- CK EDITOR JS --}}
 
     @include('includes._ckeditor-head-script')
-
+    
+     
     
     {{-- FORM CARD --}}
 

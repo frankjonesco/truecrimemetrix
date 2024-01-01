@@ -158,6 +158,30 @@ class CriminalCase extends Model
             return $this->belongsTo(Category::class);
         }
 
+
+        // COUNTRY
+
+        public function country(): BelongsTo
+        {
+            return $this->belongsTo(Country::class);
+        }
+
+
+        // STATE
+
+        public function state(): BelongsTo
+        {
+            return $this->belongsTo(State::class);
+        }
+
+
+        // CITY
+
+        public function city(): BelongsTo
+        {
+            return $this->belongsTo(City::class);
+        }
+
         
         // MAIN IMAGE
 
