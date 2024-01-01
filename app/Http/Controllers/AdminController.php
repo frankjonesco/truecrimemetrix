@@ -77,50 +77,36 @@ class AdminController extends Controller
 
     // CLONE DATABASE
 
-    public function cloneDatabase() : RedirectResponse
-    {        
+    public function cloneDatabase()
+    {   
 
-        // EMPTY IMPORT DATABASE
+
+
+        Artisan::call('db:wipe --database="mysql_import"');
 
         Artisan::call('migrate:fresh --database="mysql_import"');
-        
 
 
-        // BUILD ARRAY OF TABLE IN LIVE DATABASEs
+        $tables = DB::select('SHOW TABLES');
 
-        $db = 'Tables_in_'.env('DB_DATABASE');
-        $live_tables = DB::select('SHOW TABLES');
-        $copy_tables = [];
 
-        foreach($live_tables as $live_table){
-            $copy_tables[] = $live_table->$db;
+        foreach ($tables as $table) {
+
+            $table = $table->Tables_in_tcm_v1;
+
+            $copy_rows = DB::table($table)->select('*')->get();
+
+            $row_to_paste = json_decode(json_encode($copy_rows), true);   
+            DB::connection('mysql_import')->table($table)->insert($row_to_paste); 
+            
+            
         }
 
 
-
-        // FOR EACH TABLE, COPY THE TABLES TO THE IMPORT DATABASE
-
-        foreach($copy_tables as $i => $copy_table){
-
-            $row_to_copy = DB::connection('mysql')
-                ->table($copy_table)
-                ->distinct()
-                ->select('*')
-                ->get()
-                ->toArray();
-
-            $row_to_paste = json_decode( json_encode($row_to_copy), true );  
-
-            DB::connection('mysql_import')
-                ->table($copy_table)
-                ->insert($row_to_paste);       
-        }
-
-
-
-        // RETURN TO ADMIN WITH TOAST
 
         return redirect('admin')->with('toast', 'Database copied to import database!');
+
+       
         
 
     }

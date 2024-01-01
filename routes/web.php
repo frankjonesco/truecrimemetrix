@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CriminalCaseController;
 
@@ -56,6 +57,28 @@ use App\Http\Controllers\CriminalCaseController;
 
 
 
+// IMAGE CONTROLLER
+
+    
+    // AUTHENTICATED USERS
+
+    Route::controller(ImageController::class)->middleware('auth')->group(function(){
+            
+        Route::get('/{model}/{hex}/images', 'adminImageIndex');
+        Route::put('/{model}/{hex}/images/upload', 'uploadImage');
+        Route::get('/{model}/{hex}/images/{image}/crop', 'cropImage');
+        Route::get('/{model}/{hex}/images/{image}/crop/{fetch_main}', 'cropImage');
+        Route::post('/{model}/{hex}/images/{image}/render', 'renderImage');
+        Route::put('/{model}/{hex}/images/{image}/set-as-main', 'setMainImage');
+        Route::put('/{model}/{hex}/images/{image}/update', 'updateDetails');
+        Route::get('/{model}/{hex}/images/{image}/delete', 'confirmDelete');
+        Route::delete('/{model}/{hex}/images/{image}/destory', 'destroy');
+
+    });
+
+
+
+
 // CATEGORY CONTROLLER 
 
 
@@ -96,6 +119,10 @@ use App\Http\Controllers\CriminalCaseController;
         
         Route::get('/admin/criminal-cases', 'adminIndex');
         Route::get('/criminal-cases/create', 'create');
+        Route::post('/criminal-cases/store', 'store');
+
+        Route::get('/criminal-cases/{criminal_case}/confirm-delete', 'confirmDelete');
+        Route::delete('/criminal-cases/{criminal_case}/destroy', 'destroy');
 
     });
 

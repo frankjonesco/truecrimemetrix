@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Site;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use App\Models\CriminalCase;
+use App\Models\ImageProcess;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
 
 class CriminalCaseController extends Controller
 {
@@ -105,6 +110,113 @@ class CriminalCaseController extends Controller
             'categories' => $this->site->categories(),
             'states' => $this->site->states()
         ]);
+
+    }
+
+
+
+
+    // STORE IN DATATBASE
+
+    public function store(Request $request)
+    {   
+        $request->merge([
+            'hex' => Str::random(11),
+            'user_id' => auth()->id(),
+            'slug' => Str::slug($request->title),
+            'views' => 0,
+        ]);
+
+
+        $request->validate([
+            'hex' => 'required|unique:criminal_cases,hex',
+            'user_id' => 'required',
+            'title' => 'required',
+            'slug' => 'required|unique:criminal_cases,slug',
+            'short_name' => 'required',
+            'category_id' => '',
+            'caption' => '',
+            'description' => '',
+            'state_id' => 'required',
+            'city' => 'required',
+            'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg|max:2048|dimensions:min_width=100,min_height=100',
+            'views' => 'required|numeric',
+            'status' => 'required',
+        ]);
+
+
+        $resource = CriminalCase::create([
+            'hex' => $request->hex,
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'short_name' => $request->short_name,
+            'category_id' => $request->category_id,
+            'caption' => $request->caption,
+            'description' => $request->description,
+            'state_id' => $request->state_id,
+            'city_id' => City::createIfDoesNotExist($request),
+            'views' => $request->views,
+            'status' => $request->status
+        ]);
+
+
+        $url = $resource->link();
+
+        if($request->hasFile('image')){
+
+            $image = new ImageProcess();
+            $image = $image->upload($request, $resource, $image, true);
+
+            $url = $this->model->directory.'/'.$resource->slug.'/images/'.$image->hex.'/crop/main';
+
+        }
+
+        return redirect($url)->with('toast', $this->toast);
+
+    }
+
+
+
+
+    //
+
+
+
+
+    // VIEW CONFIRM DELETE FORM
+
+    public function confirmDelete(CriminalCase $criminal_case) : View
+    {
+        $this->site->injectMetadata('Delete '.$this->model->label, true, null, true);
+
+        return view('admin.resources.confirm-delete', [
+            'pageHeadings' => $this->pageHeadings,
+            'model' => $this->model,
+            'viewAssets' => $this->viewAssets,
+            'resource' => $criminal_case
+                
+        ]);
+    }
+
+
+
+
+    // DESTROY DATABASE RECORD AND DELETE IMAGE DIRECTORY
+
+    public function destroy(Request $request, CriminalCase $criminal_case) : RedirectResponse
+    {
+        $request->validate([
+            'resource' => 'required'
+        ]);
+
+        $resource = $criminal_case;
+
+        $resource->delete();
+
+        File::deleteDirectory(public_path('images/'.$this->model->directory.'/'.$resource->hex));
+
+        return redirect('admin/'.$this->model->directory)->with('toast', $this->toast);
 
     }
 

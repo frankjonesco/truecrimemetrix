@@ -27,7 +27,7 @@ class CategoryController extends Controller
         $this->viewAssets = (object) array(
             'showAdminNav' => true
         );
-    }
+    } 
 
 
 
