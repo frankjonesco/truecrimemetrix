@@ -80,35 +80,31 @@ class AdminController extends Controller
     public function cloneDatabase()
     {   
 
-
-
-        Artisan::call('db:wipe --database="mysql_import"');
-
         Artisan::call('migrate:fresh --database="mysql_import"');
 
+        $live_db_tables = DB::select('SHOW TABLES');
 
-        $tables = DB::select('SHOW TABLES');
+        $db = "Tables_in_".env('DB_DATABASE');
+        $tables = [];
 
-
-        foreach ($tables as $table) {
-
-            $table = $table->Tables_in_tcm_v1;
-
-            $copy_rows = DB::table($table)->select('*')->get();
-
-            $row_to_paste = json_decode(json_encode($copy_rows), true);   
-            DB::connection('mysql_import')->table($table)->insert($row_to_paste); 
-            
-            
+        foreach($live_db_tables as $table){
+            $tables[] = $table->{$db};
         }
 
+        foreach($tables as $i => $table){
+            
+            DB::connection('mysql_import')->table($table)->delete();
 
+            $rows = DB::connection('mysql')->table($table)->get()->toArray();
 
-        return redirect('admin')->with('toast', 'Database copied to import database!');
+            foreach($rows as $row){
+                DB::connection('mysql_import')->table($table)->insert(json_decode(json_encode($row), true));   
+            }
 
-       
-        
+        }
 
+        return redirect('admin')->with('toast', 'Data copied to import database.');
+                
     }
 
 

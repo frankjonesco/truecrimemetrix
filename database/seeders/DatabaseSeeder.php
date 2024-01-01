@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
             ConfigSeeder::class,
             UserTypeSeeder::class,
             UserSeeder::class,
-            CategorySeeder::class,
             StateSeeder::class,
             CountySeeder::class,
             CitySeeder::class,
+            CategorySeeder::class,
             CriminalCaseSeeder::class,
             ImageSeeder::class,
         ]);
